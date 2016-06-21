@@ -10,10 +10,14 @@ public class MusicInteractiveItem : MonoBehaviour {
     [SerializeField] private VRInteractiveItem m_InteractiveItem;
     [SerializeField] private Renderer m_Renderer;
 
-    private bool moving = false;
+    private GameObject musicState;
 
     private void Awake() {
         m_Renderer.material = m_NormalMaterial;
+    }
+
+    private void Start() {
+        musicState = GameObject.Find("MusicState");
     }
 
     private void OnEnable() {
@@ -34,12 +38,14 @@ public class MusicInteractiveItem : MonoBehaviour {
     private void HandleOver() {
         Debug.Log("Show over state");
         m_Renderer.material = m_OverMaterial;
+        musicState.GetComponent<MusicState>().SetCurrentMusicProperty(gameObject);
     }
 
     //Handle the Out event
     private void HandleOut() {
         Debug.Log("Show out state");
         m_Renderer.material = m_NormalMaterial;
+        musicState.GetComponent<MusicState>().SetCurrentMusicProperty(null);
     }
     
     //Handle the Click event
