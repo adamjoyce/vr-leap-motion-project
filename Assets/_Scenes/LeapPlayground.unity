@@ -226,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 213075955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011631839, y: -0.106002286, z: 0.12749662}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2593,6 +2593,7 @@ GameObject:
   - 65: {fileID: 1960753587}
   - 23: {fileID: 1960753586}
   - 114: {fileID: 1960753589}
+  - 114: {fileID: 1960753590}
   m_Layer: 0
   m_Name: Pitch
   m_TagString: Untagged
@@ -2669,6 +2670,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1960753590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1960753584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb3a9121af20034f8879e7c89a2a8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NormalMaterial: {fileID: 2100000, guid: f42978234b1b65446aeb6aab0dbb1b4b, type: 2}
+  m_OverMaterial: {fileID: 2100000, guid: 9c2822a39a6ce37419395b30cdb5a864, type: 2}
+  m_ClickedMaterial: {fileID: 0}
+  m_DoubleClickedMaterial: {fileID: 0}
+  m_InteractiveItem: {fileID: 1960753589}
+  m_Renderer: {fileID: 1960753586}
 --- !u!1 &2027884251
 GameObject:
   m_ObjectHideFlags: 0
