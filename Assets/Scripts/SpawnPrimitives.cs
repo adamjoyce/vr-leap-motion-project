@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Leap;
 using Leap.Unity;
+using VRStandardAssets.Utils;
 
 public class SpawnPrimitives : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class SpawnPrimitives : MonoBehaviour {
     public float wristDistance = 2.0f;
     public float spawnDelay = 1.0f;
     public bool delay = false;
+
+    public Material normalMaterial;
+    public Material overMaterial;
 
     // Use this for initialization
     void Start() {
@@ -37,6 +41,14 @@ public class SpawnPrimitives : MonoBehaviour {
         cube.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
         cube.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         //cube.AddComponent<Rigidbody>();
+
+        //cube.AddComponent<VRInteractiveItem>();
+        //cube.AddComponent<CubeInteractiveItem>().enabled = true;
+        //cube.GetComponent<CubeInteractiveItem>().SetNormalMaterial(normalMaterial);
+        //cube.GetComponent<CubeInteractiveItem>().SetOverMaterial(overMaterial);
+        //cube.GetComponent<CubeInteractiveItem>().SetInterativeItem(GetComponent<VRInteractiveItem>());
+        //cube.GetComponent<CubeInteractiveItem>().SetRenderer(GetComponent<Renderer>());
+
         delay = true;
         yield return new WaitForSeconds(spawnDelay);
         delay = false;
