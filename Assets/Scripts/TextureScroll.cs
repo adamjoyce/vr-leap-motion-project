@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TextureScroll : MonoBehaviour {
-    float scrollSpeed = 0.5f;
+    float scrollSpeed = 1.0f;
     float offset;
     float rotate;
 	// Use this for initialization
