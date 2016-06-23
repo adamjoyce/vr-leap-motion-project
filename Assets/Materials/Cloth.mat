@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Cloth
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
+  m_ShaderKeywords: _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -69,7 +69,7 @@ Material:
           name: _DetailAlbedoMap
         second:
           m_Texture: {fileID: 2800000, guid: 8a92a3df1b304ef4b9161f6c517177c0, type: 3}
-          m_Scale: {x: 0.5, y: 1}
+          m_Scale: {x: 0.2, y: 0.4}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -82,7 +82,7 @@ Material:
         first:
           name: _SpecGlossMap
         second:
-          m_Texture: {fileID: 2800000, guid: 1b17b05dec9da6e4ab8921ee9fd2bf3d, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -109,11 +109,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.825
+        second: 0.567
       data:
         first:
           name: _BumpScale
-        second: 1.03
+        second: 1.12
       data:
         first:
           name: _OcclusionStrength
@@ -121,7 +121,7 @@ Material:
       data:
         first:
           name: _DetailNormalMapScale
-        second: 1.11
+        second: 1.37
       data:
         first:
           name: _UVSec
@@ -142,8 +142,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.39705884, g: 0.040873695, b: 0.040873695, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+        second: {r: 0.45588237, g: 0.45588237, b: 0.45588237, a: 1}
