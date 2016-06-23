@@ -168,19 +168,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 33.94461
+      value: 36.215443
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 33.944653
+      value: 36.215485
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 33.944645
+      value: 36.215477
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 507.44986
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,7 +192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 270
+      value: 270.0198
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_Controller
@@ -213,6 +213,14 @@ Prefab:
     - target: {fileID: 400000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f3c03fee147c744b9f038a3cb2c92b4, type: 3}
@@ -1851,8 +1859,8 @@ Cloth:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1781558904}
   m_Enabled: 1
-  m_StretchingStiffness: 0.2
-  m_BendingStiffness: 0.07
+  m_StretchingStiffness: 1
+  m_BendingStiffness: 1
   m_UseTethers: 1
   m_UseGravity: 1
   m_Damping: 0
