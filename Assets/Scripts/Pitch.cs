@@ -6,8 +6,6 @@ using Leap.Unity;
 public class Pitch : MonoBehaviour {
 
     public LeapProvider provider;
-
-    public Controller controller;
     public GameObject audio;
 
     public List<Hand> hands;
@@ -15,16 +13,15 @@ public class Pitch : MonoBehaviour {
 
     public Vector previousRightHandPosition;
 
+    public float pinchDistance = 15.0f;
+
     private float pitchIncrement = 1.0f;
-    private GameObject musicState;
 
     // Use this for initialization
     void Start() {
         provider = FindObjectOfType<LeapProvider>() as LeapProvider;
-        controller = GetComponent<LeapServiceProvider>().GetLeapController();
         hands = new List<Hand>();
         audio = GameObject.Find("AudioSource");
-        musicState = GameObject.Find("MusicState");
     }
 
     // Update is called once per frame
@@ -40,17 +37,17 @@ public class Pitch : MonoBehaviour {
                 }
             }
 
-            if (left.PinchDistance < 10.0f) {
+            GameObject pinchLight = GameObject.Find("PinchLight");
+            if (left.PinchDistance < pinchDistance) {
                 AdjustPitch();
 
                 Vector3 pinchLightPos = left.Fingers[0].TipPosition.ToVector3();
-                GameObject pinchLight = GameObject.Find("PinchLight");
                 pinchLight.transform.position = pinchLightPos;
                 pinchLight.GetComponent<MeshRenderer>().enabled = true;
             } else {
-                GameObject.Find("PinchLight").GetComponent<MeshRenderer>().enabled = false;
+                pinchLight.GetComponent<MeshRenderer>().enabled = false;
             }
-            Debug.Log(hands[0].PinchDistance);
+            Debug.Log(left.PinchDistance);
 
             previousRightHandPosition = right.PalmPosition;
         }
