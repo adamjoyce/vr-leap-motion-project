@@ -12,11 +12,13 @@ public class SpawnPrimitives : MonoBehaviour {
 
     public float wristDistance = 2.0f;
     public float spawnDelay = 1.0f;
+    public float kinematicDelay = 0.5f;
     public bool delay = false;
 
     public Material normalMaterial;
     public Material overMaterial;
 
+    public GameObject bubbleSphere;
     public GameObject cloth;
 
     // Use this for initialization
@@ -40,11 +42,16 @@ public class SpawnPrimitives : MonoBehaviour {
 
     //
     private IEnumerator SpawnSphere() {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
-        sphere.transform.localScale = new Vector3(10f, 10f, 10f);
+        Vector3 firstPalmPos = hands[0].PalmPosition.ToVector3();
+        Vector3 secondPalmPos = hands[1].PalmPosition.ToVector3();
+        Vector3 forwardDirection = GameObject.Find("CenterEyeAnchor").transform.forward;
+        Vector3 spawnPos = /*GameObject.Find("CenterEyeAnchor").transform.position*/(firstPalmPos + secondPalmPos) * 0.5f; //+ forwardDirection * 1f;
+
+        GameObject sphere = Instantiate(bubbleSphere, spawnPos, Quaternion.identity) as GameObject;
+
         sphere.AddComponent<Rigidbody>();
         sphere.GetComponent<Rigidbody>().useGravity = false;
+        sphere.GetComponent<Rigidbody>().isKinematic = true;
         sphere.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         Physics.IgnoreCollision(sphere.GetComponent<Collider>(), GameObject.Find("CollisionSphere").GetComponent<Collider>());
@@ -60,6 +67,8 @@ public class SpawnPrimitives : MonoBehaviour {
         newColliders[colliderNumber] = sphereCollider;
         cloth.GetComponent<Cloth>().sphereColliders = newColliders;
 
+        StartCoroutine(activeObject(sphere));
+
 
         //cube.AddComponent<VRInteractiveItem>();
         //cube.AddComponent<CubeInteractiveItem>().enabled = true;
@@ -74,7 +83,8 @@ public class SpawnPrimitives : MonoBehaviour {
     }
 
     //
-    private void addClothCollider() {
-
+    private IEnumerator activeObject(GameObject sphere) {
+        yield return new WaitForSeconds(kinematicDelay);
+        sphere.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
