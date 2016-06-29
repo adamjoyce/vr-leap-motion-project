@@ -13,7 +13,7 @@ public class Pitch : MonoBehaviour {
 
     public Vector previousRightHandPosition;
 
-    public float pinchDistance = 10.0f;
+    public float pinchDistance = 25.0f;
 
     public float pitchIncrement = 0.001f;
     public float pitchChange = 0.02f;
@@ -39,18 +39,11 @@ public class Pitch : MonoBehaviour {
                 }
             }
 
-            GameObject pinchLight = GameObject.Find("PinchSphere");
-            if (left.PinchDistance < pinchDistance) {
+            if (displayPinches()) {
                 AdjustPitch();
-                Vector3 pinchLightPos = left.Fingers[0].TipPosition.ToVector3();
-                pinchLight.transform.position = pinchLightPos;
-                pinchLight.GetComponent<MeshRenderer>().enabled = true;
-            } else {
-                pinchLight.GetComponent<MeshRenderer>().enabled = false;
             }
-            //Debug.Log(left.PinchDistance);
 
-        previousRightHandPosition = right.PalmPosition;
+            previousRightHandPosition = right.PalmPosition;
         }
     }
 
@@ -64,5 +57,35 @@ public class Pitch : MonoBehaviour {
         } else if (previousRightHandPosition.z > right.PalmPosition.z + pitchIncrement) {
             audio.GetComponent<AudioSource>().pitch += pitchChange;
         }
+    }
+
+    // Displays the pinch spheres and returns true if both hands are pinched.
+    private bool displayPinches() {
+        bool leftPinched = false;
+        bool rightPinched = false;
+
+        // Left.
+        GameObject leftPinchSphere = GameObject.Find("LeftPinchSphere");
+        if (left.PinchDistance < pinchDistance) {
+            Vector3 leftPinchSpherePos = left.Fingers[0].TipPosition.ToVector3();
+            leftPinchSphere.transform.position = leftPinchSpherePos;
+            leftPinchSphere.GetComponent<MeshRenderer>().enabled = true;
+            leftPinched = true;
+        } else {
+            leftPinchSphere.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        // Right.
+        GameObject rightPinchSphere = GameObject.Find("RightPinchSphere");
+        if (right.PinchDistance < pinchDistance) {
+            Vector3 rightPinchSpherePos = right.Fingers[0].TipPosition.ToVector3();
+            rightPinchSphere.transform.position = rightPinchSpherePos;
+            rightPinchSphere.GetComponent<MeshRenderer>().enabled = true;
+            rightPinched = true;
+        } else {
+            rightPinchSphere.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        return leftPinched && rightPinched;
     }
 }
