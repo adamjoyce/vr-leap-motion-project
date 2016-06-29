@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Leap;
 using Leap.Unity;
 
-public class Pitch : MonoBehaviour {
+public class MusicControls : MonoBehaviour {
 
     public LeapProvider provider;
     public GameObject audio;
