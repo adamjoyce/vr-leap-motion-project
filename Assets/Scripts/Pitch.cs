@@ -41,9 +41,9 @@ public class Pitch : MonoBehaviour {
         if (previousLeftHandPosition == null) {
             // Do nothing.
         } else if (previousLeftHandPosition.z < hands[0].PalmPosition.z - pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch -= 0.005f;
+            audio.GetComponent<AudioSource>().pitch -= 0.02f;
         } else if (previousLeftHandPosition.z > hands[0].PalmPosition.z + pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch += 0.005f;
+            audio.GetComponent<AudioSource>().pitch += 0.02f;
         }
     }
 }
