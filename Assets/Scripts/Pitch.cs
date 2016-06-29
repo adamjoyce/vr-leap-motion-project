@@ -5,17 +5,22 @@ using Leap.Unity;
 
 public class Pitch : MonoBehaviour {
 
+    public LeapProvider provider;
+
     public Controller controller;
-    public List<Hand> hands;
     public GameObject audio;
 
-    public Vector previousLeftHandPosition;
+    public List<Hand> hands;
+    public Hand left, right;
+
+    public Vector previousRightHandPosition;
 
     private float pitchIncrement = 1.0f;
     private GameObject musicState;
 
     // Use this for initialization
     void Start() {
+        provider = FindObjectOfType<LeapProvider>() as LeapProvider;
         controller = GetComponent<LeapServiceProvider>().GetLeapController();
         hands = new List<Hand>();
         audio = GameObject.Find("AudioSource");
@@ -25,24 +30,39 @@ public class Pitch : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // Update the hand information for this frame.
-        Frame frame = controller.Frame();
-        if (frame.Hands.Count > 0) {
-            hands = frame.Hands;
-
-            if (musicState.GetComponent<MusicState>().currentMusicProptery != null && musicState.GetComponent<MusicState>().currentMusicProptery.name == "Pitch") {
-                AdjustPitch();
+        hands = provider.CurrentFrame.Hands;
+        if (hands.Count > 1) {
+            for (int i = 0; i < hands.Count; i++) {
+                if (hands[i].IsLeft) {
+                    left = hands[i];
+                } else {
+                    right = hands[i];
+                }
             }
-            previousLeftHandPosition = hands[0].PalmPosition;
+
+            if (left.PinchDistance < 10.0f) {
+                AdjustPitch();
+
+                Vector3 pinchLightPos = left.Fingers[0].TipPosition.ToVector3();
+                GameObject pinchLight = GameObject.Find("PinchLight");
+                pinchLight.transform.position = pinchLightPos;
+                pinchLight.GetComponent<MeshRenderer>().enabled = true;
+            } else {
+                GameObject.Find("PinchLight").GetComponent<MeshRenderer>().enabled = false;
+            }
+            Debug.Log(hands[0].PinchDistance);
+
+            previousRightHandPosition = right.PalmPosition;
         }
     }
 
     //
     private void AdjustPitch() {
-        if (previousLeftHandPosition == null) {
+        if (previousRightHandPosition == null) {
             // Do nothing.
-        } else if (previousLeftHandPosition.z < hands[0].PalmPosition.z - pitchIncrement) {
+        } else if (previousRightHandPosition.z < right.PalmPosition.z - pitchIncrement) {
             audio.GetComponent<AudioSource>().pitch -= 0.02f;
-        } else if (previousLeftHandPosition.z > hands[0].PalmPosition.z + pitchIncrement) {
+        } else if (previousRightHandPosition.z > right.PalmPosition.z + pitchIncrement) {
             audio.GetComponent<AudioSource>().pitch += 0.02f;
         }
     }

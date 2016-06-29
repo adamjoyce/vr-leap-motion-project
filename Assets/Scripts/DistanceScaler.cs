@@ -13,7 +13,7 @@ public class DistanceScaler : MonoBehaviour {
     // Use this for initialization
     void Start() {
         player = GameObject.Find("LMHeadMountedRig");
-        scaleFactor = 1.005f;
+        scaleFactor = 1.008f;
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
     }
 
