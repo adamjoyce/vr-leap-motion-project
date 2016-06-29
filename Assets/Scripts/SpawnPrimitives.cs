@@ -17,11 +17,14 @@ public class SpawnPrimitives : MonoBehaviour {
     public Material normalMaterial;
     public Material overMaterial;
 
+    public GameObject cloth;
+
     // Use this for initialization
     void Start() {
         //controller = GetComponent<LeapServiceProvider>().GetLeapController();
         //hands = new List<Hand>();
         provider = FindObjectOfType<LeapProvider>() as LeapProvider;
+        cloth = GameObject.Find("Cloth");
     }
 
     // Update is called once per frame
@@ -29,18 +32,34 @@ public class SpawnPrimitives : MonoBehaviour {
         hands = provider.CurrentFrame.Hands;
         if (hands.Count > 1) {
             if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay) {
-                StartCoroutine(SpawnCube());
+                StartCoroutine(SpawnSphere());
             }
             Debug.Log(hands[0].WristPosition.DistanceTo(hands[1].WristPosition));
         }
     }
 
     //
-    private IEnumerator SpawnCube() {
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
-        cube.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        //cube.AddComponent<Rigidbody>();
+    private IEnumerator SpawnSphere() {
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
+        sphere.transform.localScale = new Vector3(10f, 10f, 10f);
+        sphere.AddComponent<Rigidbody>();
+        sphere.GetComponent<Rigidbody>().useGravity = false;
+        sphere.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        Physics.IgnoreCollision(sphere.GetComponent<Collider>(), GameObject.Find("CollisionSphere").GetComponent<Collider>());
+        ClothSphereColliderPair sphereCollider = new ClothSphereColliderPair(sphere.GetComponent<SphereCollider>());
+
+        int colliderNumber = cloth.GetComponent<Cloth>().sphereColliders.Length;
+        ClothSphereColliderPair[] newColliders = new ClothSphereColliderPair[colliderNumber + 1];
+        ClothSphereColliderPair[] currentColliders = cloth.GetComponent<Cloth>().sphereColliders;
+        for (int i = 0; i < currentColliders.Length; i++) {
+            newColliders[i] = currentColliders[i];
+        }
+
+        newColliders[colliderNumber] = sphereCollider;
+        cloth.GetComponent<Cloth>().sphereColliders = newColliders;
+
 
         //cube.AddComponent<VRInteractiveItem>();
         //cube.AddComponent<CubeInteractiveItem>().enabled = true;
@@ -52,5 +71,10 @@ public class SpawnPrimitives : MonoBehaviour {
         delay = true;
         yield return new WaitForSeconds(spawnDelay);
         delay = false;
+    }
+
+    //
+    private void addClothCollider() {
+
     }
 }

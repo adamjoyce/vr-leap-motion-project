@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class TextureScroll : MonoBehaviour {
+
     public float scrollSpeed = 1.0f;
     float offset;
     float rotate;
@@ -11,7 +12,7 @@ public class TextureScroll : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         aSource = FindObjectOfType<AudioSource>();
-        collisionSphere = GameObject.Find("Sphere");
+        collisionSphere = GameObject.Find("CollisionSphere");
         height = collisionSphere.transform.position.y;
 	}
 	

@@ -192,6 +192,24 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 198586, guid: 18d6bf9063dcb1842be63f411fd9fc26, type: 2}
   m_PrefabInternal: {fileID: 1901425256}
+--- !u!114 &95442628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 95442627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99293652a512904ca30e884ba6af323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  provider: {fileID: 0}
+  wristDistance: 0.1
+  spawnDelay: 1
+  delay: 0
+  normalMaterial: {fileID: 2100000, guid: f42978234b1b65446aeb6aab0dbb1b4b, type: 2}
+  overMaterial: {fileID: 2100000, guid: 9c2822a39a6ce37419395b30cdb5a864, type: 2}
+  cloth: {fileID: 0}
 --- !u!114 &95442631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
-  pitchIncrement: 1
-  musicState: {fileID: 0}
 --- !u!114 &95442632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,8 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 0}
-  panningIncrement: 1
-  musicState: {fileID: 0}
 --- !u!1 &213075955
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,15 +546,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 570336027}
-  m_ExclusionLayers: {}
+  m_ExclusionLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Reticle: {fileID: 0}
   m_VrInput: {fileID: 570336033}
   m_ShowDebugRay: 0
   m_DebugRayLength: 5
   m_DebugRayDuration: 1
   m_RayLength: 500
-  m_CurrentInteractible: {fileID: 0}
-  m_LastInteractible: {fileID: 0}
 --- !u!114 &570336029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,8 +571,6 @@ MonoBehaviour:
   m_Image: {fileID: 347139201}
   m_ReticleTransform: {fileID: 347139199}
   m_Camera: {fileID: 570336027}
-  m_OriginalScale: {x: 0, y: 0, z: 0}
-  m_OriginalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &570336033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,11 +584,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DoubleClickTime: 0.3
   m_SwipeWidth: 0.3
-  m_MouseDownPosition: {x: 0, y: 0}
-  m_MouseUpPosition: {x: 0, y: 0}
-  m_LastMouseUpTime: 0
-  m_LastHorizontalValue: 0
-  m_LastVerticalValue: 0
 --- !u!1 &698887479
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +596,7 @@ GameObject:
   - 135: {fileID: 698887481}
   - 23: {fileID: 698887480}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: CollisionSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,7 +1957,6 @@ MonoBehaviour:
   m_DoubleClickedMaterial: {fileID: 0}
   m_InteractiveItem: {fileID: 1126909260}
   m_Renderer: {fileID: 1126909256}
-  musicState: {fileID: 0}
 --- !u!114 &1126909260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,7 +1968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsOver: 0
 --- !u!114 &1154855016 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11422472, guid: 23f2cce114628a448bfeaae171b4c0c0,
@@ -3278,6 +3283,18 @@ Prefab:
       propertyPath: m_SphereColliders.Array.data[0].first
       value: 
       objectReference: {fileID: 698887481}
+    - target: {fileID: 153312, guid: 5edd08157c435804388fdf72cf2bf42f, type: 2}
+      propertyPath: m_Name
+      value: Cloth
+      objectReference: {fileID: 0}
+    - target: {fileID: 167980, guid: 5edd08157c435804388fdf72cf2bf42f, type: 2}
+      propertyPath: m_Name
+      value: Bone
+      objectReference: {fileID: 0}
+    - target: {fileID: 18393120, guid: 5edd08157c435804388fdf72cf2bf42f, type: 2}
+      propertyPath: m_CollisionMassScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5edd08157c435804388fdf72cf2bf42f, type: 2}
   m_IsPrefabParent: 0
@@ -3448,7 +3465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsOver: 0
 --- !u!114 &1960753590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3466,7 +3482,6 @@ MonoBehaviour:
   m_DoubleClickedMaterial: {fileID: 0}
   m_InteractiveItem: {fileID: 1960753589}
   m_Renderer: {fileID: 1960753586}
-  musicState: {fileID: 0}
 --- !u!1 &2027884251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,7 +3577,6 @@ MonoBehaviour:
   m_DoubleClickedMaterial: {fileID: 0}
   m_InteractiveItem: {fileID: 2027884257}
   m_Renderer: {fileID: 2027884253}
-  musicState: {fileID: 0}
 --- !u!114 &2027884257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3574,4 +3588,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsOver: 0
