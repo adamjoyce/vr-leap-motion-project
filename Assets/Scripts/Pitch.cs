@@ -47,15 +47,15 @@ public class Pitch : MonoBehaviour {
         }
     }
 
-    //
+    // Adjusts the pitch for the music according to palm position.
     private void AdjustPitch() {
         Debug.Log(right.PalmPosition);
         if (previousRightHandPosition == null) {
             // Do nothing.
-        } else if (previousRightHandPosition.z < right.PalmPosition.z - pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch -= pitchChange;
-        } else if (previousRightHandPosition.z > right.PalmPosition.z + pitchIncrement) {
+        } else if (previousRightHandPosition.y < right.PalmPosition.y - pitchIncrement) {
             audio.GetComponent<AudioSource>().pitch += pitchChange;
+        } else if (previousRightHandPosition.y > right.PalmPosition.y + pitchIncrement) {
+            audio.GetComponent<AudioSource>().pitch -= pitchChange;
         }
     }
 

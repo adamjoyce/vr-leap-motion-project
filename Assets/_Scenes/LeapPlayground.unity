@@ -225,9 +225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   provider: {fileID: 0}
   audio: {fileID: 0}
-  pinchDistance: 10
+  pinchDistance: 25
   pitchIncrement: 0.001
-  pitchChange: 0.02
+  pitchChange: 0.007
 --- !u!114 &95442632
 MonoBehaviour:
   m_ObjectHideFlags: 0
