@@ -1905,12 +1905,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99293652a512904ca30e884ba6af323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 162482546}
-  rightHand: {fileID: 143466407}
   provider: {fileID: 0}
   wristDistance: 0.1
   spawnDelay: 1
   delay: 0
+  normalMaterial: {fileID: 2100000, guid: f42978234b1b65446aeb6aab0dbb1b4b, type: 2}
+  overMaterial: {fileID: 2100000, guid: 9c2822a39a6ce37419395b30cdb5a864, type: 2}
 --- !u!114 &1192222032
 MonoBehaviour:
   m_ObjectHideFlags: 0
