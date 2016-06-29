@@ -13,15 +13,17 @@ public class Pitch : MonoBehaviour {
 
     public Vector previousRightHandPosition;
 
-    public float pinchDistance = 15.0f;
+    public float pinchDistance = 10.0f;
 
-    private float pitchIncrement = 1.0f;
+    public float pitchIncrement = 0.001f;
+    public float pitchChange = 0.02f;
 
     // Use this for initialization
     void Start() {
         provider = FindObjectOfType<LeapProvider>() as LeapProvider;
         hands = new List<Hand>();
         audio = GameObject.Find("AudioSource");
+        previousRightHandPosition = new Vector();
     }
 
     // Update is called once per frame
@@ -37,30 +39,30 @@ public class Pitch : MonoBehaviour {
                 }
             }
 
-            GameObject pinchLight = GameObject.Find("PinchLight");
+            GameObject pinchLight = GameObject.Find("PinchSphere");
             if (left.PinchDistance < pinchDistance) {
                 AdjustPitch();
-
                 Vector3 pinchLightPos = left.Fingers[0].TipPosition.ToVector3();
                 pinchLight.transform.position = pinchLightPos;
                 pinchLight.GetComponent<MeshRenderer>().enabled = true;
             } else {
                 pinchLight.GetComponent<MeshRenderer>().enabled = false;
             }
-            Debug.Log(left.PinchDistance);
+            //Debug.Log(left.PinchDistance);
 
-            previousRightHandPosition = right.PalmPosition;
+        previousRightHandPosition = right.PalmPosition;
         }
     }
 
     //
     private void AdjustPitch() {
+        Debug.Log(right.PalmPosition);
         if (previousRightHandPosition == null) {
             // Do nothing.
         } else if (previousRightHandPosition.z < right.PalmPosition.z - pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch -= 0.02f;
+            audio.GetComponent<AudioSource>().pitch -= pitchChange;
         } else if (previousRightHandPosition.z > right.PalmPosition.z + pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch += 0.02f;
+            audio.GetComponent<AudioSource>().pitch += pitchChange;
         }
     }
 }
