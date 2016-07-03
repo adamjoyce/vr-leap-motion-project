@@ -65,5 +65,17 @@ namespace Leap.Unity
             frames = new List<byte[]>();
             frameIndex = 0.0f;
         }
+
+        //Get the progress
+        public float GetProgress()
+        {
+            return frameIndex / frames.Count;
+        }
+
+        //Get the index
+        public int GetIndex()
+        {
+            return (int)frameIndex;
+        }
     }
 }
