@@ -77,5 +77,30 @@ namespace Leap.Unity
         {
             return (int)frameIndex;
         }
+
+        //Get the current frame
+        public Frame GetCurrentFrame()
+        {
+            return currentFrame;
+        }
+
+        //Get all frames and put into a list
+        public List<Frame> GetFrames()
+        {
+            List<Frame> NewFrames = new List<Frame>();
+            for(int i = 0; i < frames.Count; ++i)
+            {
+                Frame frame = new Frame();
+                frame.Deserialize(frames[i]);
+                NewFrames.Add(frame);
+            }
+            return NewFrames;
+        }
+
+        //Get the number of frames
+        public int GetFramesCount()
+        {
+            return frames.Count;
+        }
     }
 }
