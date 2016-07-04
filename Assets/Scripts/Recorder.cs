@@ -29,7 +29,7 @@ namespace Leap.Unity
         protected Frame currentFrame = new Frame();
 
         //New recorder, reset variables
-        public void Recorder()
+        public Recorder()
         {
             Reset();
         }
