@@ -65,5 +65,23 @@ namespace Leap.Unity
         {
             recorder.Stop();
         }
+
+        void Update()
+        {
+            if (controlsGUI != null)
+                controlsGUI.text = header + "\n";
+
+            switch(GetRecorder().state)
+            {
+                case RecorderState.Recording:
+                    break;
+                case RecorderState.Playing:
+                    break;
+                case RecorderState.Paused:
+                    break;
+                case RecorderState.Stopped: 
+                    break;
+            }
+        }
     }
 }
