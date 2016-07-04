@@ -31,15 +31,15 @@ namespace Leap.Unity
             }
             light.color = Color.HSVToRGB(hue, sat, val);
 
-            Frame frame = provider.CurrentFrame;
-            foreach (Hand hand in frame.Hands)
-            {
-                if (hand.IsRight)
-                {
-                    Vector3 position = hand.Direction.ToVector3() + hand.PalmNormal.ToVector3() * (transform.localScale.y * .5f + 0.2f);
-                    transform.rotation = Quaternion.LookRotation(position);
-                }
-            }
+            //Frame frame = provider.CurrentFrame;
+            //foreach (Hand hand in frame.Hands)
+            //{
+            //    if (hand.IsRight)
+            //    {
+            //        Vector3 position = hand.Direction.ToVector3() + hand.PalmNormal.ToVector3() * (transform.localScale.y * .5f + 0.2f);
+            //        transform.rotation = Quaternion.LookRotation(position);
+            //    }
+            //}
         }
     }
 }
