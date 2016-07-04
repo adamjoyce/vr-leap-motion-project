@@ -17,10 +17,6 @@ ModelImporter:
     100018: Bone010
     100020: //RootNode
     100022: Sphere001
-    100024: Camera
-    100026: Directional Light
-    100028: dome
-    100030: Mesh
     400000: Bone001
     400002: Bone002
     400004: Bone003
@@ -33,10 +29,6 @@ ModelImporter:
     400018: Bone010
     400020: //RootNode
     400022: Sphere001
-    400024: Camera
-    400026: Directional Light
-    400028: dome
-    400030: Mesh
     4300000: Sphere001
     7400000: Take 001
     9500000: //RootNode
