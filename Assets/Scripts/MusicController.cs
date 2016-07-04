@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Leap;
 using Leap.Unity;
 
-public class MusicController : MonoBehaviour {
-
+public class MusicController : MonoBehaviour
+{
     public LeapProvider provider;
-    public GameObject audio;
-    public GameObject reverb;
+    public GameObject audioSource;
+    public GameObject reverbZone;
 
     public List<Hand> hands;
     public Hand left, right;
@@ -22,44 +22,42 @@ public class MusicController : MonoBehaviour {
     public float reverbIncrement = 0.001f;
     public int reverbChange = 1;
 
-    // Use this for initialization
-    void Start() {
-        provider = FindObjectOfType<LeapProvider>() as LeapProvider;
-        if (!provider) {
-            Debug.Log("Error: A LeapProvider could not be found in the scene.");
-            return;
-        }
-
-        audio = GameObject.Find("AudioSource");
-        if (!audio) {
-            Debug.Log("Error: \"AudioSource\" could not be found in the scene.");
-            return;
-        }
-
-        reverb = GameObject.Find("ReverbZone");
-        if (!reverb) {
-            Debug.Log("Error: \"ReverbZone\" could not be found in the scene.");
-            return;
-        }
+    // Use this for initialization.
+    void Start()
+    {
+        // Ensure the public variables are assigned.
+        if (!provider)
+            provider = FindObjectOfType<LeapProvider>() as LeapProvider;
+        if (!audioSource)
+            audioSource = GameObject.Find("AudioSource");
+        if (!reverbZone)
+            reverbZone = GameObject.Find("ReverbZone");
 
         hands = new List<Hand>();
         previousRightHandPosition = new Vector();
     }
 
-    // Update is called once per frame
-    void Update() {
+    // Update is called once per frame.
+    void Update()
+    {
         // Update the hand information for this frame.
         hands = provider.CurrentFrame.Hands;
-        if (hands.Count > 1) {
-            for (int i = 0; i < hands.Count; i++) {
-                if (hands[i].IsLeft) {
+        if (hands.Count > 1)
+        {
+            for (int i = 0; i < hands.Count; i++)
+            {
+                if (hands[i].IsLeft)
+                {
                     left = hands[i];
-                } else {
+                }
+                else
+                {
                     right = hands[i];
                 }
             }
 
-            if (displayPinches()) {
+            if (displayPinches())
+            {
                 AdjustPitch();
                 AdjustReverb();
             }
@@ -69,29 +67,36 @@ public class MusicController : MonoBehaviour {
     }
 
     // Displays the pinch spheres and returns true if both hands are pinched.
-    private bool displayPinches() {
+    private bool displayPinches()
+    {
         bool leftPinched = false;
         bool rightPinched = false;
 
         // Left.
         GameObject leftPinchSphere = GameObject.Find("LeftPinchSphere");
-        if (handPinched(left)) {
+        if (handPinched(left))
+        {
             Vector3 leftPinchSpherePos = left.Fingers[0].TipPosition.ToVector3();
             leftPinchSphere.transform.position = leftPinchSpherePos;
             leftPinchSphere.GetComponent<MeshRenderer>().enabled = true;
             leftPinched = true;
-        } else {
+        }
+        else
+        {
             leftPinchSphere.GetComponent<MeshRenderer>().enabled = false;
         }
 
         // Right.
         GameObject rightPinchSphere = GameObject.Find("RightPinchSphere");
-        if (handPinched(right)) {
+        if (handPinched(right))
+        {
             Vector3 rightPinchSpherePos = right.Fingers[0].TipPosition.ToVector3();
             rightPinchSphere.transform.position = rightPinchSpherePos;
             rightPinchSphere.GetComponent<MeshRenderer>().enabled = true;
             rightPinched = true;
-        } else {
+        }
+        else
+        {
             rightPinchSphere.GetComponent<MeshRenderer>().enabled = false;
         }
 
@@ -99,34 +104,48 @@ public class MusicController : MonoBehaviour {
     }
 
     // Returns true if the hand is pinched.
-    private bool handPinched(Hand hand) {
-        if (hand.PinchDistance < pinchDistance) {
+    private bool handPinched(Hand hand)
+    {
+        if (hand.PinchDistance < pinchDistance)
+        {
             return true;
         }
         return false;
     }
 
-    // Adjusts the pitch for the music according to palm position.
-    private void AdjustPitch() {
-        //Debug.Log(right.PalmPosition);
-        if (previousRightHandPosition == null) {
+    // Adjusts the pitch of the music based on palm position of the right hand.
+    private void AdjustPitch()
+    {
+        if (previousRightHandPosition == null)
+        {
             // Do nothing.
-        } else if (previousRightHandPosition.y < right.PalmPosition.y - pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch += pitchChange;
-        } else if (previousRightHandPosition.y > right.PalmPosition.y + pitchIncrement) {
-            audio.GetComponent<AudioSource>().pitch -= pitchChange;
         }
+        else if (previousRightHandPosition.y < right.PalmPosition.y - pitchIncrement)
+        {
+            audioSource.GetComponent<AudioSource>().pitch += pitchChange;
+        }
+        else if (previousRightHandPosition.y > right.PalmPosition.y + pitchIncrement)
+        {
+            audioSource.GetComponent<AudioSource>().pitch -= pitchChange;
+        }
+        //Debug.Log(right.PalmPosition);
     }
 
-    //
-    private void AdjustReverb() {
-        Debug.Log(right.PalmPosition);
-        if (previousRightHandPosition == null) {
+    // Adjusts the reverb of the music based on palm position of the right hand.
+    private void AdjustReverb()
+    {
+        if (previousRightHandPosition == null)
+        {
             // Do nothing.
-        } else if (previousRightHandPosition.x < right.PalmPosition.x - reverbIncrement) {
-            reverb.GetComponent<AudioReverbZone>().reverb += reverbChange;
-        } else if (previousRightHandPosition.x > right.PalmPosition.x + reverbIncrement && reverb.GetComponent<AudioReverbZone>().reverb >= 0) {
-            reverb.GetComponent<AudioReverbZone>().reverb -= reverbChange;
         }
+        else if (previousRightHandPosition.x < right.PalmPosition.x - reverbIncrement)
+        {
+            reverbZone.GetComponent<AudioReverbZone>().reverb += reverbChange;
+        }
+        else if (previousRightHandPosition.x > right.PalmPosition.x + reverbIncrement && reverbZone.GetComponent<AudioReverbZone>().reverb >= 0)
+        {
+            reverbZone.GetComponent<AudioReverbZone>().reverb -= reverbChange;
+        }
+        //Debug.Log(right.PalmPosition);
     }
 }
