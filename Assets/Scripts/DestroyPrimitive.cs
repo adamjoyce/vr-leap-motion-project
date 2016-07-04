@@ -3,20 +3,23 @@ using System.Collections;
 
 public class DestroyPrimitive : MonoBehaviour {
 
-    public GameObject deathSphere;
+    public GameObject player;
+    public GameObject cloth;
+
+    public float destroyDistance = 100.0f;
 
     void Start() {
-        deathSphere = GameObject.Find("DeathSphere");
+        player = GameObject.Find("LMHeadMountedRig");
+        cloth = GameObject.Find("Cloth");
     }
 
     void Update() {
-        destroyOnRadius();
-    }
-
-    //
-    private void destroyOnRadius() {
-        if (Vector3.Distance(transform.position, deathSphere.transform.position) > deathSphere.GetComponent<SphereCollider>().radius) {
+        if (Vector3.Distance(transform.position, player.transform.position) > destroyDistance) {
             Destroy(gameObject);
+
+            // Remove the sphere collider from the cloth component.
+
         }
+        Debug.Log(Vector3.Distance(transform.position, player.transform.position));
     }
 }
