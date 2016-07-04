@@ -8,7 +8,8 @@ public class TextureScroll : MonoBehaviour {
     float rotate;
     float height;
     AudioSource aSource;
-    GameObject collisionSphere;
+    public GameObject collisionSphere;
+
 	// Use this for initialization
 	void Start () {
         aSource = FindObjectOfType<AudioSource>();
@@ -20,7 +21,7 @@ public class TextureScroll : MonoBehaviour {
 	void Update () {
         updateScrollSpeed();
         offset += (Time.deltaTime * scrollSpeed) / 5.0f;
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex",new Vector2(offset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_DetailAlbedoMap", new Vector2(offset, 0));
 	
 	}
 
