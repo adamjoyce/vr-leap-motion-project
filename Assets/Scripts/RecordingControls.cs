@@ -22,16 +22,48 @@ namespace Leap.Unity
         public KeyCode beginPlaybackKey = KeyCode.P;
         public KeyCode endPlaybackKey = KeyCode.P;
         public KeyCode stopPlaybackKey = KeyCode.S;
+
         // Use this for initialization
         void Start()
         {
-
+            recorder = new Recorder();
+            provider = FindObjectOfType<LeapProvider>();
         }
 
-        // Update is called once per frame
-        void Update()
+        //Get the recorder
+        public Recorder GetRecorder()
         {
+            return recorder;
+        }
 
+        //Clears the last recording
+        public void ResetRecording()
+        {
+            recorder.Reset();
+        }
+
+        //Call to record
+        public void Record()
+        {
+            recorder.Record();
+        }
+
+        //Call to play recording
+        public void PlayRecording()
+        {
+            recorder.Play();
+        }
+
+        //Call to pause recording
+        public void PauseRecording()
+        {
+            recorder.Pause();
+        }
+
+        //Call to stop recording
+        public void StopRecording()
+        {
+            recorder.Stop();
         }
     }
 }
