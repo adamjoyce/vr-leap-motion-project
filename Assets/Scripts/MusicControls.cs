@@ -16,7 +16,7 @@ public class MusicControls : MonoBehaviour {
     public float pinchDistance = 25.0f;
 
     public float pitchIncrement = 0.001f;
-    public float pitchChange = 0.02f;
+    public float pitchChange = 0.015f;
 
     // Use this for initialization
     void Start() {
@@ -66,7 +66,7 @@ public class MusicControls : MonoBehaviour {
 
         // Left.
         GameObject leftPinchSphere = GameObject.Find("LeftPinchSphere");
-        if (left.PinchDistance < pinchDistance) {
+        if (handPinched(left)) {
             Vector3 leftPinchSpherePos = left.Fingers[0].TipPosition.ToVector3();
             leftPinchSphere.transform.position = leftPinchSpherePos;
             leftPinchSphere.GetComponent<MeshRenderer>().enabled = true;
@@ -77,7 +77,7 @@ public class MusicControls : MonoBehaviour {
 
         // Right.
         GameObject rightPinchSphere = GameObject.Find("RightPinchSphere");
-        if (right.PinchDistance < pinchDistance) {
+        if (handPinched(right)) {
             Vector3 rightPinchSpherePos = right.Fingers[0].TipPosition.ToVector3();
             rightPinchSphere.transform.position = rightPinchSpherePos;
             rightPinchSphere.GetComponent<MeshRenderer>().enabled = true;
@@ -87,5 +87,13 @@ public class MusicControls : MonoBehaviour {
         }
 
         return leftPinched && rightPinched;
+    }
+
+    // Returns true if the hand is pinched.
+    private bool handPinched(Hand hand) {
+        if (hand.PinchDistance < pinchDistance) {
+            return true;
+        }
+        return false;
     }
 }
