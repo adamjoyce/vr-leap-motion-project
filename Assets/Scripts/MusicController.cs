@@ -14,8 +14,6 @@ public class MusicController : MonoBehaviour
 
     public Vector previousRightHandPosition;
 
-    public Light[] lights;
-
     public float pinchDistance = 25.0f;
 
     public float pitchIncrement = 0.001f;
@@ -39,8 +37,6 @@ public class MusicController : MonoBehaviour
 
         hands = new List<Hand>();
         previousRightHandPosition = new Vector();
-
-        lights = GameObject.Find
     }
 
     // Update is called once per frame.
