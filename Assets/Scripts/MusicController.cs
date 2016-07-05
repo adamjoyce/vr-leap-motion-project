@@ -18,6 +18,8 @@ public class MusicController : MonoBehaviour
 
     public float pitchIncrement = 0.001f;
     public float pitchChange = 0.015f;
+    public float pitchMin = -1.5f;
+    public float pitchMax = 1.5f;
 
     public float reverbIncrement = 0.001f;
     public int reverbChange = 1;
@@ -122,11 +124,29 @@ public class MusicController : MonoBehaviour
         }
         else if (previousRightHandPosition.y < right.PalmPosition.y - pitchIncrement)
         {
-            audioSource.GetComponent<AudioSource>().pitch += pitchChange;
+            //// Rounds to the nearest integer if pitch it at or past the minimum or maximum.
+            //if (audioSource.GetComponent<AudioSource>().pitch > pitchMax || audioSource.GetComponent<AudioSource>().pitch < pitchMin)
+            //{
+            //    audioSource.GetComponent<AudioSource>().pitch = Mathf.Round(audioSource.GetComponent<AudioSource>().pitch);
+            //}
+            //else
+            //{
+
+            audioSource.GetComponent<AudioSource>().pitch = Mathf.Clamp((audioSource.GetComponent<AudioSource>().pitch += pitchChange), pitchMin, pitchMax);
+            //}
         }
         else if (previousRightHandPosition.y > right.PalmPosition.y + pitchIncrement)
         {
-            audioSource.GetComponent<AudioSource>().pitch -= pitchChange;
+            //// Rounds to the nearest integer if pitch it at or past the minimum or maximum.
+            //if (audioSource.GetComponent<AudioSource>().pitch > pitchMax || audioSource.GetComponent<AudioSource>().pitch < pitchMin)
+            //{
+            //    audioSource.GetComponent<AudioSource>().pitch = Mathf.Round(audioSource.GetComponent<AudioSource>().pitch);
+            //}
+            //else
+            //{
+                
+            audioSource.GetComponent<AudioSource>().pitch = Mathf.Clamp((audioSource.GetComponent<AudioSource>().pitch -= pitchChange), pitchMin, pitchMax);
+            //}
         }
         //Debug.Log(right.PalmPosition);
     }
