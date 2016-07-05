@@ -1906,11 +1906,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   provider: {fileID: 0}
+  bubbleSphere: {fileID: 0}
+  cloth: {fileID: 0}
+  collisionSpheres: []
   wristDistance: 0.1
   spawnDelay: 1
+  kinematicDelay: 0.5
   delay: 0
-  normalMaterial: {fileID: 2100000, guid: f42978234b1b65446aeb6aab0dbb1b4b, type: 2}
-  overMaterial: {fileID: 2100000, guid: 9c2822a39a6ce37419395b30cdb5a864, type: 2}
 --- !u!114 &1192222032
 MonoBehaviour:
   m_ObjectHideFlags: 0
