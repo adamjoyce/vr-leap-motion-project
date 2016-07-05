@@ -10,8 +10,11 @@ namespace Leap.Unity
         public TextAsset eecordingAsset;
         public bool looping;
         Recorder recorder;
+        private byte[] serialized;
 
         LeapProvider provider;
+        Controller controller;
+        Frame frame;
 
         public string header;
         public GUIText controlsGUI;
@@ -20,7 +23,7 @@ namespace Leap.Unity
         public KeyCode beginRecordingKey = KeyCode.R;
         public KeyCode endRecordingKey = KeyCode.R;
         public KeyCode beginPlaybackKey = KeyCode.P;
-        public KeyCode endPlaybackKey = KeyCode.P;
+        public KeyCode pausePlaybackKey = KeyCode.P;
         public KeyCode stopPlaybackKey = KeyCode.S;
 
         // Use this for initialization
@@ -28,6 +31,7 @@ namespace Leap.Unity
         {
             recorder = new Recorder();
             provider = FindObjectOfType<LeapProvider>();
+            controller = new Controller();
         }
 
         //Get the recorder
@@ -74,17 +78,93 @@ namespace Leap.Unity
             switch(GetRecorder().state)
             {
                 case RecorderState.Recording:
+                    EndRecording();
                     Debug.Log("Recording");
                     break;
                 case RecorderState.Playing:
+                    Pause();
+                    Stop();
                     Debug.Log("Playing");
                     break;
                 case RecorderState.Paused:
+                    BeginPlayback();
+                    Stop();
                     Debug.Log("Paused");
                     break;
                 case RecorderState.Stopped:
+                    BeginRecording();
+                    BeginPlayback();
                     Debug.Log("Stopped");
                     break;
+            }
+            if(controller.IsConnected)
+            {
+                Debug.Log("Is connected");
+                serialized = controller.Frame().Serialize;
+            }
+        }
+
+        //Begin recording
+        private void BeginRecording()
+        {
+            if (controlsGUI != null)
+                controlsGUI.text += beginRecordingKey + "-Begin Recording\n";
+            
+            if(Input.GetKeyDown(beginRecordingKey))
+            {
+                ResetRecording();
+                Record();
+                recordingGUI.text = "";
+            }
+        }
+
+
+        //Star the playback fo the recording
+        private void BeginPlayback()
+        {
+            if (controlsGUI != null)
+                controlsGUI.text += beginPlaybackKey + "-Begin Playback\n";
+
+            if(Input.GetKeyDown(beginPlaybackKey))
+            {
+                PlayRecording();
+            }
+        }
+
+        //End the recording
+        private void EndRecording()
+        {
+            if (controlsGUI != null)
+                controlsGUI.text += endRecordingKey + "-End Recording\n";
+            
+            if(Input.GetKeyDown(endRecordingKey))
+            {
+                string savePath = "";
+                recordingGUI.text = "Recording saved to: \n" + savePath;
+            }
+        }
+
+        //Pause the playback
+        private void Pause()
+        {
+            if (controlsGUI != null)
+                controlsGUI.text += pausePlaybackKey + "-Paused Playback\n";
+
+            if(Input.GetKeyDown(pausePlaybackKey))
+            {
+                PauseRecording();
+            }
+        }
+
+        //Stop the playback
+        private void Stop()
+        {
+            if (controlsGUI != null)
+                controlsGUI.text += stopPlaybackKey + "-Stopped Playback\n";
+
+            if(Input.GetKeyDown(stopPlaybackKey))
+            {
+                StopRecording();
             }
         }
     }

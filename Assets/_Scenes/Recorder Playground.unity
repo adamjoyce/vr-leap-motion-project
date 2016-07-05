@@ -968,7 +968,7 @@ MonoBehaviour:
   beginRecordingKey: 114
   endRecordingKey: 114
   beginPlaybackKey: 112
-  endPlaybackKey: 112
+  pausePlaybackKey: 112
   stopPlaybackKey: 115
 --- !u!4 &385088396
 Transform:
@@ -1870,6 +1870,10 @@ Prefab:
       propertyPath: ModelPool.Array.data[1].RightModel
       value: 
       objectReference: {fileID: 1296308125}
+    - target: {fileID: 11435192, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 2}
+      propertyPath: _overrideDeviceType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 2}
   m_IsPrefabParent: 0
