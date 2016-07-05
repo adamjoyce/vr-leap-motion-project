@@ -74,12 +74,16 @@ namespace Leap.Unity
             switch(GetRecorder().state)
             {
                 case RecorderState.Recording:
+                    Debug.Log("Recording");
                     break;
                 case RecorderState.Playing:
+                    Debug.Log("Playing");
                     break;
                 case RecorderState.Paused:
+                    Debug.Log("Paused");
                     break;
-                case RecorderState.Stopped: 
+                case RecorderState.Stopped:
+                    Debug.Log("Stopped");
                     break;
             }
         }
