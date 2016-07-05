@@ -124,29 +124,11 @@ public class MusicController : MonoBehaviour
         }
         else if (previousRightHandPosition.y < right.PalmPosition.y - pitchIncrement)
         {
-            //// Rounds to the nearest integer if pitch it at or past the minimum or maximum.
-            //if (audioSource.GetComponent<AudioSource>().pitch > pitchMax || audioSource.GetComponent<AudioSource>().pitch < pitchMin)
-            //{
-            //    audioSource.GetComponent<AudioSource>().pitch = Mathf.Round(audioSource.GetComponent<AudioSource>().pitch);
-            //}
-            //else
-            //{
-
             audioSource.GetComponent<AudioSource>().pitch = Mathf.Clamp((audioSource.GetComponent<AudioSource>().pitch += pitchChange), pitchMin, pitchMax);
-            //}
         }
         else if (previousRightHandPosition.y > right.PalmPosition.y + pitchIncrement)
-        {
-            //// Rounds to the nearest integer if pitch it at or past the minimum or maximum.
-            //if (audioSource.GetComponent<AudioSource>().pitch > pitchMax || audioSource.GetComponent<AudioSource>().pitch < pitchMin)
-            //{
-            //    audioSource.GetComponent<AudioSource>().pitch = Mathf.Round(audioSource.GetComponent<AudioSource>().pitch);
-            //}
-            //else
-            //{
-                
+        { 
             audioSource.GetComponent<AudioSource>().pitch = Mathf.Clamp((audioSource.GetComponent<AudioSource>().pitch -= pitchChange), pitchMin, pitchMax);
-            //}
         }
         //Debug.Log(right.PalmPosition);
     }
