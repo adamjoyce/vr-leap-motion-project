@@ -15,7 +15,7 @@ public class LightLevel : MonoBehaviour
 	void Update ()
     {
         light = aSource.pitch;
-        light = (light - (-1.5f)) / (1.5f - (-1.5f));
+        light = (light - (0.0f)) / (1.5f - (0.0f));
         if (light > 0.0f && light < 1.0f)
         {
             if (light <= 0.0f)
