@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Leap;
 
 namespace Leap.Unity
@@ -7,13 +8,11 @@ namespace Leap.Unity
     public class RecordingControls : MonoBehaviour
     {
         public bool enableRecording;
-        public TextAsset eecordingAsset;
+        public TextAsset RecordingAsset;
         public bool looping;
         Recorder recorder;
-        private byte[] serialized;
 
-        LeapProvider provider;
-        Controller controller;
+        LeapServiceProvider provider;
         Frame frame;
 
         public string header;
@@ -29,9 +28,9 @@ namespace Leap.Unity
         // Use this for initialization
         void Start()
         {
+            frame = new Frame();
             recorder = new Recorder();
-            provider = FindObjectOfType<LeapProvider>();
-            controller = new Controller();
+            provider = FindObjectOfType<LeapServiceProvider>();
         }
 
         //Get the recorder
@@ -96,11 +95,6 @@ namespace Leap.Unity
                     BeginPlayback();
                     Debug.Log("Stopped");
                     break;
-            }
-            if(controller.IsConnected)
-            {
-                Debug.Log("Is connected");
-                serialized = controller.Frame().Serialize;
             }
         }
 
