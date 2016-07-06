@@ -29,7 +29,6 @@
 		sampler2D _SecondaryBumpMap;
 		fixed4 _Color;
 		float _Blend;
-
 		struct Input {
 			float2 uv_MainTex;
 			float2 uv_SecondaryTex;
@@ -42,9 +41,7 @@
 			fixed4 tex1 = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 			fixed4 tex2 = tex2D(_SecondaryTex, IN.uv_SecondaryTex) * _Color;
 			o.Albedo = lerp(tex1, tex2, _Blend);
-			float normal1 = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
-			float normal2 = UnpackNormal(tex2D(_SecondaryBumpMap, IN.uv_SecondaryBumpMap));
-			o.Normal = normalize(lerp(normal1, normal2, _Blend));
+			o.Normal = lerp(UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap)), UnpackNormal(tex2D(_SecondaryBumpMap, IN.uv_SecondaryBumpMap)), _Blend);
 		}
 		ENDCG
 	}
