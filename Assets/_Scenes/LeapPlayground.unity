@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &62171718
 Transform:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 79148393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.780193, y: -6.2339892, z: -15.708478}
+  m_LocalPosition: {x: 32.8, y: 1.3, z: -15.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -236,7 +236,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 0.63235295, g: 1, b: 0.93914807, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 3.75
   m_Range: 32.4
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -328,7 +328,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 134779707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.86, y: 19.79, z: 22.96}
+  m_LocalPosition: {x: 31.9, y: 19.79, z: 22.96}
   m_LocalScale: {x: 8.7478485, y: 8.747839, z: 8.747839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1267,7 +1267,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 0.8574037, g: 1, b: 0.45588237, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 2.99
   m_Range: 60
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1569,6 +1569,7 @@ GameObject:
   - 183: {fileID: 945889256}
   - 114: {fileID: 945889255}
   - 114: {fileID: 945889254}
+  - 114: {fileID: 945889258}
   m_Layer: 0
   m_Name: Cloth
   m_TagString: Untagged
@@ -1602,6 +1603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movTexture: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
+  movTexture2: {fileID: 15200000, guid: a5b8c4cc6c0242d4a9e0b8f021af0e35, type: 3}
 --- !u!114 &945889255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,8 +1629,8 @@ Cloth:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945889252}
   m_Enabled: 1
-  m_StretchingStiffness: 0.4
-  m_BendingStiffness: 0.4
+  m_StretchingStiffness: 0.08
+  m_BendingStiffness: 0.13
   m_UseTethers: 1
   m_UseGravity: 1
   m_Damping: 0
@@ -4806,7 +4808,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d35b6eb20e69eb84ab64a453a86318e7, type: 2}
+  - {fileID: 2100000, guid: 5564d54622b9baf4796cadf62af27319, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4840,9 +4842,21 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 255819251}
   m_AABB:
-    m_Center: {x: 0.0000038146973, y: 0, z: 0}
-    m_Extent: {x: 67.67273, y: 81.28648, z: 63.29204}
+    m_Center: {x: 0, y: 0.000011444092, z: -0.0000042915344}
+    m_Extent: {x: 67.67274, y: 81.28648, z: 63.29204}
   m_DirtyAABB: 0
+--- !u!114 &945889258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945889252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1207b5b1c42f3234aa37461d6f66f01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlendSpeed: 0.8
 --- !u!1 &958146098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7537,7 +7551,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1397245913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: -39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -7553,8 +7567,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 0.353, b: 0.102941155, a: 1}
-  m_Intensity: 1.5
+  m_Color: {r: 1, g: 0.516, b: 0.102941155, a: 1}
+  m_Intensity: 5.8
   m_Range: 49.02
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -8338,7 +8352,7 @@ Transform:
   m_GameObject: {fileID: 2131379291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 30, z: 0}
-  m_LocalScale: {x: 1.0965028, y: 1.0965027, z: 1.0965027}
+  m_LocalScale: {x: 1.1084931, y: 1.1084931, z: 1.1084931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 255819251}
