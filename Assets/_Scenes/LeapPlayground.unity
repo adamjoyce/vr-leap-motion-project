@@ -4911,6 +4911,7 @@ GameObject:
   - 4: {fileID: 1008745823}
   - 108: {fileID: 1008745825}
   - 114: {fileID: 1008745824}
+  - 114: {fileID: 1008745826}
   m_Layer: 0
   m_Name: DirectionalLight
   m_TagString: Untagged
@@ -4978,6 +4979,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &1008745826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1008745822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1019324746
 Prefab:
   m_ObjectHideFlags: 0
@@ -7512,6 +7524,7 @@ GameObject:
   - 4: {fileID: 1426410884}
   - 108: {fileID: 1426410886}
   - 114: {fileID: 1426410885}
+  - 114: {fileID: 1426410887}
   m_Layer: 0
   m_Name: DirectionalLight (1)
   m_TagString: Untagged
@@ -7579,6 +7592,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &1426410887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1426410883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1527027762
 GameObject:
   m_ObjectHideFlags: 0
