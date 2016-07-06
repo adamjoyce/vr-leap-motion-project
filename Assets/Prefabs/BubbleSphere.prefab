@@ -12,6 +12,7 @@ GameObject:
   - 135: {fileID: 13546038}
   - 23: {fileID: 2313084}
   - 114: {fileID: 11470090}
+  - 114: {fileID: 11491408}
   m_Layer: 0
   m_Name: BubbleSphere
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.55110234, y: 18.311861, z: -111.62149}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -79,8 +80,20 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceFromPlayer: 0
   scaleFactor: 0
-  minScale: 0.1
+  minScale: 0.05
   maxScale: 10
+--- !u!114 &11491408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899c02be140191d4f95e12bd3735708d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!135 &13546038
 SphereCollider:
   m_ObjectHideFlags: 1

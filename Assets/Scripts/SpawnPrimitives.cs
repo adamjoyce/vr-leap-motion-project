@@ -5,62 +5,78 @@ using Leap;
 using Leap.Unity;
 using VRStandardAssets.Utils;
 
-public class SpawnPrimitives : MonoBehaviour {
-
+public class SpawnPrimitives : MonoBehaviour
+{
     public LeapProvider provider;
     public List<Hand> hands;
+
+    public GameObject bubbleSphere;
+    public GameObject cloth;
+
+    public Transform[] collisionSpheres;
 
     public float wristDistance = 2.0f;
     public float spawnDelay = 1.0f;
     public float kinematicDelay = 0.5f;
     public bool delay = false;
 
-    public Material normalMaterial;
-    public Material overMaterial;
+    // Use this for initialization.
+    void Start()
+    {
+        // Ensure the public variables are assigned.
+        if (!provider)
+            provider = FindObjectOfType<LeapProvider>() as LeapProvider;
+        if (!cloth)
+            cloth = GameObject.Find("Cloth");
 
-    public GameObject bubbleSphere;
-    public GameObject cloth;
-
-    // Use this for initialization
-    void Start() {
-        //controller = GetComponent<LeapServiceProvider>().GetLeapController();
-        //hands = new List<Hand>();
-        provider = FindObjectOfType<LeapProvider>() as LeapProvider;
-        cloth = GameObject.Find("Cloth");
+        // Array of stability spheres to hold up the cloth.
+        collisionSpheres = GameObject.Find("CollisionSpheres").GetComponentsInChildren<Transform>();
     }
 
-    // Update is called once per frame
-    void Update() {
+    // Update is called once per frame.
+    void Update()
+    {
+        // Update the hand information for this frame.
         hands = provider.CurrentFrame.Hands;
-        if (hands.Count > 1) {
-            if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay) {
+        if (hands.Count > 1)
+        {
+            if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay)
+            {
                 StartCoroutine(SpawnSphere());
             }
-            Debug.Log(hands[0].WristPosition.DistanceTo(hands[1].WristPosition));
+            //Debug.Log(hands[0].WristPosition.DistanceTo(hands[1].WristPosition));
         }
     }
 
-    //
-    private IEnumerator SpawnSphere() {
+    // Setups up and spawns a new bubble sphere.
+    private IEnumerator SpawnSphere()
+    {
+        // Calulate the spawn position from the players hands and forward direction.
         Vector3 firstPalmPos = hands[0].PalmPosition.ToVector3();
         Vector3 secondPalmPos = hands[1].PalmPosition.ToVector3();
-        Vector3 forwardDirection = GameObject.Find("CenterEyeAnchor").transform.forward;
-        Vector3 spawnPos = /*GameObject.Find("CenterEyeAnchor").transform.position*/(firstPalmPos + secondPalmPos) * 0.5f; //+ forwardDirection * 1f;
+        Vector3 spawnPos = (firstPalmPos + secondPalmPos) * 0.5f;
 
+        GameObject.Find("Pop").GetComponent<AudioSource>().Play();
         GameObject sphere = Instantiate(bubbleSphere, spawnPos, Quaternion.identity) as GameObject;
 
+        // Setup the bubble spheres rigidbody properties.
         sphere.AddComponent<Rigidbody>();
         sphere.GetComponent<Rigidbody>().useGravity = false;
         sphere.GetComponent<Rigidbody>().isKinematic = true;
         sphere.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-        Physics.IgnoreCollision(sphere.GetComponent<Collider>(), GameObject.Find("CollisionSphere").GetComponent<Collider>());
+        // Ignore collisions between the the new bubble sphere and the cloth's stability spheres.
+        for (int i = 1; i < collisionSpheres.Length; i++)
+            Physics.IgnoreCollision(sphere.GetComponent<Collider>(), collisionSpheres[i].gameObject.GetComponent<Collider>());
+
         ClothSphereColliderPair sphereCollider = new ClothSphereColliderPair(sphere.GetComponent<SphereCollider>());
 
+        // Arrays to handle the sphere colliders which can interact with the cloth.
         int colliderNumber = cloth.GetComponent<Cloth>().sphereColliders.Length;
         ClothSphereColliderPair[] newColliders = new ClothSphereColliderPair[colliderNumber + 1];
         ClothSphereColliderPair[] currentColliders = cloth.GetComponent<Cloth>().sphereColliders;
-        for (int i = 0; i < currentColliders.Length; i++) {
+        for (int i = 0; i < currentColliders.Length; i++)
+        {
             newColliders[i] = currentColliders[i];
         }
 
@@ -69,7 +85,6 @@ public class SpawnPrimitives : MonoBehaviour {
 
         StartCoroutine(activeObject(sphere));
 
-
         //cube.AddComponent<VRInteractiveItem>();
         //cube.AddComponent<CubeInteractiveItem>().enabled = true;
         //cube.GetComponent<CubeInteractiveItem>().SetNormalMaterial(normalMaterial);
@@ -77,14 +92,16 @@ public class SpawnPrimitives : MonoBehaviour {
         //cube.GetComponent<CubeInteractiveItem>().SetInterativeItem(GetComponent<VRInteractiveItem>());
         //cube.GetComponent<CubeInteractiveItem>().SetRenderer(GetComponent<Renderer>());
 
+        // Enforce the spawn delays between spheres.
         delay = true;
         yield return new WaitForSeconds(spawnDelay);
         delay = false;
     }
 
-    //
-    private IEnumerator activeObject(GameObject sphere) {
+    // Makes an object interactive after a delay.
+    private IEnumerator activeObject(GameObject obj)
+    {
         yield return new WaitForSeconds(kinematicDelay);
-        sphere.GetComponent<Rigidbody>().isKinematic = false;
+        obj.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
