@@ -4,6 +4,7 @@ using System.Collections;
 public class LightLevel : MonoBehaviour
 {
     float light;
+    public float min = 0.0f, max = 1.5f;
     AudioSource aSource;
 	// Use this for initialization
 	void Start ()
@@ -15,7 +16,7 @@ public class LightLevel : MonoBehaviour
 	void Update ()
     {
         light = aSource.pitch;
-        light = (light - (-1.5f)) / (1.5f - (-1.5f));
+        light = (light - (min)) / (max - (min));
         if (light > 0.0f && light < 1.0f)
         {
             if (light <= 0.0f)
