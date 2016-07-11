@@ -1597,7 +1597,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945889252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8659047af3aeadb4ab0c0d247cd0294c, type: 3}
   m_Name: 
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f12110985d5564458dab3fde61ab7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 1
+  scrollSpeed: 0.2
   collisionSphere: {fileID: 0}
   minHeight: 7
   maxHeight: 75
@@ -4856,7 +4856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1207b5b1c42f3234aa37461d6f66f01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlendSpeed: 0.8
+  BlendSpeed: 0.5
 --- !u!1 &958146098
 GameObject:
   m_ObjectHideFlags: 0
