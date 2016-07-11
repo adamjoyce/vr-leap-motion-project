@@ -29,7 +29,8 @@ public class TextureScroll : MonoBehaviour
     {
         updateScrollSpeed();
         offset += (Time.deltaTime * scrollSpeed) / 5.0f;
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_DetailAlbedoMap", new Vector2(offset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryTex", new Vector2(offset, 0));
 
     }
 
