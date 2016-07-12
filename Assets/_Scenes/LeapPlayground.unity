@@ -128,14 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f828ab2e7bf97d345ac30eae922d2779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freqLow:
-  - 16
-  - 512
-  - 8192
-  freqHigh:
-  - 512
-  - 8192
-  - 32768
 --- !u!1 &66126792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1152,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409134, guid: 8ad6594832d16ce4684f5cf557b6e40f, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 106632, guid: 8ad6594832d16ce4684f5cf557b6e40f, type: 2}
       propertyPath: m_Name
@@ -1382,7 +1374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409134, guid: 8ad6594832d16ce4684f5cf557b6e40f, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 106632, guid: 8ad6594832d16ce4684f5cf557b6e40f, type: 2}
       propertyPath: m_Name
@@ -7781,7 +7773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442110, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8210578, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
       propertyPath: m_audioClip
