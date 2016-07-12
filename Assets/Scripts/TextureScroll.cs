@@ -5,7 +5,8 @@ public class TextureScroll : MonoBehaviour
 {
 
     public float scrollSpeed = 1.0f;
-    float offset;
+    public float texOffset;
+    public float normalOffset;
     float rotate;
     float height;
     AudioSource aSource;
@@ -28,9 +29,12 @@ public class TextureScroll : MonoBehaviour
     void Update()
     {
         updateScrollSpeed();
-        offset += (Time.deltaTime * scrollSpeed) / 5.0f;
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryTex", new Vector2(offset, 0));
+        texOffset += (Time.deltaTime * scrollSpeed) / 5.0f;
+        normalOffset += (Time.deltaTime * scrollSpeed) / 10.0f;
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(texOffset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryTex", new Vector2(texOffset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_BumpMap", new Vector2(normalOffset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryBumpMap", new Vector2(0,normalOffset));
 
     }
 

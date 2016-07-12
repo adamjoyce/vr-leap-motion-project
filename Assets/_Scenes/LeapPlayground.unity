@@ -1616,7 +1616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f12110985d5564458dab3fde61ab7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.2
+  scrollSpeed: 1
+  texOffset: 0
+  normalOffset: 0
   collisionSphere: {fileID: 0}
   minHeight: 7
   maxHeight: 75
@@ -4826,7 +4828,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_Mesh: {fileID: 4300000, guid: 61f76a8449adcd04eafad729342cf9b2, type: 3}
   m_Bones:
   - {fileID: 901404266}
@@ -4856,7 +4858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1207b5b1c42f3234aa37461d6f66f01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlendSpeed: 0.5
+  BlendSpeed: 0.1
 --- !u!1 &958146098
 GameObject:
   m_ObjectHideFlags: 0
