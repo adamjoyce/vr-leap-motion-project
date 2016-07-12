@@ -128,6 +128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f828ab2e7bf97d345ac30eae922d2779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freqLow:
+  - 16
+  - 512
+  - 8192
+  freqHigh:
+  - 512
+  - 8192
+  - 32768
 --- !u!1 &66126792
 GameObject:
   m_ObjectHideFlags: 0

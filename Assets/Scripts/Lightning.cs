@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Lightning : MonoBehaviour 
 {
     List<Light> pointLights;
-    float minTime = 0.5f;
+    float minTime = 0.1f;
     float threshold = 0.5f;
     int pickedLight;
 
@@ -28,7 +28,9 @@ public class Lightning : MonoBehaviour
             if(Random.value > threshold)
             {
                 pickedLight = Random.Range(0, 3);
+                float lightIntensity = Random.Range(2.75f, 8.5f);
                 pointLights[pickedLight].enabled = true;
+                pointLights[pickedLight].intensity = lightIntensity;
             }
             else
             {
