@@ -1629,8 +1629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8659047af3aeadb4ab0c0d247cd0294c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movTexture: {fileID: 15200000, guid: cc942d29b5ad6c249bafa02894566a08, type: 3}
-  movTexture2: {fileID: 15200000, guid: 0c568579e81642e408f3150c5ca500fe, type: 3}
+  movTexture: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
+  movTexture2: {fileID: 15200000, guid: d57a1a43a6f565548a33d1e7589ba311, type: 3}
 --- !u!114 &945889255
 MonoBehaviour:
   m_ObjectHideFlags: 0

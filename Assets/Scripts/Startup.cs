@@ -17,9 +17,9 @@ public class Startup : MonoBehaviour
         aSource = GameObject.FindObjectOfType<AudioSource>();
         Light[] lights = FindObjectsOfType<Light>();
         foreach(Light light in lights)
-            if(light.type == LightType.Directional)
+            if (light.type == LightType.Directional)
                 directionalLights.Add(light);
-            else if(light.type == LightType.Point)
+            else if (light.type == LightType.Point)
                 pointLights.Add(light);
 
         aSource.pitch = -0.5f;
@@ -38,14 +38,14 @@ public class Startup : MonoBehaviour
     {
         int bSpheres = 0;
         bSpheres = GameObject.FindGameObjectsWithTag("BubbleSphere").Length;
-        Debug.Log(bSpheres);
+        //Debug.Log(bSpheres);
         if (!playingAudio)
         {
             if (bSpheres > 5)
             {
                 aSource.pitch = 1;
                 aSource.UnPause();
-                Debug.Log("Playing now");
+                //Debug.Log("Playing now");
                 playingAudio = true;
             }
         }
