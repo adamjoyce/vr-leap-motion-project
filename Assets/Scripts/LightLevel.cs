@@ -19,10 +19,10 @@ public class LightLevel : MonoBehaviour
         light = (light - (min)) / (max - (min));
         if (light > 0.0f && light < 1.0f)
         {
-            if (light <= 0.0f)
-                light = 0.1f;
-            else if (light >= 1.0f)
-                light = 0.99f;
+            if (light < 0.0f)
+                light = 0.0f;
+            else if (light > 1.0f)
+                light = 1.0f;
             gameObject.GetComponent<Light>().intensity = light;
         }
 	}
