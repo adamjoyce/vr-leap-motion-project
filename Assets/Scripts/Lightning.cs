@@ -27,7 +27,7 @@ public class Lightning : MonoBehaviour
             
             if(Random.value > threshold)
             {
-                pickedLight = Random.Range(0, 3);
+                pickedLight = Random.Range(0, pointLights.Count);
                 float lightIntensity = Random.Range(2.75f, 8.5f);
                 pointLights[pickedLight].enabled = true;
                 pointLights[pickedLight].intensity = lightIntensity;

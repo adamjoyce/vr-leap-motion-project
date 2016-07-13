@@ -315,6 +315,21 @@ MonoBehaviour:
   pitchMax: 1.5
   reverbIncrement: 0.001
   reverbChange: 100
+--- !u!1 &97035592 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 167028, guid: 18d6bf9063dcb1842be63f411fd9fc26, type: 2}
+  m_PrefabInternal: {fileID: 1901425256}
+--- !u!114 &97035595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97035592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eeb49b3198dc9f4ab8fab25579ae6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &134779707
 GameObject:
   m_ObjectHideFlags: 0
