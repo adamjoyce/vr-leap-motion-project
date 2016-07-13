@@ -1644,7 +1644,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 1
-  texOffset: 0
   normalOffset: 0
   collisionSphere: {fileID: 0}
   minHeight: 7
