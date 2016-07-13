@@ -1624,13 +1624,13 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945889252}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8659047af3aeadb4ab0c0d247cd0294c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movTexture: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
-  movTexture2: {fileID: 15200000, guid: a5b8c4cc6c0242d4a9e0b8f021af0e35, type: 3}
+  movTexture: {fileID: 15200000, guid: cc942d29b5ad6c249bafa02894566a08, type: 3}
+  movTexture2: {fileID: 15200000, guid: 0c568579e81642e408f3150c5ca500fe, type: 3}
 --- !u!114 &945889255
 MonoBehaviour:
   m_ObjectHideFlags: 0
