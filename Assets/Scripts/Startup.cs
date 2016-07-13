@@ -8,6 +8,7 @@ public class Startup : MonoBehaviour
     List<Light> directionalLights;
     List<Light> pointLights;
     Lightning lightning;
+    bool playingAudio = false, pointLightsActive = false;
 	// Use this for initialization
 	void Start () 
     {
@@ -38,11 +39,28 @@ public class Startup : MonoBehaviour
         int bSpheres = 0;
         bSpheres = GameObject.FindGameObjectsWithTag("BubbleSphere").Length;
         Debug.Log(bSpheres);
-        if(bSpheres > 5)
+        if (!playingAudio)
         {
-            aSource.pitch = 1;
-            aSource.UnPause();
-            Debug.Log("Playing now");
+            if (bSpheres > 5)
+            {
+                aSource.pitch = 1;
+                aSource.UnPause();
+                Debug.Log("Playing now");
+                playingAudio = true;
+            }
+        }
+
+        if (!pointLightsActive)
+        {
+            if (aSource.isPlaying)
+            {
+                if (aSource.pitch < -0.5f)
+                {
+                    foreach (Light light in pointLights)
+                        light.enabled = true;
+                    pointLightsActive = true;
+                }
+            }
         }
 	}
 }
