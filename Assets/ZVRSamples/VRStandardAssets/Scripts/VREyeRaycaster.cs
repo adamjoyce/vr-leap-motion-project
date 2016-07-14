@@ -91,6 +91,9 @@ namespace VRStandardAssets.Utils
 
                 if (OnRaycasthit != null)
                     OnRaycasthit(hit);
+
+                //if (hit.collider.tag == "BubbleSphere")
+                //    Debug.Log("HIT");
             }
             else
             {

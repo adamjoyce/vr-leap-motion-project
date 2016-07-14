@@ -17,10 +17,10 @@ public class Startup : MonoBehaviour
         aSource = GameObject.FindObjectOfType<AudioSource>();
         Light[] lights = FindObjectsOfType<Light>();
         foreach(Light light in lights)
-            if (light.type == LightType.Directional)
-                directionalLights.Add(light);
-            else if (light.type == LightType.Point)
-                pointLights.Add(light);
+            //if (light.type == LightType.Directional)
+            //    directionalLights.Add(light);
+            //else if (light.type == LightType.Point)
+            //    pointLights.Add(light);
 
         aSource.pitch = -0.5f;
         aSource.Pause();
