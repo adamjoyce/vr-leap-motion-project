@@ -45,7 +45,7 @@ public class SphereInteractiveItem : MonoBehaviour
     {
         Debug.Log("Show over state");
         //m_Renderer.material = m_OverMaterial;
-        haloLight.GetComponent<Light>().enabled = true;
+        //haloLight.GetComponent<Light>().enabled = true;
     }
 
     //Handle the Out event
@@ -53,7 +53,7 @@ public class SphereInteractiveItem : MonoBehaviour
     {
         Debug.Log("Show out state");
         //m_Renderer.material = m_NormalMaterial;
-        haloLight.GetComponent<Light>().enabled = false;
+        //haloLight.GetComponent<Light>().enabled = false;
     }
 
     //Handle the Click event
