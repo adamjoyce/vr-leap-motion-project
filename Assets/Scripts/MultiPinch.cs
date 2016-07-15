@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Leap;
 
 namespace Leap.Unity
@@ -15,19 +16,32 @@ namespace Leap.Unity
     [System.Serializable]
     public class CubeAssociation
     {
-        public GameObject cube;
-        public Material defMat, pinchMat;
+        public string blendShapeName;
         public FingerAllocation finger;
     }
 
-    public class MultiPinch : MonoBehaviour {
+    public class MultiPinch : MonoBehaviour 
+    {
         Controller controller;
-        public CubeAssociation[] associations;
-
+        public List<CubeAssociation> associations;
+        public SkinnedMeshRenderer skinMeshRend;
+        public Mesh sharedmesh;
+        public List<string> blendShapeNames;
         public 
 	    // Use this for initialization
-	    void Start () {
+	    void Start () 
+        {
             controller = FindObjectOfType<LeapServiceProvider>().GetLeapController();
+            sharedmesh = skinMeshRend.sharedMesh;
+            blendShapeNames = new List<string>();
+            associations = new List<CubeAssociation>();
+            for(int i= 0; i<sharedmesh.blendShapeCount; i++)
+            {
+                CubeAssociation temp = new CubeAssociation();
+                temp.blendShapeName = sharedmesh.GetBlendShapeName(i);
+                temp.finger = (FingerAllocation)i + 1;
+                associations.Add(temp);
+            }
 	    }
 
         public int getPinch()
@@ -55,19 +69,20 @@ namespace Leap.Unity
         }
 	
 	    // Update is called once per frame
-	    void Update () {
+	    void Update () 
+        {
            
-            for( int i = 0; i < associations.Length; i++)
-            {
-                if((int)associations[i].finger == getPinch())
-                {
-                    associations[i].cube.GetComponent<Renderer>().material = associations[i].pinchMat;
-                }
-                else
-                {
-                    associations[i].cube.GetComponent<Renderer>().material = associations[i].defMat;
-                }
-            }
+            //for( int i = 0; i < associations.Length; i++)
+            //{
+            //    if((int)associations[i].finger == getPinch())
+            //    {
+            //        //associations[i].cube.GetComponent<Renderer>().material = associations[i].pinchMat;
+            //    }
+            //    else
+            //    {
+            //        //associations[i].cube.GetComponent<Renderer>().material = associations[i].defMat;
+            //    }
+            //}
 	    }
     }
 }
