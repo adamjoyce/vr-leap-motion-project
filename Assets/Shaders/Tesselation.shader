@@ -16,6 +16,7 @@
 #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessDistance nolightmap
 #pragma target 5.0
 #include "Tessellation.cginc"
+#include "UnityCG.cginc"
 
 			struct appdata {
 				float4 vertex : POSITION;
@@ -33,11 +34,12 @@
 			}
 
 			sampler2D _DispTex;
+			uniform float4 _DispTex_ST;
 			float _Displacement;
 
 			void disp(inout appdata v)
 			{
-				float d = tex2Dlod(_DispTex, float4(v.texcoord.xy, 0, 0)).r * _Displacement;
+				float d = tex2Dlod(_DispTex, float4(TRANSFORM_TEX(v.texcoord, _DispTex), 0, 0)).r * _Displacement;
 				v.vertex.xyz += v.normal * d;
 			}
 

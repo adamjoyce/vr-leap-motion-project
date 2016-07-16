@@ -144,7 +144,7 @@ Material:
       data:
         first:
           name: _Displacement
-        second: 0.23
+        second: 0.159
       data:
         first:
           name: _Tess
