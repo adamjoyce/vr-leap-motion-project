@@ -26,14 +26,11 @@ namespace Leap.Unity
         public List<CubeAssociation> associations;
         public SkinnedMeshRenderer skinMeshRend;
         public Mesh sharedmesh;
-        public List<string> blendShapeNames;
-        public 
 	    // Use this for initialization
 	    void Start () 
         {
             controller = FindObjectOfType<LeapServiceProvider>().GetLeapController();
             sharedmesh = skinMeshRend.sharedMesh;
-            blendShapeNames = new List<string>();
             associations = new List<CubeAssociation>();
             for(int i= 0; i<sharedmesh.blendShapeCount; i++)
             {
