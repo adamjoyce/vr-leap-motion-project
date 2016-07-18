@@ -4,9 +4,13 @@
 		_MainTex("Base (RGB)", 2D) = "white" {}
 		_DispTex("Disp Texture", 2D) = "gray" {}
 		_NormalMap("Normalmap", 2D) = "bump" {}
+		_SecondaryTex("Base (RGB)", 2D) = "white" {}
+		_SecondaryDisp("Disp Texture", 2D) = "gray" {}
+		_SecondaryNormal("Normalmap", 2D) = "bump" {}
 		_Displacement("Displacement", Range(0, 1.0)) = 0.3
 			_Color("Color", color) = (1, 1, 1, 0)
 			_SpecColor("Spec color", color) = (0.5, 0.5, 0.5, 0.5)
+			_Blend("Blend", Range(0, 1.0)) = 0.5
 	}
 	SubShader{
 			Tags{ "RenderType" = "Opaque" }
@@ -34,8 +38,10 @@
 			}
 
 			sampler2D _DispTex;
+			sampler2D _SecondaryTex;
 			uniform float4 _DispTex_ST;
 			float _Displacement;
+			float _Blend;
 
 			void disp(inout appdata v)
 			{
