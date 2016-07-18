@@ -17,6 +17,9 @@ public class Scroll : MonoBehaviour {
         gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(scrollamount, 0));
         gameObject.GetComponent<Renderer>().material.SetTextureOffset("_DispTex", new Vector2(scrollamount, 0));
         gameObject.GetComponent<Renderer>().material.SetTextureOffset("_NormalMap", new Vector2(scrollamount, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryTex", new Vector2(scrollamount, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryDisp", new Vector2(scrollamount, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryNormal", new Vector2(scrollamount, 0));
 	
 	}
 }

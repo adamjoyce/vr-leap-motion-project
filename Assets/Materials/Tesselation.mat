@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 30764f9fea01ec0419cd2550998ddc06, type: 3}
+          m_Texture: {fileID: 2800000, guid: b46c4a1f33d7d77478f004b971cdf961, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -33,7 +33,7 @@ Material:
         first:
           name: _NormalMap
         second:
-          m_Texture: {fileID: 2800000, guid: 7d860df0f08b738438fbed785cbe5015, type: 3}
+          m_Texture: {fileID: 2800000, guid: d4df9cd9aa7fb9e49ae1f5ef0c4687a9, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -89,7 +89,28 @@ Material:
         first:
           name: _DispTex
         second:
+          m_Texture: {fileID: 2800000, guid: d34e5b146a3b69a41b5183ecba4a81c5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondaryTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 30764f9fea01ec0419cd2550998ddc06, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondaryDisp
+        second:
           m_Texture: {fileID: 2800000, guid: aa3e1a96b89e99d4988b0568df026ad8, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondaryNormal
+        second:
+          m_Texture: {fileID: 2800000, guid: 7d860df0f08b738438fbed785cbe5015, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -149,6 +170,10 @@ Material:
         first:
           name: _Tess
         second: 32
+      data:
+        first:
+          name: _Blend
+        second: 0.5
     m_Colors:
       data:
         first:
