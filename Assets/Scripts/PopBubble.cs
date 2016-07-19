@@ -40,7 +40,7 @@ public class PopBubble : MonoBehaviour
                         {
                             // Play explode animation and destroy bubble.
                             StartCoroutine(DestroyAfterAudioFinished(hit.collider.gameObject));
-                            Debug.Log("BANG!");
+                            //Debug.Log("BANG!");
                         }
                     }
                     Debug.DrawRay(ray.origin, ray.direction, Color.red);

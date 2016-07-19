@@ -15,14 +15,18 @@ public class Startup : MonoBehaviour
         directionalLights = new List<Light>();
         pointLights = new List<Light>();
         aSource = GameObject.FindObjectOfType<AudioSource>();
-        Light[] lights = FindObjectsOfType<Light>();
-        foreach(Light light in lights)
-            //if (light.type == LightType.Directional)
-            //    directionalLights.Add(light);
-            //else if (light.type == LightType.Point)
-            //    pointLights.Add(light);
+        GameObject[] lights = GameObject.FindGameObjectsWithTag("StartsOff");
+        foreach (GameObject light in lights)
+        {
+            Light lightComp = light.GetComponent<Light>();
+            if (lightComp.type == LightType.Directional)
+                directionalLights.Add(lightComp);
+            else if (lightComp.type == LightType.Point)
+                pointLights.Add(lightComp);
 
-        aSource.pitch = -0.5f;
+        }
+
+        //aSource.pitch = -0.5f;
         aSource.Pause();
         foreach (Light light in directionalLights)
             light.intensity = 0;

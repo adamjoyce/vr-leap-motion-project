@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CollisionSphere
   - BubbleSphere
+  - StartsOff
   layers:
   - Default
   - TransparentFX
