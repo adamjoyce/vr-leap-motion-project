@@ -10,8 +10,8 @@ public class SpawnPrimitives : MonoBehaviour
     public LeapProvider provider;
     public List<Hand> hands;
 
-    public GameObject bubbleSphere;
     public GameObject cloth;
+    public GameObject bubbleSphere;
 
     public Transform[] collisionSpheres;
 
@@ -56,7 +56,7 @@ public class SpawnPrimitives : MonoBehaviour
         Vector3 secondPalmPos = hands[1].PalmPosition.ToVector3();
         Vector3 spawnPos = (firstPalmPos + secondPalmPos) * 0.5f;
 
-        GameObject.Find("Pop").GetComponent<AudioSource>().Play();
+        GameObject.Find("AudioPop").GetComponent<AudioSource>().Play();
         GameObject sphere = Instantiate(bubbleSphere, spawnPos, Quaternion.identity) as GameObject;
 
         // Setup the bubble spheres rigidbody properties.

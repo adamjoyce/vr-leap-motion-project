@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &145360
 GameObject:
   m_ObjectHideFlags: 1
@@ -342,7 +342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &154494
 GameObject:
   m_ObjectHideFlags: 1
@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &197994
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,13 +696,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149400}
-  m_LocalRotation: {x: 0.54683286, y: 0, z: 0, w: 0.83724177}
-  m_LocalPosition: {x: 2.48, y: 6.97, z: -2.4}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 66.299995, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 442948}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!4 &414954
 Transform:
   m_ObjectHideFlags: 1
@@ -856,13 +856,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3122253, y: 8.498592, z: 2.7539787}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 412374}
   - {fileID: 465262}
   - {fileID: 461378}
+  - {fileID: 412374}
   m_Father: {fileID: 407210}
   m_RootOrder: 3
 --- !u!4 &444228
@@ -946,7 +946,7 @@ Transform:
   - {fileID: 410172}
   - {fileID: 489388}
   m_Father: {fileID: 442948}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &464550
 Transform:
   m_ObjectHideFlags: 1
@@ -975,7 +975,7 @@ Transform:
   - {fileID: 433788}
   - {fileID: 495816}
   m_Father: {fileID: 442948}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &468300
 Transform:
   m_ObjectHideFlags: 1
@@ -1624,9 +1624,9 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.17
-  m_Range: 73.9
-  m_SpotAngle: 56
+  m_Intensity: 2
+  m_Range: 50
+  m_SpotAngle: 100
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
