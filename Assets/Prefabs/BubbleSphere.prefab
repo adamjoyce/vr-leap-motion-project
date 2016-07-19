@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.91194, y: 3.7399378, z: 29.24044}
+  m_LocalPosition: {x: -33.67709, y: 5.205744, z: -2.081852}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -246,8 +246,8 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 15
+  m_Intensity: 2
+  m_Range: 15.26
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -323,6 +323,7 @@ MonoBehaviour:
   player: {fileID: 0}
   cloth: {fileID: 0}
   destroyDistance: 100
+  beingDestroyed: 0
 --- !u!135 &13546038
 SphereCollider:
   m_ObjectHideFlags: 1

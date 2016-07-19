@@ -2454,7 +2454,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424862, guid: bfe922850c82a844ea9ada52d1021db6, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfe922850c82a844ea9ada52d1021db6, type: 2}
@@ -2676,8 +2676,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442110, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8210578, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b9fb327dac3136647a72965510c9c453, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
   m_IsPrefabParent: 0
@@ -3021,7 +3025,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407210, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 144618, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
       propertyPath: m_IsActive
@@ -3030,6 +3034,22 @@ Prefab:
     - target: {fileID: 193316, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10863886, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10863886, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10863886, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
+      propertyPath: m_Range
+      value: 50.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 10863886, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
+      propertyPath: m_SpotAngle
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccbc2389d44f630488c9f9414f338a0b, type: 2}
@@ -3064,7 +3084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deviceOffsets:
   - DeviceName: oculus
-    HeightOffset: 1
+    HeightOffset: 0
 --- !u!4 &1649868326
 Transform:
   m_ObjectHideFlags: 0
