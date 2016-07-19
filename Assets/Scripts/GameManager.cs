@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        DontDestroyOnLoad(_instance);
+        //DontDestroyOnLoad(_instance);
     }
 
     // Sets the instance to null when the application quits.
