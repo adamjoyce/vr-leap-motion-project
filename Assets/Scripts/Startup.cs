@@ -26,7 +26,7 @@ public class Startup : MonoBehaviour
 
         }
 
-        //aSource.pitch = -0.5f;
+        aSource.pitch = -0.5f;
         aSource.Pause();
         foreach (Light light in directionalLights)
             light.intensity = 0;
