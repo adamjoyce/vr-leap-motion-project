@@ -10,6 +10,8 @@
 		_EmissionColor("Color", Color) = (0, 0, 0, 1)
 		_EmissionMap("Emission", 2D) = "white" {}
 		_Blend("Blend", Range(0, 1)) = 0.5
+		_SpecMap("Specular Map 1", 2D) = "white" {}
+		_SecondarySpecMap("Specular Map 2", 2D) = "white" {}
 	}
 	SubShader{
 			Tags{ "RenderType" = "Opaque" }
@@ -28,6 +30,8 @@
 			sampler2D _SecondaryTex;
 			sampler2D _BumpMap;
 			sampler2D _SecondaryBumpMap;
+			sampler2D _SpecMap;
+			sampler2D _SecondarySpecMap;
 			fixed4 _Color;
 			float _Blend;
 			float _Glossiness;
@@ -38,6 +42,8 @@
 				float2 uv_SecondaryTex;
 				float2 uv_BumpMap;
 				float2 uv_SecondaryBumpMap;
+				float2 uv_SpecMap;
+				float2 uv_SecondarySpecMap;
 			};
 
 			void surf(Input IN, inout SurfaceOutputStandardSpecular o) {
@@ -46,7 +52,7 @@
 				fixed4 tex2 = tex2D(_SecondaryTex, IN.uv_SecondaryTex) * _Color;
 				o.Albedo = lerp(tex1, tex2, _Blend) * _Color;
 				o.Normal = lerp(UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap)), UnpackNormal(tex2D(_SecondaryBumpMap, IN.uv_SecondaryBumpMap)), _Blend);
-				o.Specular = _SpecColor;
+				o.Specular = lerp(tex2D(_SpecMap, IN.uv_SpecMap), tex2D(_SecondarySpecMap, IN.uv_SecondarySpecMap), _Blend);
 				o.Smoothness = _Glossiness;
 			}
 			ENDCG
