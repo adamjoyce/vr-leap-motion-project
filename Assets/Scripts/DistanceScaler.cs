@@ -9,7 +9,7 @@ public class DistanceScaler : MonoBehaviour
     public float scaleFactor;
     public float minScale = 0.1f;
     public float maxScale = 100.0f;
-    public float startScalingDistance = 1.0f;
+    public float scaleThresholdDistance = 1.0f;
 
     private Transform haloLight;
 
@@ -25,8 +25,9 @@ public class DistanceScaler : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
+        // Once the sphere passes the threshold distance it is scaled.
         float currentDistance = Vector3.Distance(transform.position, player.transform.position);
-        if (currentDistance > startScalingDistance)
+        if (currentDistance > scaleThresholdDistance)
         {
             if (transform.localScale.x >= minScale && transform.localScale.x <= maxScale)
             {
