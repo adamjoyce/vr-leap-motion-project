@@ -173,7 +173,7 @@ Material:
       data:
         first:
           name: _Blend
-        second: 0.5
+        second: 1
     m_Colors:
       data:
         first:
