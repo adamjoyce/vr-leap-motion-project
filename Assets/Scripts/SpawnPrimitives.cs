@@ -20,6 +20,8 @@ public class SpawnPrimitives : MonoBehaviour
     public float kinematicDelay = 0.5f;
     public bool delay = false;
 
+    private GameObject sphere;
+
     // Use this for initialization.
     void Start()
     {
@@ -44,6 +46,10 @@ public class SpawnPrimitives : MonoBehaviour
             {
                 StartCoroutine(SpawnSphere());
             }
+            //sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
+            //float scaleDistance = hands[0].WristPosition.DistanceTo(hands[1].WristPosition) * 0.6f;
+            //Debug.Log(scaleDistance);
+            //sphere.transform.localScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
             //Debug.Log(hands[0].WristPosition.DistanceTo(hands[1].WristPosition));
         }
     }
@@ -57,7 +63,7 @@ public class SpawnPrimitives : MonoBehaviour
         Vector3 spawnPos = (firstPalmPos + secondPalmPos) * 0.5f;
 
         GameObject.Find("AudioPop").GetComponent<AudioSource>().Play();
-        GameObject sphere = Instantiate(bubbleSphere, spawnPos, Quaternion.identity) as GameObject;
+        sphere = Instantiate(bubbleSphere, spawnPos, Quaternion.identity) as GameObject;
 
         // Setup the bubble spheres rigidbody properties.
         sphere.AddComponent<Rigidbody>();
