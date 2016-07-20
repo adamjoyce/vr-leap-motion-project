@@ -307,8 +307,9 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceFromPlayer: 0
   scaleFactor: 0
-  minScale: 0.05
+  minScale: 0.1
   maxScale: 10
+  startScalingDistance: 1
 --- !u!114 &11491408
 MonoBehaviour:
   m_ObjectHideFlags: 1

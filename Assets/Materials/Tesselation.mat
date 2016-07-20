@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CustomMaterial
-  m_Shader: {fileID: 4800000, guid: 0d63430cade67324cb5ad86df9f67596, type: 3}
+  m_Name: Tesselation
+  m_Shader: {fileID: 4800000, guid: 35949293abdefb144aa05f63d6ffb3d1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -19,15 +19,22 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 15200000, guid: d57a1a43a6f565548a33d1e7589ba311, type: 3}
+          m_Texture: {fileID: 2800000, guid: b46c4a1f33d7d77478f004b971cdf961, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 34d8ac945e51caa47b0033cc636ad7dd, type: 3}
-          m_Scale: {x: 0.4, y: 1}
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap
+        second:
+          m_Texture: {fileID: 2800000, guid: d4df9cd9aa7fb9e49ae1f5ef0c4687a9, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -80,23 +87,30 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SpecGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _SecondaryTex
         second:
-          m_Texture: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
+          m_Texture: {fileID: 2800000, guid: 30764f9fea01ec0419cd2550998ddc06, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SecondaryBumpMap
+          name: _DispTex
         second:
-          m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
+          m_Texture: {fileID: 2800000, guid: d34e5b146a3b69a41b5183ecba4a81c5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondaryDisp
+        second:
+          m_Texture: {fileID: 2800000, guid: aa3e1a96b89e99d4988b0568df026ad8, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondaryNormal
+        second:
+          m_Texture: {fileID: 2800000, guid: 7d860df0f08b738438fbed785cbe5015, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -123,7 +137,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.39
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -151,12 +165,20 @@ Material:
       data:
         first:
           name: _Blend
-        second: 0.5
+        second: 1
+      data:
+        first:
+          name: _Tess
+        second: 32
+      data:
+        first:
+          name: _Displacement
+        second: 0.25
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
@@ -164,4 +186,4 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: 0.3455882, g: 0.3455882, b: 0.3455882, a: 1}
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
