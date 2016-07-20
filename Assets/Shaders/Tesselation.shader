@@ -11,6 +11,7 @@
 			_Color("Color", color) = (1, 1, 1, 0)
 			_SpecColor("Spec color", color) = (0.5, 0.5, 0.5, 0.5)
 			_Blend("Blend", Range(0, 1.0)) = 0.5
+			_EdgeLength("Edge length", Range(2, 50)) = 15
 	}
 	SubShader{
 			Tags{ "RenderType" = "Opaque" }
