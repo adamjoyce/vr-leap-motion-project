@@ -19,6 +19,7 @@ public class SpawnPrimitives : MonoBehaviour
     public float spawnDelay = 1.0f;
     public float kinematicDelay = 0.5f;
     public bool delay = false;
+    public bool sphereAttached = false;
 
     private GameObject sphere;
 
@@ -42,15 +43,21 @@ public class SpawnPrimitives : MonoBehaviour
         hands = provider.CurrentFrame.Hands;
         if (hands.Count > 1)
         {
-            if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay)
+            if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay && !sphereAttached)
             {
                 StartCoroutine(SpawnSphere());
+                sphereAttached = true;
             }
-            //sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
-            //float scaleDistance = hands[0].WristPosition.DistanceTo(hands[1].WristPosition) * 0.6f;
-            //Debug.Log(scaleDistance);
-            //sphere.transform.localScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
-            //Debug.Log(hands[0].WristPosition.DistanceTo(hands[1].WristPosition));
+            else if (sphereAttached) {
+                sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
+                float scaleDistance = hands[0].WristPosition.DistanceTo(hands[1].WristPosition) * 0.6f;
+                sphere.transform.localScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
+                if (!hands[1].Fingers[0].IsExtended && !hands[1].Fingers[1].IsExtended && !hands[1].Fingers[2].IsExtended && !hands[1].Fingers[3].IsExtended && !hands[1].Fingers[4].IsExtended &&
+                    !hands[0].Fingers[0].IsExtended && !hands[0].Fingers[1].IsExtended && !hands[0].Fingers[2].IsExtended && !hands[0].Fingers[3].IsExtended && !hands[0].Fingers[4].IsExtended)
+                {
+                    sphereAttached = false;
+                }
+            }
         }
     }
 
