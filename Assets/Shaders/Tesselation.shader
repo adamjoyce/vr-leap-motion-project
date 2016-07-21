@@ -1,17 +1,17 @@
-﻿Shader "Custom/Tesselation" {
+﻿Shader "VRProject/Tesselation" {
 	Properties{
 		_Tess("Tessellation", Range(1, 32)) = 4
-		_MainTex("Base (RGB)", 2D) = "white" {}
-		_DispTex("Disp Texture", 2D) = "gray" {}
-		_NormalMap("Normalmap", 2D) = "bump" {}
-		_SecondaryTex("Base (RGB)", 2D) = "white" {}
-		_SecondaryDisp("Disp Texture", 2D) = "gray" {}
-		_SecondaryNormal("Normalmap", 2D) = "bump" {}
+		_MainTex("Texture 1", 2D) = "white" {}
+		_DispTex("Displacement Texture 1", 2D) = "gray" {}
+		_NormalTex("Normal Map 1", 2D) = "bump" {}
+		_SecondaryTex("Texture 2", 2D) = "white" {}
+		_SecondaryDisp("Displacement Texture 2", 2D) = "gray" {}
+		_SecondaryNormal("Normal Map 2", 2D) = "bump" {}
 		_Displacement("Displacement", Range(0, 1.0)) = 0.3
-			_Color("Color", color) = (1, 1, 1, 0)
-			_SpecColor("Spec color", color) = (0.5, 0.5, 0.5, 0.5)
-			_Blend("Blend", Range(0, 1.0)) = 0.5
-			_EdgeLength("Edge length", Range(2, 50)) = 15
+		_Color("Main Color", color) = (1, 1, 1, 0)
+		_SpecColor("Spec Color", color) = (0.5, 0.5, 0.5, 0.5)
+		_Blend("Blend", Range(0, 1.0)) = 0.5
+		_EdgeLength("Edge length", Range(2, 50)) = 15
 	}
 	SubShader{
 			Tags{ "RenderType" = "Opaque" }

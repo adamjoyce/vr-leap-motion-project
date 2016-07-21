@@ -21,9 +21,9 @@ public class CrossFade : MonoBehaviour
         replace = gameObject.GetComponent<Renderer>().material.GetTexture("_MainTex");
         replaceOffset = gameObject.GetComponent<Renderer>().material.GetTextureOffset("_MainTex");
         replaceTiling = gameObject.GetComponent<Renderer>().material.GetTextureScale("_MainTex");
-        replaceNormal = gameObject.GetComponent<Renderer>().material.GetTexture("_BumpMap");
+        replaceNormal = gameObject.GetComponent<Renderer>().material.GetTexture("_NormalTex");
         gameObject.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
-        CrossFadeTo(gameObject.GetComponent<Renderer>().material.GetTexture("_SecondaryTex"), gameObject.GetComponent<Renderer>().material.GetTexture("_SecondaryBumpMap"), gameObject.GetComponent<Renderer>().material.GetTextureOffset("_SecondaryTex"), gameObject.GetComponent<Renderer>().material.GetTextureScale("_SecondaryTex"));
+        CrossFadeTo(gameObject.GetComponent<Renderer>().material.GetTexture("_SecondaryTex"), gameObject.GetComponent<Renderer>().material.GetTexture("_SecondaryNormal"), gameObject.GetComponent<Renderer>().material.GetTextureOffset("_SecondaryTex"), gameObject.GetComponent<Renderer>().material.GetTextureScale("_SecondaryTex"));
     }
 	
 	// Update is called once per frame
@@ -39,11 +39,11 @@ public class CrossFade : MonoBehaviour
                 trigger = false;
                 fader = 0f;
                 replace = gameObject.GetComponent<Renderer>().material.GetTexture("_MainTex");
-                replaceNormal = gameObject.GetComponent<Renderer>().material.GetTexture("_BumpMap");
+                replaceNormal = gameObject.GetComponent<Renderer>().material.GetTexture("_NormalTex");
                 replaceOffset = gameObject.GetComponent<Renderer>().material.GetTextureOffset("_MainTex");
                 replaceTiling = gameObject.GetComponent<Renderer>().material.GetTextureScale("_MainTex");
                 gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", newTex);
-                gameObject.GetComponent<Renderer>().material.SetTexture("_BumpMap", newNormal);
+                gameObject.GetComponent<Renderer>().material.SetTexture("_NormalTex", newNormal);
                 //gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", newOffset);
                 gameObject.GetComponent<Renderer>().material.SetTextureScale("_MainTex", newTiling);
                 gameObject.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
@@ -59,7 +59,7 @@ public class CrossFade : MonoBehaviour
         newTiling = tiling;
         newTex = curTexture;
         gameObject.GetComponent<Renderer>().material.SetTexture("_SecondaryTex", curTexture);
-        gameObject.GetComponent<Renderer>().material.SetTexture("_SecondaryBumpMap", newNormal);
+        gameObject.GetComponent<Renderer>().material.SetTexture("_SecondaryNormal", newNormal);
         //gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryTex", newOffset);
         gameObject.GetComponent<Renderer>().material.SetTextureScale("_SecondaryTex", newTiling);
         trigger = true;

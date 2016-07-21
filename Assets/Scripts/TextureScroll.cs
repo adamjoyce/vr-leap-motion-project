@@ -31,8 +31,8 @@ public class TextureScroll : MonoBehaviour
         normalOffset += (Time.deltaTime * scrollSpeed) / 10.0f;
         if (normalOffset >= 1.0f)
             normalOffset = 0.0f;
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_BumpMap", new Vector2(normalOffset, 0));
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryBumpMap", new Vector2(normalOffset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_NormalTex", new Vector2(normalOffset, 0));
+        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_SecondaryNormal", new Vector2(normalOffset, 0));
 
     }
 
