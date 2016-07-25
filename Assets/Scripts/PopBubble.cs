@@ -81,6 +81,10 @@ public class PopBubble : MonoBehaviour
     //
     private IEnumerator DestroyAfterAudioFinished(GameObject bubbleSphere)
     {
+        Light[] lights = bubbleSphere.GetComponentsInChildren<Light>();
+        for (int i = 0; i < lights.Length; i++)
+            lights[i].enabled = false;
+
         bubbleSphere.GetComponent<AudioSource>().Play();
         bubbleSphere.GetComponent<MeshRenderer>().enabled = false;
         bubbleSphere.GetComponent<DestroyPrimitive>().beingDestroyed = true;
