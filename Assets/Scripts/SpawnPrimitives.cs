@@ -21,6 +21,7 @@ public class SpawnPrimitives : MonoBehaviour
 
     public float minSphereSize = 0.1f;
     public float maxSphereSize = 0.35f;
+    public float haloOffset = 0.1f;
 
     public bool delay = false;
     public bool sphereAttached = false;
@@ -58,6 +59,7 @@ public class SpawnPrimitives : MonoBehaviour
             }
             else if (sphereAttached)
             {
+                Transform haloLight = sphere.transform.Find("HaloLight");
                 sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
                 float scaleDistance = hands[0].WristPosition.DistanceTo(hands[1].WristPosition) * 0.6f;
 
@@ -65,25 +67,35 @@ public class SpawnPrimitives : MonoBehaviour
                 {
                     Vector3 newScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
                     if (newScale.x >= sphere.transform.localScale.x)
+                    {
                         sphere.transform.localScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
+                        haloLight.GetComponent<Light>().range = sphere.transform.localScale.x + haloOffset;
+                    }                    
                 }
                 else if (sphere.transform.localScale.x >= maxSphereSize)
                 {
                     Vector3 newScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
                     if (newScale.x <= sphere.transform.localScale.x)
+                    {
                         sphere.transform.localScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
+                        haloLight.GetComponent<Light>().range = sphere.transform.localScale.x + haloOffset;
+                    }
                 }
                 else
                 {
                     sphere.transform.localScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
+                    haloLight.GetComponent<Light>().range = sphere.transform.localScale.x + haloOffset;
                 }
 
                 if (!hands[1].Fingers[0].IsExtended && !hands[1].Fingers[1].IsExtended && !hands[1].Fingers[2].IsExtended && !hands[1].Fingers[3].IsExtended && !hands[1].Fingers[4].IsExtended &&
                     !hands[0].Fingers[0].IsExtended && !hands[0].Fingers[1].IsExtended && !hands[0].Fingers[2].IsExtended && !hands[0].Fingers[3].IsExtended && !hands[0].Fingers[4].IsExtended)
                 {
                     sphereAttached = false;
-                    if (sphere.transform.localScale.x < minSphereSize) 
+                    if (sphere.transform.localScale.x < minSphereSize)
+                    {
                         sphere.transform.localScale = new Vector3(minSphereSize, minSphereSize, minSphereSize);
+                        haloLight.GetComponent<Light>().range = sphere.transform.localScale.x + haloOffset;
+                    }
                 }
             }
         }
