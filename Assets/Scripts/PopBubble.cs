@@ -11,9 +11,10 @@ public class PopBubble : MonoBehaviour
 
     public float reloadTriggerDistance = 0.06f;
     public float minTriggerDistance = 0.03f;
-    public bool needReload = false;
 
     private List<Hand> hands;
+    private bool[] needReload;
+
     private float triggerDistance = 0.0f;
 
     void Start()
@@ -25,6 +26,7 @@ public class PopBubble : MonoBehaviour
             mainCamera = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
 
         hands = new List<Hand>();
+        needReload = new bool[2];
     }
 
     void Update()
@@ -36,7 +38,7 @@ public class PopBubble : MonoBehaviour
             {
                 for (int i = 0; i < hands.Count; i++)
                 {
-                    if (HandGunShape(hands[i]) && !needReload)
+                    if (HandGunShape(hands[i]) && !needReload[i])
                     {
                         Ray ray = new Ray(mainCamera.transform.position, (hands[i].Fingers[1].TipPosition.ToVector3() - mainCamera.transform.position));
                         RaycastHit hit;
@@ -50,13 +52,13 @@ public class PopBubble : MonoBehaviour
                             }
                         }
                         Debug.DrawRay(ray.origin, ray.direction, Color.red);
-                        needReload = true;
+                        needReload[i] = true;
                         Debug.Log("TRIGGER PULLED! DISTANCE: " + triggerDistance);
                     }
 
                     if (triggerDistance >= reloadTriggerDistance)
                     {
-                        needReload = false;
+                        needReload[i] = false;
                         Debug.Log("RELOADED! DISTANCE: " + triggerDistance);
                     }
                 }
