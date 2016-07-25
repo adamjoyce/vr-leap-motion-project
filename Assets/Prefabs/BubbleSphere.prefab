@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400812}
   - 108: {fileID: 10861280}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: HaloLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 483998}
   - 108: {fileID: 10881596}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - 114: {fileID: 11491408}
   - 114: {fileID: 11454558}
   - 114: {fileID: 11408756}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BubbleSphere
   m_TagString: BubbleSphere
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.829753, y: 58.370537, z: 119.32681}
+  m_LocalPosition: {x: -45.111374, y: 49.44416, z: -63.341087}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -209,7 +209,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137996}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 0.98681545, b: 0.8088235, a: 1}
@@ -246,8 +246,8 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.5
-  m_Range: 15.26
+  m_Intensity: 3.5
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -309,7 +309,7 @@ MonoBehaviour:
   scaleFactor: 0
   minScale: 0.1
   maxScale: 10
-  startScalingDistance: 1
+  scaleThresholdDistance: 1
 --- !u!114 &11491408
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -52,6 +52,7 @@ public class SpawnPrimitives : MonoBehaviour
             if (sphere && sphere.GetComponent<Rigidbody>().isKinematic)
                 sphere.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
+            // Are wrists close enough to spawn a new sphere?
             if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay && !sphereAttached)
             {
                 StartCoroutine(SpawnSphere());
@@ -63,6 +64,7 @@ public class SpawnPrimitives : MonoBehaviour
                 sphere.transform.position = (hands[0].PalmPosition.ToVector3() + hands[1].PalmPosition.ToVector3()) * 0.5f;
                 float scaleDistance = hands[0].WristPosition.DistanceTo(hands[1].WristPosition) * 0.6f;
 
+                // Scale sphere while it is attached to wrists.
                 if (sphere.transform.localScale.x <= minSphereSize)
                 {
                     Vector3 newScale = new Vector3(scaleDistance, scaleDistance, scaleDistance);
@@ -87,6 +89,7 @@ public class SpawnPrimitives : MonoBehaviour
                     haloLight.GetComponent<Light>().range = sphere.transform.localScale.x + haloOffset;
                 }
 
+                // When fists are made with both hands the sphere is detatched.
                 if (!hands[1].Fingers[0].IsExtended && !hands[1].Fingers[1].IsExtended && !hands[1].Fingers[2].IsExtended && !hands[1].Fingers[3].IsExtended && !hands[1].Fingers[4].IsExtended &&
                     !hands[0].Fingers[0].IsExtended && !hands[0].Fingers[1].IsExtended && !hands[0].Fingers[2].IsExtended && !hands[0].Fingers[3].IsExtended && !hands[0].Fingers[4].IsExtended)
                 {

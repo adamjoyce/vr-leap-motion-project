@@ -53,13 +53,13 @@ public class PopBubble : MonoBehaviour
                         }
                         Debug.DrawRay(ray.origin, ray.direction, Color.red);
                         needReload[i] = true;
-                        Debug.Log("TRIGGER PULLED! DISTANCE: " + triggerDistance);
+                        //Debug.Log("TRIGGER PULLED! DISTANCE: " + triggerDistance);
                     }
 
                     if (triggerDistance >= reloadTriggerDistance)
                     {
                         needReload[i] = false;
-                        Debug.Log("RELOADED! DISTANCE: " + triggerDistance);
+                        //Debug.Log("RELOADED! DISTANCE: " + triggerDistance);
                     }
                 }
             }
