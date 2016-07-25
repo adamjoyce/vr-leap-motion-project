@@ -28,22 +28,25 @@ public class PopBubble : MonoBehaviour
         hands = provider.CurrentFrame.Hands;
         if (hands.Count > 0)
         {
-            for (int i = 0; i < hands.Count; i++)
+            if (!provider.GetComponent<SpawnPrimitives>().sphereAttached)
             {
-                if (HandGunShape(hands[i]))
+                for (int i = 0; i < hands.Count; i++)
                 {
-                    Ray ray = new Ray(mainCamera.transform.position, (hands[i].Fingers[1].TipPosition.ToVector3() - mainCamera.transform.position));
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit))
+                    if (HandGunShape(hands[i]))
                     {
-                        if (hit.collider.tag == "BubbleSphere" && !hit.collider.gameObject.GetComponent<DestroyPrimitive>().beingDestroyed)
+                        Ray ray = new Ray(mainCamera.transform.position, (hands[i].Fingers[1].TipPosition.ToVector3() - mainCamera.transform.position));
+                        RaycastHit hit;
+                        if (Physics.Raycast(ray, out hit))
                         {
-                            // Play explode animation and destroy bubble.
-                            StartCoroutine(DestroyAfterAudioFinished(hit.collider.gameObject));
-                            //Debug.Log("BANG!");
+                            if (hit.collider.tag == "BubbleSphere" && !hit.collider.gameObject.GetComponent<DestroyPrimitive>().beingDestroyed)
+                            {
+                                // Play explode animation and destroy bubble.
+                                StartCoroutine(DestroyAfterAudioFinished(hit.collider.gameObject));
+                                //Debug.Log("BANG!");
+                            }
                         }
+                        Debug.DrawRay(ray.origin, ray.direction, Color.red);
                     }
-                    Debug.DrawRay(ray.origin, ray.direction, Color.red);
                 }
             }
         }
