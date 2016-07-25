@@ -47,6 +47,10 @@ public class SpawnPrimitives : MonoBehaviour
         hands = provider.CurrentFrame.Hands;
         if (hands.Count > 1)
         {
+            // Makes the sphere suspectable to physics.
+            if (sphere && sphere.GetComponent<Rigidbody>().isKinematic)
+                sphere.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
             if (hands[0].WristPosition.DistanceTo(hands[1].WristPosition) < wristDistance && !delay && !sphereAttached)
             {
                 StartCoroutine(SpawnSphere());
@@ -81,6 +85,16 @@ public class SpawnPrimitives : MonoBehaviour
                     if (sphere.transform.localScale.x < minSphereSize) 
                         sphere.transform.localScale = new Vector3(minSphereSize, minSphereSize, minSphereSize);
                 }
+            }
+        }
+        else
+        {
+            // Make any sphere that is being generated static.
+            if (sphere && sphereAttached)
+            {
+                sphere.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+                sphere.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+                sphere.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
             }
         }
     }
