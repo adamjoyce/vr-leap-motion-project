@@ -31,9 +31,9 @@ public class MusicController : MonoBehaviour
         if (!provider)
             provider = FindObjectOfType<LeapProvider>() as LeapProvider;
         if (!audioSource)
-            audioSource = GameObject.Find("AudioSource");
+            audioSource = GameObject.Find("AudioMain");
         if (!reverbZone)
-            reverbZone = GameObject.Find("ReverbZone");
+            reverbZone = GameObject.Find("ReverbArea");
 
         hands = new List<Hand>();
         previousRightHandPosition = new Vector();
