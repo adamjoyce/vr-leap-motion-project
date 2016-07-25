@@ -8,9 +8,13 @@ public class PopBubble : MonoBehaviour
 {
     public LeapProvider provider;
     public Camera mainCamera;
+
+    public float reloadTriggerDistance = 0.06f;
     public float minTriggerDistance = 0.03f;
+    public bool needReload = false;
 
     private List<Hand> hands;
+    private float triggerDistance = 0.0f;
 
     void Start()
     {
@@ -32,7 +36,7 @@ public class PopBubble : MonoBehaviour
             {
                 for (int i = 0; i < hands.Count; i++)
                 {
-                    if (HandGunShape(hands[i]))
+                    if (HandGunShape(hands[i]) && !needReload)
                     {
                         Ray ray = new Ray(mainCamera.transform.position, (hands[i].Fingers[1].TipPosition.ToVector3() - mainCamera.transform.position));
                         RaycastHit hit;
@@ -46,6 +50,14 @@ public class PopBubble : MonoBehaviour
                             }
                         }
                         Debug.DrawRay(ray.origin, ray.direction, Color.red);
+                        needReload = true;
+                        Debug.Log("TRIGGER PULLED! DISTANCE: " + triggerDistance);
+                    }
+
+                    if (triggerDistance >= reloadTriggerDistance)
+                    {
+                        needReload = false;
+                        Debug.Log("RELOADED! DISTANCE: " + triggerDistance);
                     }
                 }
             }
@@ -55,8 +67,8 @@ public class PopBubble : MonoBehaviour
     // Returns true if a hand is in the gun shape.
     private bool HandGunShape(Hand hand)
     {
-        float triggerDistance = Vector3.Distance(hand.Fingers[0].TipPosition.ToVector3(), hand.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Center.ToVector3());
-        Debug.Log(triggerDistance);
+        triggerDistance = Vector3.Distance(hand.Fingers[0].TipPosition.ToVector3(), hand.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Center.ToVector3());
+        //Debug.Log(triggerDistance);
         if (hand.Fingers[1].IsExtended && !hand.Fingers[2].IsExtended && !hand.Fingers[3].IsExtended && !hand.Fingers[4].IsExtended && triggerDistance < minTriggerDistance)
         {
             return true;
