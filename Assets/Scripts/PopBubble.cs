@@ -53,7 +53,7 @@ public class PopBubble : MonoBehaviour
     private bool HandGunShape(Hand hand)
     {
         float triggerDistance = Vector3.Distance(hand.Fingers[0].TipPosition.ToVector3(), hand.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Center.ToVector3());
-        //Debug.Log(triggerDistance);
+        Debug.Log(triggerDistance);
         if (hand.Fingers[1].IsExtended && !hand.Fingers[2].IsExtended && !hand.Fingers[3].IsExtended && !hand.Fingers[4].IsExtended && triggerDistance < minTriggerDistance)
         {
             return true;
