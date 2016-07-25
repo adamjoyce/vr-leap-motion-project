@@ -151,7 +151,7 @@ GameObject:
   - 108: {fileID: 102438516}
   m_Layer: 0
   m_Name: Point light (2)
-  m_TagString: StartsOff
+  m_TagString: PitchControlledLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2348,7 +2348,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006496282}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
   m_Name: 
@@ -2440,7 +2440,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1019014795}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
   m_Name: 
@@ -3118,7 +3118,7 @@ MonoBehaviour:
   provider: {fileID: 0}
   audioSource: {fileID: 0}
   reverbZone: {fileID: 0}
-  pinchDistance: 25
+  pinchDistance: 35
   pitchIncrement: 0.001
   pitchChange: 0.015
   pitchMin: -1.5
@@ -4036,7 +4036,7 @@ GameObject:
   - 108: {fileID: 1542372839}
   m_Layer: 0
   m_Name: Point light
-  m_TagString: StartsOff
+  m_TagString: PitchControlledLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4402,7 +4402,7 @@ GameObject:
   - 108: {fileID: 1605049773}
   m_Layer: 0
   m_Name: Point light (1)
-  m_TagString: StartsOff
+  m_TagString: PitchControlledLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4700,6 +4700,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1703663712}
   - 114: {fileID: 1703663713}
+  - 114: {fileID: 1703663714}
   m_Layer: 0
   m_Name: PointLights
   m_TagString: Untagged
@@ -4733,6 +4734,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f828ab2e7bf97d345ac30eae922d2779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1703663714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703663711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31268691af971446a2260c34b7abd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1711172278

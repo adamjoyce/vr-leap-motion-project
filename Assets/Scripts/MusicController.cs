@@ -38,6 +38,7 @@ public class MusicController : MonoBehaviour
 
         hands = new List<Hand>();
         previousRightHandPosition = new Vector();
+        audioSource.GetComponent<AudioSource>().pitch = 0.0f;
     }
 
     // Update is called once per frame.
