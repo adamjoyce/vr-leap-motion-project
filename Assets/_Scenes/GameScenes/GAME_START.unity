@@ -1257,7 +1257,19 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11490308, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+      propertyPath: movTexture
+      value: 
+      objectReference: {fileID: 15200000, guid: 0c568579e81642e408f3150c5ca500fe,
+        type: 3}
+    - target: {fileID: 11490308, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+      propertyPath: movTexture2
+      value: 
+      objectReference: {fileID: 15200000, guid: c8b5286bfb58d8c438f237152fbfefff,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 11492302, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+    - {fileID: 11419652, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &458708552
@@ -2476,6 +2488,26 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!1 &993993731 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 106592, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+  m_PrefabInternal: {fileID: 435772087}
+--- !u!114 &993993734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 993993731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a732fac5e38c5a44a183a9f2578a4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: 0
+  normal: 1
+  displacement: 0
+  crossFade: 1
+  blendSpeed: 0.5
 --- !u!1 &1004004049
 GameObject:
   m_ObjectHideFlags: 0
