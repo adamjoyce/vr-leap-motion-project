@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CollisionSphere
   - BubbleSphere
+  - PitchControlledLights
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Bg
   - FPSWeapon
   - Hands
-  - 
+  - BubbleLighting
   - 
   - 
   - 

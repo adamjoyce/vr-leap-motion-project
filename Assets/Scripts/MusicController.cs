@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using Leap;
 using Leap.Unity;
@@ -31,12 +32,13 @@ public class MusicController : MonoBehaviour
         if (!provider)
             provider = FindObjectOfType<LeapProvider>() as LeapProvider;
         if (!audioSource)
-            audioSource = GameObject.Find("AudioSource");
+            audioSource = GameObject.Find("AudioMain");
         if (!reverbZone)
-            reverbZone = GameObject.Find("ReverbZone");
+            reverbZone = GameObject.Find("ReverbArea");
 
         hands = new List<Hand>();
         previousRightHandPosition = new Vector();
+        audioSource.GetComponent<AudioSource>().pitch = 0.0f;
     }
 
     // Update is called once per frame.
@@ -58,10 +60,14 @@ public class MusicController : MonoBehaviour
                 }
             }
 
-            if (displayPinches())
+            // Only while a sphere isn't being created.
+            if (!provider.GetComponent<SpawnPrimitives>().sphereAttached)
             {
-                AdjustPitch();
-                AdjustReverb();
+                if (displayPinches())
+                {
+                    AdjustPitch();
+                    AdjustReverb();
+                }
             }
 
             previousRightHandPosition = right.PalmPosition;
@@ -76,7 +82,7 @@ public class MusicController : MonoBehaviour
 
         // Left.
         GameObject leftPinchSphere = GameObject.Find("LeftPinchSphere");
-        if (handPinched(left))
+        if (handPinched(left) && left.Fingers[4].IsExtended)
         {
             Vector3 leftPinchSpherePos = left.Fingers[0].TipPosition.ToVector3();
             leftPinchSphere.transform.position = leftPinchSpherePos;
@@ -90,7 +96,7 @@ public class MusicController : MonoBehaviour
 
         // Right.
         GameObject rightPinchSphere = GameObject.Find("RightPinchSphere");
-        if (handPinched(right))
+        if (handPinched(right) && right.Fingers[4].IsExtended)
         {
             Vector3 rightPinchSpherePos = right.Fingers[0].TipPosition.ToVector3();
             rightPinchSphere.transform.position = rightPinchSpherePos;
