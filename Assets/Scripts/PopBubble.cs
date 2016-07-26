@@ -96,7 +96,8 @@ public class PopBubble : MonoBehaviour
         applyExplosionForce(bubbleSphere, explosionPower);
 
         yield return new WaitForSeconds(bubbleSphere.GetComponent<AudioSource>().clip.length);
-        bubbleSphere.GetComponent<DestroyPrimitive>().DestroySphere();
+        if (bubbleSphere != null)
+            bubbleSphere.GetComponent<DestroyPrimitive>().DestroySphere();
     }
 
     //
