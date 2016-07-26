@@ -14,12 +14,12 @@ public class StartState : State<GameManager>
 
     public void enter(GameManager gm)
     {
-        Debug.Log("Entered Start State");
+        //Debug.Log("Entered Start State");
     }
 
     public void exit(GameManager gm)
     {
-        Debug.Log("Exited Start State");
+        //Debug.Log("Exited Start State");
     }
 }
 

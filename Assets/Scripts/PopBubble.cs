@@ -13,6 +13,7 @@ public class PopBubble : MonoBehaviour
     public float minTriggerDistance = 0.03f;
 
     public int explosionPower = 10000;
+    public int explosionRadius = 5;
 
     private List<Hand> hands;
     private bool[] needReload;
@@ -93,7 +94,7 @@ public class PopBubble : MonoBehaviour
         bubbleSphere.GetComponent<MeshRenderer>().enabled = false;
         bubbleSphere.GetComponent<DestroyPrimitive>().beingDestroyed = true;
 
-        applyExplosionForce(bubbleSphere, explosionPower);
+        applyExplosionForce(bubbleSphere);
 
         yield return new WaitForSeconds(bubbleSphere.GetComponent<AudioSource>().clip.length);
         if (bubbleSphere != null)
@@ -101,22 +102,37 @@ public class PopBubble : MonoBehaviour
     }
 
     //
-    public void applyExplosionForce(GameObject sphere, float power)
+    public void applyExplosionForce(GameObject sphere)
     {
-        List<Collider> colliders = sphere.GetComponentInChildren<TriggerZone>().collidersInTriggerZone;
-        float radius = sphere.transform.localScale.x * sphere.GetComponentInChildren<SphereCollider>().radius;
-        for (int i = 0; i < colliders.Count; i ++)
+        Collider[] colliders = Physics.OverlapSphere(sphere.transform.position, explosionRadius);
+        foreach (Collider hit in colliders)
         {
-            if (colliders[i] != null)
+            if (hit.tag == "BubbleSphere" && hit.GetComponent<Collider>() != sphere.GetComponent<SphereCollider>())
             {
-                Rigidbody rb = colliders[i].gameObject.GetComponent<Rigidbody>();
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
                 if (rb != null)
-                    rb.AddExplosionForce(power, sphere.transform.position, radius);
-            }
-            else
-            {
-                continue;
+                {
+                    rb.AddExplosionForce(explosionRadius, sphere.transform.position, explosionRadius * sphere.transform.localScale.x);
+                    Debug.Log(explosionRadius);
+                }
             }
         }
+
+        //List<Collider> colliders = sphere.GetComponentInChildren<TriggerZone>().collidersInTriggerZone;
+        //float radius = sphere.transform.localScale.x * sphere.GetComponentInChildren<SphereCollider>().radius;
+        //Debug.Log(radius);
+        //for (int i = 0; i < colliders.Count; i++)
+        //{
+        //    if (colliders[i] != null)
+        //    {
+        //        Rigidbody rb = colliders[i].gameObject.GetComponent<Rigidbody>();
+        //        if (rb != null)
+        //            rb.AddExplosionForce(explosionPower, sphere.transform.position, radius);
+        //    }
+        //    else
+        //    {
+        //        continue;
+        //    }
+        //}
     }
 }

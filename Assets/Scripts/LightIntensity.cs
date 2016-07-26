@@ -27,7 +27,7 @@ public class LightIntensity : MonoBehaviour
     void Update()
     {
         float normalisedPitch = (audioSource.pitch - minPitch) / (maxPitch - minPitch);
-        Debug.Log(minPitch);
+        //Debug.Log(minPitch);
         float scaledIntensity = audioSource.pitch * (maxIntensity - minIntensity) + minIntensity;
         //Debug.Log(normalisedIntensity);
         for (int i = 0; i < lights.Length; i++)

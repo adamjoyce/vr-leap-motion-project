@@ -44,7 +44,7 @@ public class DestroyPrimitive : MonoBehaviour
         }
 
         cloth.GetComponent<Cloth>().sphereColliders = clothColliders.ToArray();
-        Debug.Log("Removed Index: " + (index - 1));
+        //Debug.Log("Removed Index: " + (index - 1));
 
         Destroy(gameObject);
     }

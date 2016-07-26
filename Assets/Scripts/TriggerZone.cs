@@ -15,7 +15,10 @@ public class TriggerZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "BubbleSphere" && GetComponentInParent<Collider>() != other && !collidersInTriggerZone.Contains(other))
+        {
+            Debug.Log(other.gameObject);
             collidersInTriggerZone.Add(other);
+        }
     }
 
     //
