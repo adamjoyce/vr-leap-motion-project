@@ -85,15 +85,14 @@ public class NewScrollScript : MonoBehaviour {
 
     void materialUpdate()
     {
-        List<Hand> hands = provider.CurrentFrame.Hands;
-        //float offsetScale1 = (maxOffsetSpeed1 - minOffsetSpeed1) / (2000 - -100);
+        float offsetScale1 = (maxOffsetSpeed1 - minOffsetSpeed1) / (MC.pitchMax - MC.pitchMin);
         float offsetScale2 = (maxOffsetSpeed2 - minOffsetSpeed2) / (MC.pitchMax - MC.pitchMin);
         float smoothnessValue = aReverbZone.reverb * 0.0005f;
-        Debug.Log(smoothnessValue);
+        fade = MC.texFade;
         speed = aSource.pitch;
         texOffset = displacementOffset += (Time.deltaTime * speed) / 10.0f;
 
-
+        normalOffset1 += (Time.deltaTime * (MC.texChange * offsetScale1)) / 10.0f;
         normalOffset2 += (Time.deltaTime * (aSource.pitch * offsetScale2)) / 10.0f;
 
         mat.SetFloat("_Glossiness", smoothnessValue);
@@ -127,24 +126,24 @@ public class NewScrollScript : MonoBehaviour {
 
         if(crossFade)
         {
-            fade += Time.deltaTime * blendSpeed;
+            //fade += Time.deltaTime * blendSpeed;
             mat.SetFloat("_Blend", fade);
-            if (pos)
-            {
-                if (fade >= 1.0f)
-                {
-                    blendSpeed = -blendSpeed;
-                    pos = !pos;
-                }
-            }
-            else if(!pos)
-            {
-                if (fade <= 0.0f)
-                {
-                    blendSpeed = -blendSpeed;
-                    pos = !pos;
-                }
-            }
+            //if (pos)
+            //{
+            //    if (fade >= 1.0f)
+            //    {
+            //        blendSpeed = -blendSpeed;
+            //        pos = !pos;
+            //    }
+            //}
+            //else if(!pos)
+            //{
+            //    if (fade <= 0.0f)
+            //    {
+            //        blendSpeed = -blendSpeed;
+            //        pos = !pos;
+            //    }
+            //}
 
         }
     }

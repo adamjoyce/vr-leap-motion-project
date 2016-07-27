@@ -14,6 +14,7 @@ public class MusicController : MonoBehaviour
     public Hand left, right;
 
     public Vector previousRightHandPosition;
+    public Vector previousLeftHandPosition;
 
     public float pinchDistance = 25.0f;
 
@@ -24,6 +25,9 @@ public class MusicController : MonoBehaviour
 
     public float reverbIncrement = 0.001f;
     public int reverbChange = 1;
+
+    public float texChange;
+    public float texFade;
 
     // Use this for initialization.
     void Start()
@@ -38,6 +42,7 @@ public class MusicController : MonoBehaviour
 
         hands = new List<Hand>();
         previousRightHandPosition = new Vector();
+        previousLeftHandPosition = new Vector();
         audioSource.GetComponent<AudioSource>().pitch = 0.0f;
     }
 
@@ -67,10 +72,13 @@ public class MusicController : MonoBehaviour
                 {
                     AdjustPitch();
                     AdjustReverb();
+                    AdjustTex();
+                    AdjustFade();
                 }
             }
 
             previousRightHandPosition = right.PalmPosition;
+            previousLeftHandPosition = left.PalmPosition;
         }
     }
 
@@ -155,5 +163,37 @@ public class MusicController : MonoBehaviour
             reverbZone.GetComponent<AudioReverbZone>().reverb -= reverbChange;
         }
         //Debug.Log(right.PalmPosition);
+    }
+
+    private void AdjustTex()
+    {
+        if(previousLeftHandPosition == null)
+        {
+            //Do nothing
+        }
+        else if(previousLeftHandPosition.y < left.PalmPosition.y - pitchIncrement)
+        {
+            texChange = Mathf.Clamp((texChange += pitchChange), pitchMin, pitchMax);
+        }
+        else if(previousLeftHandPosition.y > left.PalmPosition.y + pitchIncrement)
+        {
+            texChange = Mathf.Clamp((texChange -= pitchChange), pitchMin, pitchMax);
+        }
+    }
+
+    private void AdjustFade()
+    {
+        if(previousLeftHandPosition == null)
+        {
+            //Do nothing
+        }
+        else if(previousLeftHandPosition.x < left.PalmPosition.x - pitchIncrement)
+        {
+            texFade = Mathf.Clamp((texFade += pitchChange), 0, 1);
+        }
+        else if(previousLeftHandPosition.x > left.PalmPosition.x + pitchIncrement)
+        {
+            texFade = Mathf.Clamp((texFade -= pitchChange),0,1);
+        }
     }
 }
