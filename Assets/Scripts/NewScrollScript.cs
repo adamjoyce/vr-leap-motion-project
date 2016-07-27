@@ -32,6 +32,7 @@ public class NewScrollScript : MonoBehaviour {
     public float maxOffsetSpeed2;
     
     AudioSource aSource;
+    AudioReverbZone aReverbZone;
     GameObject mainSphere;
     Material mat;
 
@@ -43,6 +44,7 @@ public class NewScrollScript : MonoBehaviour {
     {
         mat = gameObject.GetComponent<Renderer>().material;
         aSource = FindObjectOfType<AudioSource>();
+        aReverbZone = FindObjectOfType<AudioReverbZone>();
         provider = FindObjectOfType<LeapProvider>();
         MC = FindObjectOfType<MusicController>();
         if(gameObject.name == "Cloth")
@@ -84,14 +86,17 @@ public class NewScrollScript : MonoBehaviour {
     void materialUpdate()
     {
         List<Hand> hands = provider.CurrentFrame.Hands;
-        float offsetScale1 = (maxOffsetSpeed1 - minOffsetSpeed1) / (2000 - -100);
+        //float offsetScale1 = (maxOffsetSpeed1 - minOffsetSpeed1) / (2000 - -100);
         float offsetScale2 = (maxOffsetSpeed2 - minOffsetSpeed2) / (MC.pitchMax - MC.pitchMin);
-
+        float smoothnessValue = aReverbZone.reverb * 0.0005f;
+        Debug.Log(smoothnessValue);
         speed = aSource.pitch;
         texOffset = displacementOffset += (Time.deltaTime * speed) / 10.0f;
 
 
-        normalOffset2 += (Time.deltaTime * (aSource.pitch * offsetScale2)) / 10.0f; 
+        normalOffset2 += (Time.deltaTime * (aSource.pitch * offsetScale2)) / 10.0f;
+
+        mat.SetFloat("_Glossiness", smoothnessValue);
 
         if (texOffset >= 1.0f)
             texOffset = 0.0f;

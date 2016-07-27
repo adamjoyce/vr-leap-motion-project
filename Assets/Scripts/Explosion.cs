@@ -15,23 +15,26 @@ public class Explosion : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        float exscale = explosionGameObj.transform.localScale.x;
-        if (pos)
+        if (explosionGameObj != null)
         {
-            exscale += 1.0f;
-            explosionGameObj.GetComponent<Transform>().localScale = new Vector3(exscale, exscale, exscale);
-            if (exscale > 20.0f)
+            float exscale = explosionGameObj.transform.localScale.x;
+            if (pos)
             {
-                pos = !pos;
+                exscale += 1.0f;
+                explosionGameObj.GetComponent<Transform>().localScale = new Vector3(exscale, exscale, exscale);
+                if (exscale > 20.0f)
+                {
+                    pos = !pos;
+                }
             }
-        }
-        else
-        {
-            exscale -= 1.0f;
-            explosionGameObj.GetComponent<Transform>().localScale = new Vector3(exscale, exscale, exscale);
-            if (exscale < 0.0f)
+            else
             {
-                Destroy(explosionGameObj);
+                exscale -= 1.0f;
+                explosionGameObj.GetComponent<Transform>().localScale = new Vector3(exscale, exscale, exscale);
+                if (exscale < 0.0f)
+                {
+                    Destroy(explosionGameObj);
+                }
             }
         }
     }
