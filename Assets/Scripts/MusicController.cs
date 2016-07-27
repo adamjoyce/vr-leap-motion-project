@@ -187,13 +187,13 @@ public class MusicController : MonoBehaviour
         {
             //Do nothing
         }
-        else if(previousLeftHandPosition.x < left.PalmPosition.x - pitchIncrement)
+        else if(previousLeftHandPosition.x < left.PalmPosition.x - 0.01)
         {
-            texFade = Mathf.Clamp((texFade += pitchChange), 0, 1);
+            texFade = Mathf.Clamp((texFade += 0.05f), 0, 1);
         }
-        else if(previousLeftHandPosition.x > left.PalmPosition.x + pitchIncrement)
+        else if(previousLeftHandPosition.x > left.PalmPosition.x + 0.01)
         {
-            texFade = Mathf.Clamp((texFade -= pitchChange),0,1);
+            texFade = Mathf.Clamp((texFade -= 0.05f),0,1);
         }
     }
 }

@@ -87,7 +87,7 @@ public class NewScrollScript : MonoBehaviour {
     {
         float offsetScale1 = (maxOffsetSpeed1 - minOffsetSpeed1) / (MC.pitchMax - MC.pitchMin);
         float offsetScale2 = (maxOffsetSpeed2 - minOffsetSpeed2) / (MC.pitchMax - MC.pitchMin);
-        float smoothnessValue = aReverbZone.reverb * 0.0005f;
+        float smoothnessValue = Mathf.Clamp(aReverbZone.reverb * 0.0005f,0.0f,0.75f);
         fade = MC.texFade;
         speed = aSource.pitch;
         texOffset = displacementOffset += (Time.deltaTime * speed) / 10.0f;
