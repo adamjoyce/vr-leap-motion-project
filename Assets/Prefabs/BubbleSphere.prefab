@@ -65,6 +65,8 @@ GameObject:
   - 114: {fileID: 11491408}
   - 114: {fileID: 11454558}
   - 114: {fileID: 11408756}
+  - 114: {fileID: 11426478}
+  - 114: {fileID: 11453628}
   m_Layer: 15
   m_Name: BubbleSphere
   m_TagString: BubbleSphere
@@ -323,6 +325,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collidersInTriggerZone: []
+--- !u!114 &11426478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193140}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16f9303f30a3b142a3efe9dbe1f9f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.005
+  scale: 0
+  varianceX: 1.25894
+  varianceY: 0.00125558
+  varianceZ: 0.5468
+  isBeingTargeted: 0
+--- !u!114 &11453628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc8ce1e301816b4c9d125ebbe160030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 0}
 --- !u!114 &11454558
 MonoBehaviour:
   m_ObjectHideFlags: 1

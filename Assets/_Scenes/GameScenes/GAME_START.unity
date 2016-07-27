@@ -272,7 +272,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 0.88052744, g: 0.766, b: 0.388, a: 1}
-  m_Intensity: 0
+  m_Intensity: 3.4
   m_Range: 107.6
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1257,7 +1257,9 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11419652, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+    - {fileID: 11492302, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &458708552
@@ -1789,7 +1791,7 @@ Transform:
   - {fileID: 1703663712}
   - {fileID: 536098275}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &702676282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,7 +3365,7 @@ MonoBehaviour:
   reloadTriggerDistance: 0.06
   minTriggerDistance: 0.05
   explosionPower: 2500
-  explosionRadius: 5000
+  explosionRadius: 2000
 --- !u!114 &1315540601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3652,7 +3654,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
 --- !u!1 &1383249379
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,7 +4482,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 0.9852941, g: 0.78594166, b: 0.61580884, a: 1}
-  m_Intensity: 0
+  m_Intensity: 3.4
   m_Range: 49.02
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4846,7 +4848,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 0.63235295, g: 1, b: 0.93914807, a: 1}
-  m_Intensity: 0
+  m_Intensity: 3.4
   m_Range: 80.74
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -5802,6 +5804,30 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   filtering: 0.5
+--- !u!1 &2052762461 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 106592, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+  m_PrefabInternal: {fileID: 435772087}
+--- !u!114 &2052762464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052762461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caee8747a36e3c04d838fd33d2485b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: 0
+  normal: 1
+  displacement: 0
+  crossFade: 0
+  blendSpeed: 0.5
+  minOffsetSpeed1: -5
+  minOffsetSpeed2: -5
+  maxOffsetSpeed1: 5
+  maxOffsetSpeed2: 5
 --- !u!1 &2066045345
 GameObject:
   m_ObjectHideFlags: 0

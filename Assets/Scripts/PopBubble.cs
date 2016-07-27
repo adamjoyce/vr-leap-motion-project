@@ -45,6 +45,7 @@ public class PopBubble : MonoBehaviour
                     {
                         Ray ray = new Ray(mainCamera.transform.position, (hands[i].Fingers[1].TipPosition.ToVector3() - mainCamera.transform.position));
                         RaycastHit hit;
+                        
                         if (Physics.Raycast(ray, out hit))
                         {
                             if (hit.collider.tag == "BubbleSphere" && !hit.collider.gameObject.GetComponent<DestroyPrimitive>().beingDestroyed)
@@ -93,8 +94,10 @@ public class PopBubble : MonoBehaviour
         bubbleSphere.GetComponent<AudioSource>().Play();
         bubbleSphere.GetComponent<MeshRenderer>().enabled = false;
         bubbleSphere.GetComponent<DestroyPrimitive>().beingDestroyed = true;
-
+        bubbleSphere.GetComponent<Explosion>().enabled = true;
+        
         applyExplosionForce(bubbleSphere);
+
 
         yield return new WaitForSeconds(bubbleSphere.GetComponent<AudioSource>().clip.length);
         if (bubbleSphere != null)
