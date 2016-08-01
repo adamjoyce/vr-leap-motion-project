@@ -7,6 +7,8 @@ TagManager:
   - CollisionSphere
   - BubbleSphere
   - PitchControlledLights
+  - StartsOff
+  - Blocks
   layers:
   - Default
   - TransparentFX
