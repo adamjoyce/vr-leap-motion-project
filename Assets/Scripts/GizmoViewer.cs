@@ -4,6 +4,7 @@ using System.Collections;
 public class GizmoViewer : MonoBehaviour {
     PopBubble popBub;
     float radius;
+    public bool wire, solid;
 	// Use this for initialization
 	void Start () 
     {
@@ -20,6 +21,9 @@ public class GizmoViewer : MonoBehaviour {
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(gameObject.transform.position, radius);
+        if (wire)
+            Gizmos.DrawWireSphere(gameObject.transform.position, radius);
+        else if (solid)
+            Gizmos.DrawSphere(gameObject.transform.position, radius);
     }
 }
