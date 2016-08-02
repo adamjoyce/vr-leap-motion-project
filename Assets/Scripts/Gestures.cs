@@ -44,6 +44,7 @@ public class Gestures : MonoBehaviour {
             else
                 right = hands[i];
         }
+        detectHands();
         detectMaestro();
         detectPinch();
         detectGun();
@@ -54,6 +55,19 @@ public class Gestures : MonoBehaviour {
             previousLeftHandPosition = left.PalmPosition;
         }
 	}
+
+    void detectHands()
+    {
+        if(left == null)
+        {
+            leftPinch = maestroMode = leftGunMode = leftHandNegX = leftHandNegY = leftHandPosX = leftHandPosY = false;
+        }
+
+        if(right == null)
+        {
+            rightPinch = maestroMode = rightGunMode = rightHandNegX = rightHandNegY = rightHandPosX = rightHandPosY = false;
+        }
+    }
     
     void detectMaestro()
     {
