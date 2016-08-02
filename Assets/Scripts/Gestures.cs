@@ -10,7 +10,7 @@ public class Gestures : MonoBehaviour {
     //[HideInInspector]
     public bool maestroMode;
     //[HideInInspector]
-    public bool gunMode;
+    public bool leftGunMode, rightGunMode;
 
     //[HideInInspector]
     public bool rightHandPosX, rightHandNegX, rightHandPosY, rightHandNegY;
@@ -44,54 +44,93 @@ public class Gestures : MonoBehaviour {
             else
                 right = hands[i];
         }
-        detectGestures();
+        detectMaestro();
+        detectPinch();
+        detectGun();
         detectMovement();
-        previousRightHandPosition = right.PalmPosition;
-        previousLeftHandPosition = left.PalmPosition;
+        if (left != null && right != null)
+        {
+            previousRightHandPosition = right.PalmPosition;
+            previousLeftHandPosition = left.PalmPosition;
+        }
 	}
-
-    void detectGestures()
+    
+    void detectMaestro()
     {
-        if(left.PinchDistance < pinchDistance && right.PinchDistance < pinchDistance)
+        if(left != null && right != null)
         {
-            maestroMode = true;
-            leftPinch = rightPinch = false;
-            Debug.Log("Maestro");
+            if (left.PinchDistance < pinchDistance && right.PinchDistance < pinchDistance)
+            {
+                maestroMode = true;
+                leftPinch = rightPinch = false;
+                //Debug.Log("Maestro");
+            }
+
+            else
+            {
+                maestroMode = false;
+            }
         }
-        else
+    }
+
+    void detectPinch()
+    {
+        if(maestroMode == false)
         {
-            maestroMode = false;
-            if(left.PinchDistance < pinchDistance)
+            if (left != null)
             {
-                leftPinch = true;
-                Debug.Log("Left Pinched");
+                if (left.PinchDistance < pinchDistance)
+                {
+                    leftPinch = true;
+                    //Debug.Log("Left Pinched");
+                }
+                else
+                {
+                    leftPinch = false;
+                }
             }
+
+            if (right != null)
+            {
+                if (right.PinchDistance < pinchDistance)
+                {
+                    rightPinch = true;
+                    //Debug.Log("Right Pinched");
+                }
+                else
+                {
+                    rightPinch = false;
+                }
+            }
+        }
+    }
+
+    void detectGun()
+    {
+        if(left != null)
+        {
+            float triggerDistance = Vector3.Distance(left.Fingers[0].TipPosition.ToVector3(), left.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Center.ToVector3());
+            if(left.Fingers[1].IsExtended && !left.Fingers[2].IsExtended && !left.Fingers[3].IsExtended && !left.Fingers[4].IsExtended && triggerDistance < minTriggerDistance)
+            {
+                leftGunMode = true;
+            }
+
             else
             {
-                leftPinch = false;
+                leftGunMode = false;
             }
-            if(right.PinchDistance < pinchDistance)
-            {
-                rightPinch = true;
-                Debug.Log("Right Pinched");
-            }
-            else
-            {
-                rightPinch = false;
-            }           
         }
 
-        for(int i=0; i < hands.Count; i++)
+        if( right != null)
         {
-            float triggerDistance = Vector3.Distance(hands[i].Fingers[0].TipPosition.ToVector3(), hands[i].Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Center.ToVector3());
-            if(hands[i].Fingers[1].IsExtended && !hands[i].Fingers[2].IsExtended && !hands[i].Fingers[3].IsExtended && !hands[i].Fingers[4].IsExtended && triggerDistance < minTriggerDistance)
+            float triggerDistance = Vector3.Distance(right.Fingers[0].TipPosition.ToVector3(), right.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Center.ToVector3());
+            if (right.Fingers[1].IsExtended && !right.Fingers[2].IsExtended && !right.Fingers[3].IsExtended && !right.Fingers[4].IsExtended && triggerDistance < minTriggerDistance)
             {
-                gunMode = true;
-
+                rightGunMode = true;
             }
             else
             {
-                gunMode = false;
+                rightGunMode = false;
             }
         }
     }
@@ -128,13 +167,13 @@ public class Gestures : MonoBehaviour {
             {
                 leftHandPosY = true;
                 leftHandNegY = false;
-                Debug.Log("Moving up");
+                //Debug.Log("Moving up");
             }
             else if (previousLeftHandPosition.y > left.PalmPosition.y + 0.001f)
             {
                 leftHandPosY = false;
                 leftHandNegY = true;
-                Debug.Log("Moving down");
+                //Debug.Log("Moving down");
             }
             else
             {
@@ -152,13 +191,13 @@ public class Gestures : MonoBehaviour {
             {
                 rightHandPosY = true;
                 rightHandNegY = false;
-                Debug.Log("Moving up");
+                //Debug.Log("Moving up");
             }
             else if (previousRightHandPosition.y > right.PalmPosition.y + 0.001f)
             {
                 rightHandPosY = false;
                 rightHandNegY = true;
-                Debug.Log("Moving down");
+                //Debug.Log("Moving down");
             }
             else
             {
@@ -180,13 +219,13 @@ public class Gestures : MonoBehaviour {
             {
                 leftHandPosX = true;
                 leftHandNegX = false;
-                Debug.Log("Moving right");
+                //Debug.Log("Moving right");
             }
             else if (previousLeftHandPosition.x > left.PalmPosition.x + 0.001f)
             {
                 leftHandPosX = false;
                 leftHandNegX = true;
-                Debug.Log("Moving left");
+                //Debug.Log("Moving left");
             }
             else
             {
@@ -204,13 +243,13 @@ public class Gestures : MonoBehaviour {
             {
                 rightHandPosX = true;
                 rightHandNegX = false;
-                Debug.Log("Moving left");
+                //Debug.Log("Moving left");
             }
             else if (previousRightHandPosition.x > right.PalmPosition.x + 0.001f)
             {
                 rightHandPosX = false;
                 rightHandNegX = true;
-                Debug.Log("Moving right");
+                //Debug.Log("Moving right");
             }
             else
             {

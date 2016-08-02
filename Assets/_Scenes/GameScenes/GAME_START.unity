@@ -3265,6 +3265,7 @@ GameObject:
   - 114: {fileID: 1315540599}
   - 114: {fileID: 1315540600}
   - 114: {fileID: 1315540601}
+  - 114: {fileID: 1315540602}
   m_Layer: 2
   m_Name: LeapHandController
   m_TagString: Untagged
@@ -3417,6 +3418,32 @@ MonoBehaviour:
   pitchMax: 1.5
   reverbIncrement: 0.001
   reverbChange: 100
+--- !u!114 &1315540602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315540594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21af62e25d944584899d1cdf345f7b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPinch: 0
+  rightPinch: 0
+  maestroMode: 0
+  leftGunMode: 0
+  rightGunMode: 0
+  rightHandPosX: 0
+  rightHandNegX: 0
+  rightHandPosY: 0
+  rightHandNegY: 0
+  leftHandPosX: 0
+  leftHandNegX: 0
+  leftHandPosY: 0
+  leftHandNegY: 0
+  pinchDistance: 25
+  minTriggerDistance: 0.05
 --- !u!1 &1322730988
 GameObject:
   m_ObjectHideFlags: 0
