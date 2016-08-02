@@ -13,9 +13,9 @@ public class Gestures : MonoBehaviour {
     public bool gunMode;
 
     //[HideInInspector]
-    public bool rightHandPosX, righthandNegX, rightHandPosY, rightHandNegY;
+    public bool rightHandPosX, rightHandNegX, rightHandPosY, rightHandNegY;
     //[HideInInspector]
-    public bool letHandPosX, leftHandNegX, leftHandPosY, leftHandNegY;
+    public bool leftHandPosX, leftHandNegX, leftHandPosY, leftHandNegY;
 
     LeapProvider provider;
     List<Hand> hands;
@@ -172,11 +172,51 @@ public class Gestures : MonoBehaviour {
     {
         if (hand.IsLeft)
         {
-
+            if (previousLeftHandPosition == null)
+            {
+                //Do nothing
+            }
+            else if (previousLeftHandPosition.x < left.PalmPosition.x - 0.001f)
+            {
+                leftHandPosX = true;
+                leftHandNegX = false;
+                Debug.Log("Moving right");
+            }
+            else if (previousLeftHandPosition.x > left.PalmPosition.x + 0.001f)
+            {
+                leftHandPosX = false;
+                leftHandNegX = true;
+                Debug.Log("Moving left");
+            }
+            else
+            {
+                leftHandPosX = false;
+                leftHandNegX = false;
+            }
         }
         else
         {
-
+            if (previousRightHandPosition == null)
+            {
+                //Do nothing
+            }
+            else if (previousRightHandPosition.x < right.PalmPosition.x - 0.001f)
+            {
+                rightHandPosX = true;
+                rightHandNegX = false;
+                Debug.Log("Moving left");
+            }
+            else if (previousRightHandPosition.x > right.PalmPosition.x + 0.001f)
+            {
+                rightHandPosX = false;
+                rightHandNegX = true;
+                Debug.Log("Moving right");
+            }
+            else
+            {
+                rightHandPosX = false;
+                rightHandNegX = false;
+            }
         }
     }
 }
