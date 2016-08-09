@@ -342,7 +342,7 @@ namespace Leap.Unity {
         verts.Add(p0 + spoke);
         verts.Add(p1 + spoke);
 
-        colors.Add(Color.white);
+        colors.Add(Color.red);
         colors.Add(Color.white);
 
         int triStart = verts.Count;
