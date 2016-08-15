@@ -12,6 +12,7 @@ public class FlockingBehaviour : MonoBehaviour
     public GameObject[] agents;
 
     public float velocityScale = 10.0f;
+    public float neighbourDistance = 10.0f;
 
     // Use this for initialization.
     void Start()
@@ -55,10 +56,36 @@ public class FlockingBehaviour : MonoBehaviour
         for (int i = 0; i < agentNumber; i++)
         {
             Vector3 pos = generateRandomLocation();
-            GameObject agent = Instantiate(agentPrefab, pos, Random.rotation) as GameObject;
+            GameObject agent = Instantiate(agentPrefab, pos, Quaternion.identity) as GameObject;
             agent.GetComponent<Agent>().velocity = generateVelocity();
             agents[i] = agent;
         }
+    }
+
+    // Calulate the alignment of the agent.
+    private Vector3 computeAlignment(GameObject agent)
+    {
+        Vector3 newAlignement = new Vector3();
+        int neighbourCount = 0;
+
+        for (int i = 0; i < agents.Length; i++)
+        {
+            if (agents[i] != agent && Mathf.Abs(Vector3.Distance(agents[i].transform.position, agent.transform.position)) <= neighbourDistance)
+            {
+                newAlignement.x += agent.GetComponent<Rigidbody>().velocity.x;
+                newAlignement.y += agent.GetComponent<Rigidbody>().velocity.y;
+                newAlignement.z += agent.GetComponent<Rigidbody>().velocity.z;
+                neighbourCount++;
+            }
+        }
+
+        if (neighbourCount == 0)
+            return newAlignement;
+
+        newAlignement.x /= neighbourCount;
+        newAlignement.y /= neighbourCount;
+        newAlignement = newAlignement.normalized;
+        return newAlignement;
     }
 
     // Returns a random position within the simulation zone.

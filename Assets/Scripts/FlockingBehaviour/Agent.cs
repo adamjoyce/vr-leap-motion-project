@@ -14,6 +14,7 @@ public class Agent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         flockingController = GameObject.Find("FlockingController");
         rb.velocity = velocity;
+        transform.rotation = Quaternion.LookRotation(rb.velocity);
     }
 
     // Update is called once per frame
@@ -21,7 +22,10 @@ public class Agent : MonoBehaviour
     {
         Vector3 collisionNormal = zoneCollision();
         if (collisionNormal != Vector3.zero)
+        {
             rb.velocity = Vector3.Reflect(rb.velocity, collisionNormal);
+            transform.rotation = Quaternion.LookRotation(rb.velocity);
+        }
     }
 
     // Returns the normal of the side the agent is colliding with or a zero vector for no collision.
