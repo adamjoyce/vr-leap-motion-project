@@ -3,13 +3,15 @@ using System.Collections;
 
 public class FlockingBehaviour : MonoBehaviour
 {
-    public float zoneWidth = 100.0f;
-    public float zoneHeight = 100.0f;
-    public float zoneDepth = 100.0f;
+    public float zoneWidth = 1000.0f;
+    public float zoneHeight = 1000.0f;
+    public float zoneDepth = 1000.0f;
 
     public GameObject agentPrefab;
     public int agentNumber = 20;
     public GameObject[] agents;
+
+    public float velocityScale = 10.0f;
 
     // Use this for initialization.
     void Start()
@@ -29,6 +31,24 @@ public class FlockingBehaviour : MonoBehaviour
 
     }
 
+    // Returns half the zone width.
+    public float getZoneHalfWidth()
+    {
+        return zoneWidth * 0.5f;
+    }
+
+    // Returns half the zone height.
+    public float getZoneHalfHeight()
+    {
+        return zoneHeight * 0.5f;
+    }
+
+    // Returns half the zone depth.
+    public float getZoneHalfDepth()
+    {
+        return zoneDepth * 0.5f;
+    }
+
     // Spawns all agents at random locations with random rotations.
     private void spawnAgents()
     {
@@ -36,6 +56,7 @@ public class FlockingBehaviour : MonoBehaviour
         {
             Vector3 pos = generateRandomLocation();
             GameObject agent = Instantiate(agentPrefab, pos, Random.rotation) as GameObject;
+            agent.GetComponent<Agent>().velocity = generateVelocity();
             agents[i] = agent;
         }
     }
@@ -43,14 +64,53 @@ public class FlockingBehaviour : MonoBehaviour
     // Returns a random position within the simulation zone.
     private Vector3 generateRandomLocation()
     {
-        float halfZoneWidth = zoneWidth * 0.5f;
-        float halfZoneHeight = zoneHeight * 0.5f;
-        float halfZoneDepth = zoneDepth * 0.5f;
+        float halfZoneWidth = getZoneHalfWidth();
+        float halfZoneHeight = getZoneHalfHeight();
+        float halfZoneDepth = getZoneHalfDepth();
 
         float randX = Random.Range(-halfZoneWidth, halfZoneWidth);
         float randY = Random.Range(-halfZoneHeight, halfZoneHeight);
         float randZ = Random.Range(-halfZoneDepth, halfZoneDepth);
 
         return new Vector3(randX, randY, randZ);
+    }
+
+    // Returns a random velocity.
+    private Vector3 generateVelocity()
+    {
+        return new Vector3(Random.value, Random.value, Random.value) * velocityScale;
+    }
+
+    //
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+
+        // Draw simulation zone.
+        // Close bottom left corner.
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), -getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(-getZoneHalfWidth(), getZoneHalfHeight(), -getZoneHalfDepth()));
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), -getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(-getZoneHalfWidth(), -getZoneHalfHeight(), getZoneHalfDepth()));
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), -getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), -getZoneHalfHeight(), -getZoneHalfDepth()));
+
+        // Close bottom right corner.
+        Gizmos.DrawLine(new Vector3(getZoneHalfWidth(), -getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), getZoneHalfHeight(), -getZoneHalfDepth()));
+        Gizmos.DrawLine(new Vector3(getZoneHalfWidth(), -getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), -getZoneHalfHeight(), getZoneHalfDepth()));
+
+        // Close top left corner.
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(-getZoneHalfWidth(), getZoneHalfHeight(), getZoneHalfDepth()));
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), getZoneHalfHeight(), -getZoneHalfDepth()));
+
+        // Close top right corner.
+        Gizmos.DrawLine(new Vector3(getZoneHalfWidth(), getZoneHalfHeight(), -getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), getZoneHalfHeight(), getZoneHalfDepth()));
+
+        // Far bottom left corner.
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), -getZoneHalfHeight(), getZoneHalfDepth()), new Vector3(-getZoneHalfWidth(), getZoneHalfHeight(), getZoneHalfDepth()));
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), -getZoneHalfHeight(), getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), -getZoneHalfHeight(), getZoneHalfDepth()));
+
+        // Far bottom right corner.
+        Gizmos.DrawLine(new Vector3(getZoneHalfWidth(), -getZoneHalfHeight(), getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), getZoneHalfHeight(), getZoneHalfDepth()));
+
+        // Far top left corner.
+        Gizmos.DrawLine(new Vector3(-getZoneHalfWidth(), getZoneHalfHeight(), getZoneHalfDepth()), new Vector3(getZoneHalfWidth(), getZoneHalfHeight(), getZoneHalfDepth()));
     }
 }

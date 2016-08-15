@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -85,6 +85,53 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &70314332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 70314334}
+  - 114: {fileID: 70314333}
+  m_Layer: 0
+  m_Name: FlockingController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &70314333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70314332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a526f42dca9270479ecdab707105a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneWidth: 100
+  zoneHeight: 100
+  zoneDepth: 100
+  agentPrefab: {fileID: 153574, guid: 778c4ad61f734fe47bd3ff0d7d88bcbc, type: 2}
+  agentNumber: 20
+  agents: []
+  velocityScale: 10
+--- !u!4 &70314334
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70314332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.539353, z: -0.50789034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &288874211
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +144,6 @@ GameObject:
   - 92: {fileID: 288874214}
   - 124: {fileID: 288874213}
   - 81: {fileID: 288874212}
-  - 114: {fileID: 288874217}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -134,8 +180,8 @@ Camera:
   m_GameObject: {fileID: 288874211}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -173,23 +219,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &288874217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 288874211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a526f42dca9270479ecdab707105a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoneWidth: 100
-  zoneHeight: 100
-  zoneDepth: 100
-  agentPrefab: {fileID: 153574, guid: 778c4ad61f734fe47bd3ff0d7d88bcbc, type: 2}
-  agentNumber: 20
-  agents: []
 --- !u!1 &1801460484
 GameObject:
   m_ObjectHideFlags: 0
