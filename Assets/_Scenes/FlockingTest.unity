@@ -116,10 +116,13 @@ MonoBehaviour:
   zoneHeight: 100
   zoneDepth: 100
   agentPrefab: {fileID: 153574, guid: 778c4ad61f734fe47bd3ff0d7d88bcbc, type: 2}
-  agentNumber: 500
+  agentNumber: 300
   agents: []
   velocityScale: 10
   neighbourDistance: 10
+  alignmentWeight: 0.3
+  cohesionWeight: 0.5
+  seperationWeight: 1
 --- !u!4 &70314334
 Transform:
   m_ObjectHideFlags: 0

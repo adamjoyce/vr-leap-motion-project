@@ -12,7 +12,12 @@ public class FlockingBehaviour : MonoBehaviour
     public GameObject[] agents;
 
     public float velocityScale = 10.0f;
-    public float neighbourDistance = 10.0f;
+    public float neighbourDistance = 100.0f;
+
+    public float alignmentWeight = 1.0f;
+    public float cohesionWeight = 1.0f;
+    public float seperationWeight = 1.0f;
+
 
     // Use this for initialization.
     void Start()
@@ -29,7 +34,18 @@ public class FlockingBehaviour : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
+        for (int i = 0; i < agents.Length; i++)
+        {
+            Vector3 alignment = computeAlignment(agents[i]);
+            Vector3 cohesion = computeCohesion(agents[i]);
+            Vector3 seperation = computeSeperation(agents[i]);
 
+            Vector3 velocity = agents[i].GetComponent<Rigidbody>().velocity;
+            velocity += (alignment * alignmentWeight) + (cohesion * cohesionWeight) + (seperation * seperationWeight);
+            velocity = velocity.normalized * 20.0f;
+
+            agents[i].GetComponent<Rigidbody>().velocity = velocity;
+        }
     }
 
     // Returns half the zone width.
@@ -72,9 +88,9 @@ public class FlockingBehaviour : MonoBehaviour
         {
             if (agents[i] != agent && Mathf.Abs(Vector3.Distance(agents[i].transform.position, agent.transform.position)) <= neighbourDistance)
             {
-                newAlignement.x += agent.GetComponent<Rigidbody>().velocity.x;
-                newAlignement.y += agent.GetComponent<Rigidbody>().velocity.y;
-                newAlignement.z += agent.GetComponent<Rigidbody>().velocity.z;
+                newAlignement.x += agents[i].GetComponent<Rigidbody>().velocity.x;
+                newAlignement.y += agents[i].GetComponent<Rigidbody>().velocity.y;
+                newAlignement.z += agents[i].GetComponent<Rigidbody>().velocity.z;
                 neighbourCount++;
             }
         }
@@ -98,9 +114,9 @@ public class FlockingBehaviour : MonoBehaviour
         {
             if (agents[i] != agent && Mathf.Abs(Vector3.Distance(agents[i].transform.position, agent.transform.position)) <= neighbourDistance)
             {
-                newDirection.x += agent.transform.position.x;
-                newDirection.y += agent.transform.position.y;
-                newDirection.z += agent.transform.position.z;
+                newDirection.x += agents[i].transform.position.x;
+                newDirection.y += agents[i].transform.position.y;
+                newDirection.z += agents[i].transform.position.z;
                 neighbourCount++;
             }
         }
@@ -114,6 +130,40 @@ public class FlockingBehaviour : MonoBehaviour
         newDirection = newDirection.normalized;
         return newDirection;
     }
+
+    //
+    private Vector3 computeSeperation(GameObject agent)
+    {
+        Vector3 newDirection = new Vector3();
+        int neighbourCount = 0;
+
+        for (int i = 0; i < agents.Length; i++)
+        {
+            if (agents[i] != agent && Mathf.Abs(Vector3.Distance(agents[i].transform.position, agent.transform.position)) <= neighbourDistance)
+            {
+                newDirection.x += agents[i].transform.position.x - agent.transform.position.x;
+                newDirection.y += agents[i].transform.position.y - agent.transform.position.y;
+                newDirection.z += agents[i].transform.position.z - agent.transform.position.z;
+                neighbourCount++;
+            }
+        }
+
+        if (neighbourCount == 0)
+            return newDirection;
+
+        newDirection.x /= neighbourCount;
+        newDirection.y /= neighbourCount;
+        newDirection *= -1;
+        newDirection *= -1;
+        newDirection = newDirection.normalized;
+        return newDirection;
+    }
+
+    //private void avoidWalls(GameObject agent)
+    //{
+    //    Vector3 newDirection = new Vector3();
+    //    if (agent.transform.position.x < )
+    //}
 
     // Returns a random position within the simulation zone.
     private Vector3 generateRandomLocation()
