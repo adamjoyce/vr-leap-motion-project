@@ -88,6 +88,33 @@ public class FlockingBehaviour : MonoBehaviour
         return newAlignement;
     }
 
+    // Calculate the cohesion of the agent (how much the agent steers towards a 'center of mass'.
+    private Vector3 computeCohesion(GameObject agent)
+    {
+        Vector3 newDirection = new Vector3();
+        int neighbourCount = 0;
+
+        for (int i = 0; i < agents.Length; i++)
+        {
+            if (agents[i] != agent && Mathf.Abs(Vector3.Distance(agents[i].transform.position, agent.transform.position)) <= neighbourDistance)
+            {
+                newDirection.x += agent.transform.position.x;
+                newDirection.y += agent.transform.position.y;
+                newDirection.z += agent.transform.position.z;
+                neighbourCount++;
+            }
+        }
+
+        if (neighbourCount == 0)
+            return newDirection;
+
+        newDirection.x /= neighbourCount;
+        newDirection.y /= neighbourCount;
+        newDirection = new Vector3(newDirection.x - agent.transform.position.x, newDirection.y - agent.transform.position.y, newDirection.z - agent.transform.position.z);
+        newDirection = newDirection.normalized;
+        return newDirection;
+    }
+
     // Returns a random position within the simulation zone.
     private Vector3 generateRandomLocation()
     {

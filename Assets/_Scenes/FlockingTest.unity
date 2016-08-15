@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 70314334}
   - 114: {fileID: 70314333}
-  - 65: {fileID: 70314335}
   m_Layer: 0
   m_Name: FlockingController
   m_TagString: Untagged
@@ -117,9 +116,10 @@ MonoBehaviour:
   zoneHeight: 100
   zoneDepth: 100
   agentPrefab: {fileID: 153574, guid: 778c4ad61f734fe47bd3ff0d7d88bcbc, type: 2}
-  agentNumber: 581
+  agentNumber: 500
   agents: []
   velocityScale: 10
+  neighbourDistance: 10
 --- !u!4 &70314334
 Transform:
   m_ObjectHideFlags: 0
@@ -127,24 +127,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 70314332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.539353, z: -0.50789034}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!65 &70314335
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 70314332}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &288874211
 GameObject:
   m_ObjectHideFlags: 0
