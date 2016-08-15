@@ -3,9 +3,9 @@ using System.Collections;
 
 public class FlockingBehaviour : MonoBehaviour
 {
-    public float zoneWidth = 1000.0f;
-    public float zoneHeight = 1000.0f;
-    public float zoneDepth = 1000.0f;
+    public float zoneWidth = 100.0f;
+    public float zoneHeight = 100.0f;
+    public float zoneDepth = 100.0f;
 
     public GameObject agentPrefab;
     public int agentNumber = 20;
