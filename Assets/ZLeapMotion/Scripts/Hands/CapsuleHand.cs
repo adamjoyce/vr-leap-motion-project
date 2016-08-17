@@ -125,8 +125,8 @@ namespace Leap.Unity {
       base.BeginHand();
 
       if (hand_.IsLeft) {
-        jointMat.color = _leftColorList[_leftColorIndex];
-        _leftColorIndex = (_leftColorIndex + 1) % _leftColorList.Length;
+         jointMat.color = _leftColorList[_leftColorIndex];
+         _leftColorIndex = (_leftColorIndex + 1) % _leftColorList.Length;
       } else {
         jointMat.color = _rightColorList[_rightColorIndex];
         _rightColorIndex = (_rightColorIndex + 1) % _rightColorList.Length;

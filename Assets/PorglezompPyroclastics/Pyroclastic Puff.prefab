@@ -109,8 +109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202806cc8bebd4507a95d9f5d6be2b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ramp: {fileID: 2800000, guid: de25a418e52274482b51702fff566bcd, type: 3}
-  _noise: {fileID: 2800000, guid: 4648634f8231b4bf0860b6a2b4f6fadc, type: 3}
+  _ramps:
+  - {fileID: 2800000, guid: de25a418e52274482b51702fff566bcd, type: 3}
+  - {fileID: 2800000, guid: ade1e11b00a88014c989d2f780280d52, type: 3}
+  - {fileID: 2800000, guid: fcc5a134115ebb3458c212747e79ac81, type: 3}
+  - {fileID: 2800000, guid: eaca157bc638fde4b91caf6b4f1919f0, type: 3}
+  _ramp: {fileID: 0}
+  _noises:
+  - {fileID: 2800000, guid: 4648634f8231b4bf0860b6a2b4f6fadc, type: 3}
+  - {fileID: 2800000, guid: bac2bd2e47fbb98458384f21019543ac, type: 3}
+  _noise: {fileID: 0}
   ExplosionMaterial: {fileID: 2100000, guid: ba9ab8cadaaa4451b93b38012ec0b31b, type: 2}
   _heat: 1
   _alpha: 1

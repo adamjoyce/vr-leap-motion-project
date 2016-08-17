@@ -93,6 +93,10 @@ public class PopBubble : MonoBehaviour
 
         bubbleSphere.GetComponent<AudioSource>().Play();
         bubbleSphere.GetComponent<MeshRenderer>().enabled = false;
+        Transform[] trans = bubbleSphere.GetComponentsInChildren<Transform>();
+        foreach (Transform t in trans)
+            if (t.tag == "Flare")
+                t.GetComponent<SpriteRenderer>().enabled = false;
         bubbleSphere.GetComponent<DestroyPrimitive>().beingDestroyed = true;
         bubbleSphere.GetComponent<Explosion>().enabled = true;
         

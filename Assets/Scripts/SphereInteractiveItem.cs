@@ -10,13 +10,16 @@ public class SphereInteractiveItem : MonoBehaviour
     //[SerializeField] private Material m_DoubleClickedMaterial;
     [SerializeField] private VRInteractiveItem m_InteractiveItem;
     [SerializeField] private Renderer m_Renderer;
-
+    Material sphereMat;
     private Transform haloLight;
+    Color emissiColor;
 
     private void Awake()
     {
         //m_Renderer.material = m_NormalMaterial;
         haloLight = transform.Find("HaloLight");
+        sphereMat = gameObject.GetComponent<Renderer>().material;
+        emissiColor = new Color(2.5f, 15.7f, 17.6f);
     }
 
     private void Start()

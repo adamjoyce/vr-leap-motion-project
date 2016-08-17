@@ -4,12 +4,10 @@ using System.Collections;
 public class Video : MonoBehaviour
 {
     public MovieTexture movTexture;
-    public MovieTexture movTexture2;
     void Start()
     {
-        GetComponent<Renderer>().material.mainTexture = movTexture;
+        GetComponent<Renderer>().material.SetTexture("_Emission", movTexture);
         movTexture.Play();
-        GetComponent<Renderer>().material.SetTexture("_SecondaryTex", movTexture2);
-        movTexture2.Play();
+        movTexture.loop = true;
     }
 }

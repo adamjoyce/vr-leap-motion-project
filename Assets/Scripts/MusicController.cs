@@ -28,6 +28,7 @@ public class MusicController : MonoBehaviour
 
     public float texChange;
     public float texFade;
+    public float texFadeIncrement = 0.005f;
 
     // Use this for initialization.
     void Start()
@@ -187,11 +188,11 @@ public class MusicController : MonoBehaviour
         {
             //Do nothing
         }
-        else if(previousLeftHandPosition.x < left.PalmPosition.x - 0.01)
+        else if(previousLeftHandPosition.x < left.PalmPosition.x - texFadeIncrement)
         {
             texFade = Mathf.Clamp((texFade += 0.05f), 0, 1);
         }
-        else if(previousLeftHandPosition.x > left.PalmPosition.x + 0.01)
+        else if(previousLeftHandPosition.x > left.PalmPosition.x + texFadeIncrement)
         {
             texFade = Mathf.Clamp((texFade -= 0.05f),0,1);
         }

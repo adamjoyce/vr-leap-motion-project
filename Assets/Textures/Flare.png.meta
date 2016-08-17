@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: d121c1229d0580646a22498878020f6c
+timeCreated: 1471351132
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Flare_0
+    21300002: Flare_1
+    21300004: Flare_2
+    21300006: Flare_3
+    21300008: Flare_4
+    21300010: Flare_5
+    21300012: Flare_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Flare_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 246
+        width: 74
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 44.5}
+        - {x: -37, y: -11.5}
+        - {x: -18, y: -35.5}
+        - {x: -5, y: -44.5}
+        - {x: 28, y: -44.5}
+        - {x: 34, y: -43.5}
+        - {x: 37, y: -19.5}
+        - {x: 37, y: 9.5}
+        - {x: 11, y: 44.5}
+    - name: Flare_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 227
+        width: 104
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 63.5}
+        - {x: -52, y: 57.5}
+        - {x: -52, y: -15.5}
+        - {x: -50, y: -23.5}
+        - {x: -32, y: -49.5}
+        - {x: 5, y: -63.5}
+        - {x: 36, y: -63.5}
+        - {x: 52, y: -29.5}
+        - {x: 52, y: 38.5}
+        - {x: 24, y: 63.5}
+    - name: Flare_2
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 220
+        width: 158
+        height: 163
+      alignment: 9
+      pivot: {x: 0.52114654, y: 0.43338162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61.658844, y: 92.358795}
+        - {x: -42.341156, y: 92.358795}
+        - {x: -82.341156, y: 57.358795}
+        - {x: -82.341156, y: -70.641205}
+        - {x: 66.658844, y: -70.641205}
+        - {x: 75.658844, y: -36.641205}
+        - {x: 75.658844, y: 48.358795}
+        - {x: 68.658844, y: 84.358795}
+    - name: Flare_3
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 204
+        width: 164
+        height: 179
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4720014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 94.51175}
+        - {x: -68, y: 79.51175}
+        - {x: -82, y: -5.4882507}
+        - {x: -82, y: -69.48825}
+        - {x: -73, y: -84.48825}
+        - {x: 63, y: -84.48825}
+        - {x: 82, y: -37.48825}
+        - {x: 82, y: 91.51175}
+        - {x: 78, y: 94.51175}
+    - name: Flare_4
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 199
+        width: 167
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5050016, y: 0.4909207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.335266, y: 93.67059}
+        - {x: -69.335266, y: 81.67059}
+        - {x: -84.335266, y: 19.670593}
+        - {x: -84.335266, y: -70.32941}
+        - {x: -63.335266, y: -90.32941}
+        - {x: 70.664734, y: -90.32941}
+        - {x: 82.664734, y: -59.329407}
+        - {x: 82.664734, y: 82.67059}
+        - {x: 47.664734, y: 93.67059}
+    - name: Flare_5
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 6
+        width: 155
+        height: 185
+      alignment: 9
+      pivot: {x: 0.5269449, y: 0.48645473}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -81.67645, y: 95.005875}
+        - {x: -81.67645, y: -64.994125}
+        - {x: -56.676453, y: -89.994125}
+        - {x: 71.32355, y: -89.994125}
+        - {x: 73.32355, y: -84.994125}
+        - {x: 73.32355, y: 95.005875}
+    - name: Flare_6
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 6
+        width: 148
+        height: 185
+      alignment: 9
+      pivot: {x: 0.5112878, y: 0.4954849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -75.67059, y: 93.3353}
+        - {x: -75.67059, y: -86.6647}
+        - {x: -66.67059, y: -91.6647}
+        - {x: 5.3294067, y: -91.6647}
+        - {x: 68.32941, y: -79.6647}
+        - {x: 72.32941, y: -22.664703}
+        - {x: 72.32941, y: 85.3353}
+        - {x: 68.32941, y: 93.3353}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

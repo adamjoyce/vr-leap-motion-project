@@ -12,7 +12,6 @@ public class DistanceScaler : MonoBehaviour
     public float scaleThresholdDistance = 1.0f;
 
     private Transform haloLight;
-
     // Use this for initialization
     void Start()
     {

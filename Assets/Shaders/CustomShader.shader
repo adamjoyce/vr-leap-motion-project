@@ -9,6 +9,8 @@
 		_SecondaryNormal("Normal Map 2", 2D) = "bump" {}
         _SpecularMap("Specular Map", 2D) = "grey" {}
         _SecondarySpec("Specular Map 2", 2D) = "grey" {}
+		_Emission("Emissive Map", 2D) = "black" {}
+		[HDR]_EmissionColor("Emission Colour", Color) = (1,1,1,1)
 		_Blend("Blend", Range(0, 1)) = 0.5
 	}
 	SubShader{
@@ -21,7 +23,7 @@
 			#include "UnityCG.cginc"
 
 			// Use shader model 3.0 target, to get nicer looking lighting
-			#pragma target 3.0
+			#pragma target 4.0
 
 			sampler2D _MainTex;
 			sampler2D _SecondaryTex;
@@ -29,6 +31,8 @@
 			sampler2D _SecondaryNormal;
             sampler2D _SpecularMap;
             sampler2D _SecondarySpec;
+			sampler2D _Emission;
+			float4 _EmissionColor;
 			fixed4 _Color;
 			float _Blend;
 			float _Glossiness;
@@ -41,6 +45,7 @@
 				float2 uv_SecondaryNormal;
                 float2 uv_SpecularMap;
                 float2 uv_SecondarySpec;
+				float2 uv_Emission;
 			};
 
 			void surf(Input IN, inout SurfaceOutputStandardSpecular o) {
@@ -49,8 +54,10 @@
 				fixed4 tex2 = tex2D(_SecondaryTex, IN.uv_SecondaryTex) * _Color;
 				o.Albedo = lerp(tex1, tex2, _Blend) * _Color;
 				o.Normal = lerp(UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex)), UnpackNormal(tex2D(_SecondaryNormal, IN.uv_SecondaryNormal)), _Blend);
+				o.Emission = tex2D(_Emission, IN.uv_Emission) * _EmissionColor;
 				o.Specular = lerp(tex2D(_SpecularMap, IN.uv_SpecularMap), tex2D(_SecondarySpec, IN.uv_SecondarySpec), _Blend);
 				o.Smoothness = _Glossiness;
+				
 			}
 			ENDCG
 		}

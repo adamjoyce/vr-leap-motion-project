@@ -10,9 +10,11 @@ public class ExplosionMat : MonoBehaviour {
 	bool doUpdate = true;
 	float _radius;
 	
-	public Texture2D _ramp;
-	public Texture2D _noise;
-	public Material ExplosionMaterial;
+    public Texture2D[] _ramps;
+    public Texture2D _ramp;
+    public Texture2D[] _noises;
+    public Texture2D _noise;
+    public Material ExplosionMaterial;
 	
 	public float _heat = 1;
 	float useheat = 1;
@@ -73,6 +75,8 @@ public class ExplosionMat : MonoBehaviour {
 	
 	public void UpdateShaderProperties() {
 		Material rsm = GetComponent<Renderer>().sharedMaterial;
+        _ramp = _ramps[Random.Range(0, 4)];
+        _noise = _noises[Random.Range(0, 2)];
 		rsm.SetTexture("_RampTex", _ramp);
 		rsm.SetTexture("_MainTex", _noise);
 		rsm.SetFloat("_Heat", _heat);

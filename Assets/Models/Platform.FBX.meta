@@ -1,26 +1,15 @@
 fileFormatVersion: 2
-guid: 4adcf648591839f4d9cab045a1f62dd3
-timeCreated: 1471286487
+guid: 8b64c2c19024d36448ffb0afa132cffd
+timeCreated: 1471356031
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Box001
-    100004: faceted Valley
     400000: //RootNode
-    400002: Box001
-    400004: faceted Valley
     2300000: //RootNode
-    2300002: Box001
-    2300004: faceted Valley
     3300000: //RootNode
-    3300002: Box001
-    3300004: faceted Valley
-    4300000: faceted Valley
-    4300002: Box001
-    7400000: Take 001
-    7400002: faceted Valley|faceted Valley|Take 001|BaseLayer
+    4300000: Box001
     9500000: //RootNode
   materials:
     importMaterials: 1
