@@ -7,15 +7,17 @@
 		_SpecColor("Specular", Color) = (0.2, 0.2, 0.2, 1)
 		_NormalTex("Normal Map 1", 2D) = "bump" {}
 		_SecondaryNormal("Normal Map 2", 2D) = "bump" {}
+		_Emission("Emission", 2D) = "black" {}
+		[HDR]_EmissionColor("Emission Colour", Color) = (1,1,1,1)
 		_Blend("Blend", Range(0, 1)) = 0.5
 	}
 	SubShader{
-			Tags{ "RenderType" = "Opaque" }
+			Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" }
 			LOD 300
 
 			CGPROGRAM
 			// Physically based Standard lighting model, and enable shadows on all light types
-			#pragma surface surf StandardSpecular
+			#pragma surface surf StandardSpecular alpha
 			#include "UnityCG.cginc"
 
 			// Use shader model 3.0 target, to get nicer looking lighting
@@ -28,6 +30,8 @@
 			fixed4 _Color;
 			float _Blend;
 			float _Glossiness;
+			sampler2D _Emission;
+			float4 _EmissionColor;
 
 			struct Input
 			{
@@ -35,6 +39,7 @@
 				float2 uv_SecondaryTex;
 				float2 uv_NormalTex;
 				float2 uv_SecondaryNormal;
+				float2 uv_Emission;
 			};
 
 			void surf(Input IN, inout SurfaceOutputStandardSpecular o) {
@@ -45,6 +50,7 @@
 				o.Normal = lerp(UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex)), UnpackNormal(tex2D(_SecondaryNormal, IN.uv_SecondaryNormal)), _Blend);
 				o.Specular = _SpecColor;
 				o.Smoothness = _Glossiness;
+				o.Emission = tex2D(_Emission, IN.uv_Emission) * _EmissionColor;
 			}
 			ENDCG
 		}

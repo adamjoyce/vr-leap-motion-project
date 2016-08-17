@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 15200000, guid: d57a1a43a6f565548a33d1e7589ba311, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -80,16 +80,9 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SpecGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _SecondaryTex
         second:
-          m_Texture: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -101,16 +94,30 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _NormalTex
         second:
-          m_Texture: {fileID: 2800000, guid: 34d8ac945e51caa47b0033cc636ad7dd, type: 3}
+          m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _SecondaryNormal
         second:
-          m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
+          m_Texture: {fileID: 2800000, guid: d28d7e9bfbe121e46af8eaa6dea86866, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Emission
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -137,7 +144,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.39
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -165,12 +172,12 @@ Material:
       data:
         first:
           name: _Blend
-        second: 0.5
+        second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.5369182, g: 1.43852, b: 1.9735371, a: 1}
       data:
         first:
           name: _Color
@@ -178,4 +185,4 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: 0.3455882, g: 0.3455882, b: 0.3455882, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 0}
