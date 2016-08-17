@@ -28,6 +28,8 @@ public class SpawnPrimitives : MonoBehaviour
 
     private GameObject sphere;
 
+    private World world;
+
     // Use this for initialization.
     void Start()
     {
@@ -36,6 +38,8 @@ public class SpawnPrimitives : MonoBehaviour
             provider = FindObjectOfType<LeapProvider>() as LeapProvider;
         if (!cloth)
             cloth = GameObject.Find("Cloth");
+
+        world = FindObjectOfType<World>();
 
         // Array of stability spheres to hold up the cloth.
         collisionSpheres = GameObject.Find("CollisionSpheres").GetComponentsInChildren<Transform>();
@@ -124,6 +128,8 @@ public class SpawnPrimitives : MonoBehaviour
 
         GameObject.Find("AudioPop").GetComponent<AudioSource>().Play();
         sphere = Instantiate(bubbleSphere, spawnPos, Quaternion.identity) as GameObject;
+
+        //world.addPredator(sphere);
 
         // Setup the bubble spheres rigidbody properties.
         sphere.AddComponent<Rigidbody>();
