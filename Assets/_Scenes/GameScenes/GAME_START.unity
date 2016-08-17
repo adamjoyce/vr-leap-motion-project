@@ -2605,7 +2605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handedness: 1
   _showArm: 1
-  _material: {fileID: 2100000, guid: a1c60d3f4b8f30d42a0b9741b77b5c85, type: 2}
+  _material: {fileID: 0}
   _sphereMesh: {fileID: 4300002, guid: 2f496b1b1bec86743b418551f859020c, type: 3}
   _cylinderResolution: 12
   _serializedTransforms:
@@ -2753,7 +2753,6 @@ GameObject:
   - 4: {fileID: 1006496283}
   - 108: {fileID: 1006496286}
   - 114: {fileID: 1006496285}
-  - 114: {fileID: 1006496284}
   m_Layer: 0
   m_Name: BubbleLight2
   m_TagString: StartsOff
@@ -2774,20 +2773,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 303267181}
   m_RootOrder: 1
---- !u!114 &1006496284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11406070, guid: ccbc2389d44f630488c9f9414f338a0b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1006496282}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  min: -0.5
-  max: 1.5
 --- !u!114 &1006496285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2845,7 +2830,6 @@ GameObject:
   - 4: {fileID: 1019014796}
   - 108: {fileID: 1019014799}
   - 114: {fileID: 1019014798}
-  - 114: {fileID: 1019014797}
   m_Layer: 0
   m_Name: BubbleLight
   m_TagString: StartsOff
@@ -2866,20 +2850,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 303267181}
   m_RootOrder: 0
---- !u!114 &1019014797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11438632, guid: ccbc2389d44f630488c9f9414f338a0b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1019014795}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  min: -0.5
-  max: 1.5
 --- !u!114 &1019014798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4019,7 +3989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handedness: 0
   _showArm: 1
-  _material: {fileID: 2100000, guid: a1c60d3f4b8f30d42a0b9741b77b5c85, type: 2}
+  _material: {fileID: 0}
   _sphereMesh: {fileID: 4300002, guid: 2f496b1b1bec86743b418551f859020c, type: 3}
   _cylinderResolution: 12
   _serializedTransforms:
@@ -4283,7 +4253,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1703663712}
-  - 114: {fileID: 1703663713}
   - 114: {fileID: 1703663714}
   m_Layer: 0
   m_Name: PointLights
@@ -4308,18 +4277,6 @@ Transform:
   - {fileID: 102438515}
   m_Father: {fileID: 702613074}
   m_RootOrder: 1
---- !u!114 &1703663713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11417098, guid: ccbc2389d44f630488c9f9414f338a0b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1703663711}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f828ab2e7bf97d345ac30eae922d2779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1703663714
 MonoBehaviour:
   m_ObjectHideFlags: 0
