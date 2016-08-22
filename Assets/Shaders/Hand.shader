@@ -37,6 +37,7 @@
 				o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 				half rim = 1 - saturate(dot(normalize(IN.viewDir), o.Normal));
 				o.Emission = _RimColor.rgb * pow(rim, _RimPower);
+				o.Alpha = IN.color.a;
 			}
 			ENDCG
 	}
