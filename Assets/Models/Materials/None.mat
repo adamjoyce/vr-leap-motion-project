@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: None
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _DETAIL_MULX2 _NORMALMAP _SPECGLOSSMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -26,14 +26,14 @@ Material:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 8aad0c4d0a416804bb88808bcc5e65c7, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _DetailNormalMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -69,13 +69,20 @@ Material:
           name: _DetailAlbedoMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 12, y: 12}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 82ab98e3115ced447badfafab1de2217, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -102,11 +109,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.552
+        second: 0.36
       data:
         first:
           name: _BumpScale
-        second: 1
+        second: 0.34
       data:
         first:
           name: _OcclusionStrength
@@ -114,7 +121,7 @@ Material:
       data:
         first:
           name: _DetailNormalMapScale
-        second: 1
+        second: 0.62
       data:
         first:
           name: _UVSec
@@ -126,7 +133,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0.649
+        second: 0
     m_Colors:
       data:
         first:
@@ -135,4 +142,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.509, g: 0.64705884, b: 0.64705884, a: 1}
+        second: {r: 0.14673442, g: 0.16911763, b: 0.16911763, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}

@@ -7,18 +7,26 @@ public class Agent : MonoBehaviour
     public Vector3 position;
     public Vector3 velocity;
     public Vector3 acceleration;
+    public Vector3 binLocation;
     public World world;
     public AgentConfig config;
 
     private Vector3 wanderTarget;
 
     // Use this for initialization.
-    protected void Start()
+    void Start()
     {
         world = FindObjectOfType<World>();
         config = FindObjectOfType<AgentConfig>();
         position = transform.position;
-        velocity = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f));
+
+        if (world.threeDimensions)
+            velocity = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f));
+        else
+            velocity = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
+
+        binLocation = world.determineAgentBin(this);
+        world.addAgentToBin(this, binLocation);
     }
 
     // Update is called once per frame.
@@ -34,11 +42,21 @@ public class Agent : MonoBehaviour
 
         position += velocity * time;
 
-        wrapAround(ref position, -world.bound, world.bound);
+        wrapAround(ref position, 0, world.bound * 2);
         transform.position = position;
 
         if (velocity.magnitude > 0)
             transform.LookAt(position + velocity);
+
+        if (binLocation != world.determineAgentBin(this))
+        {
+            // Remove agent from old bin.
+            world.removeAgentFromBin(this, binLocation);
+
+            // Update the agent's bin.
+            binLocation = world.determineAgentBin(this);
+            world.addAgentToBin(this, binLocation);
+        }
     }
 
     // Steers the agent's current velocity towards the centre of mass of all nearby neighbours.
@@ -212,7 +230,6 @@ public class Agent : MonoBehaviour
         // Flee from the predators.
         for (int i = 0; i < predators.Count; i++)
         {
-            //Vector3 fleeVector = flee(predators[i].position) * Quaternion.AngleAxis(-90, Vector3.left);
             resultantVector += flee(predators[i].position);
         }
 

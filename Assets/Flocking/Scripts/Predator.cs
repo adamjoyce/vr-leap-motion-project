@@ -1,20 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Predator : MonoBehaviour
+public class Predator : Agent
 {
-    public Vector3 position;
-
-    void Update()
+    override protected Vector3 combineBehaviours()
     {
-        position = transform.position;
+        //return config.wanderCoeff * wanderBehaviour();
+        return Vector3.zero;
     }
 }
-
-//public class Predator : Agent
-//{
-//    override protected Vector3 combineBehaviours()
-//    {
-//        return config.wanderCoeff * wanderBehaviour();
-//    }
-//}
