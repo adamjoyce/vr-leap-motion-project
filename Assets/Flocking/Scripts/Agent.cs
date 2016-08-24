@@ -25,8 +25,11 @@ public class Agent : MonoBehaviour
         else
             velocity = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
 
-        binLocation = world.determineAgentBin(this);
-        world.addAgentToBin(this, binLocation);
+        if (tag != "Predator")
+        {
+            binLocation = world.determineAgentBin(this);
+            world.addAgentToBin(this, binLocation);
+        }
     }
 
     // Update is called once per frame.

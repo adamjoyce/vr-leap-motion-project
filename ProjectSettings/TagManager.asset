@@ -9,6 +9,7 @@ TagManager:
   - PitchControlledLights
   - StartsOff
   - Flare
+  - Predator
   layers:
   - Default
   - TransparentFX
