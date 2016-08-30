@@ -114,12 +114,15 @@ public class PopBubble : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(sphere.transform.position, explosionRadius);
         foreach (Collider hit in colliders)
         {
-            if (hit.tag == "BubbleSphere" && hit.GetComponent<Collider>() != sphere.GetComponent<SphereCollider>())
+            //if (hit.tag == "BubbleSphere" && hit.GetComponent<Collider>() != sphere.GetComponent<SphereCollider>())
+            if (hit.tag == "BubbleSphere")
             {
                 Rigidbody rb = hit.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.AddExplosionForce(explosionRadius, sphere.transform.position, explosionRadius * sphere.transform.localScale.x);
+                    float distance = Vector3.Distance(sphere.transform.position, hit.transform.position);
+                    float powerScaler = -((distance - explosionRadius) / (explosionRadius - 0));
+                    rb.AddExplosionForce(explosionPower * powerScaler, sphere.transform.position, explosionRadius * sphere.transform.localScale.x);
                     Debug.Log(explosionRadius);
                 }
             }
