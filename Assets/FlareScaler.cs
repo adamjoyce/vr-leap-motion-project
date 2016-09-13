@@ -6,11 +6,14 @@ public class FlareScaler : MonoBehaviour {
     List<Transform> flares;
     Color sphereColor;
     SpawnPrimitives sphereCreation;
+    Material mat;
 	// Use this for initialization
 	void Start ()
     {
         sphereCreation = FindObjectOfType<SpawnPrimitives>();
-        sphereColor = gameObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
+        mat = GetComponent<Renderer>().material;
+        gameObject.GetComponent<Renderer>().material = mat;
+        sphereColor = mat.GetColor("_EmissionColor");
         float highestValue;
         if (sphereColor.r > sphereColor.g)
             highestValue = sphereColor.r;
@@ -47,8 +50,13 @@ public class FlareScaler : MonoBehaviour {
                 else if (newScale > 1.0f)
                     newScale = 1.0f;
                 flare.localScale = new Vector3(newScale + 1, newScale + 1, newScale + 1);
-                gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", sphereColor * (newScale * 10));
+                //GetComponent<Renderer>().material.SetColor("_EmissionColor", sphereColor * (newScale * 10));
             }
+        }
+        else if(!sphereCreation.sphereAttached)
+        {
+            foreach (Transform flare in flares)
+                flare.gameObject.SetActive(false);
         }
 	}
 }
