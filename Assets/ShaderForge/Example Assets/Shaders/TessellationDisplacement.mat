@@ -103,11 +103,11 @@ Material:
       data:
         first:
           name: _Depth
-        second: -8.1
+        second: 1.3
       data:
         first:
           name: _node_6105
-        second: 0.05
+        second: 0.011
       data:
         first:
           name: _node_1471

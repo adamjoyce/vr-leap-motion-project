@@ -1,14 +1,14 @@
 // Shader created with Shader Forge v1.26 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.26;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False;n:type:ShaderForge.SFN_Final,id:1,x:34362,y:32994,varname:node_1,prsc:2|diff-162-OUT,spec-165-OUT,gloss-66-OUT,normal-160-OUT,lwrap-237-OUT,disp-13-OUT,tess-8-OUT;n:type:ShaderForge.SFN_Tex2d,id:3,x:33597,y:33194,ptovrint:False,ptlb:Normals,ptin:_Normals,varname:_Normals,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:cf20bfced7e912046a9ce991a4d775ec,ntxv:3,isnm:True|UVIN-6-OUT;n:type:ShaderForge.SFN_Tex2d,id:4,x:33068,y:32977,varname:node_798,prsc:2,tex:5fb7986dd6d0a8e4093ba82369dd6a4d,ntxv:0,isnm:False|UVIN-6-OUT,TEX-254-TEX;n:type:ShaderForge.SFN_TexCoord,id:5,x:32078,y:33020,varname:node_5,prsc:2,uv:0;n:type:ShaderForge.SFN_Multiply,id:6,x:32374,y:32934,varname:node_6,prsc:2|A-5-UVOUT,B-7-OUT;n:type:ShaderForge.SFN_Vector1,id:7,x:32078,y:33232,varname:node_7,prsc:2,v1:2;n:type:ShaderForge.SFN_Vector1,id:8,x:34051,y:33620,varname:node_8,prsc:2,v1:4;n:type:ShaderForge.SFN_Tex2d,id:12,x:32843,y:33341,varname:node_803,prsc:2,tex:5fb7986dd6d0a8e4093ba82369dd6a4d,ntxv:0,isnm:False|UVIN-6-OUT,MIP-15-OUT,TEX-254-TEX;n:type:ShaderForge.SFN_Multiply,id:13,x:34051,y:33418,varname:node_13,prsc:2|A-14-OUT,B-17-OUT;n:type:ShaderForge.SFN_NormalVector,id:14,x:33824,y:33442,prsc:2,pt:False;n:type:ShaderForge.SFN_Vector1,id:15,x:32532,y:33364,varname:node_15,prsc:2,v1:1;n:type:ShaderForge.SFN_Slider,id:16,x:33213,y:33639,ptovrint:False,ptlb:Depth,ptin:_Depth,varname:_Depth,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:-25.2,cur:-0.9117488,max:9;n:type:ShaderForge.SFN_Multiply,id:17,x:33824,y:33620,varname:node_17,prsc:2|A-23-OUT,B-26-OUT;n:type:ShaderForge.SFN_OneMinus,id:23,x:33597,y:33379,varname:node_23,prsc:2|IN-153-OUT;n:type:ShaderForge.SFN_Multiply,id:26,x:33597,y:33537,varname:node_26,prsc:2|A-27-OUT,B-16-OUT;n:type:ShaderForge.SFN_Vector1,id:27,x:33370,y:33478,varname:node_27,prsc:2,v1:-1;n:type:ShaderForge.SFN_Vector1,id:66,x:34051,y:33014,varname:node_66,prsc:2,v1:1;n:type:ShaderForge.SFN_Tex2d,id:152,x:32866,y:33129,ptovrint:False,ptlb:Displacement (R),ptin:_DisplacementR,varname:_DisplacementR,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:28c7aad1372ff114b90d330f8a2dd938,ntxv:0,isnm:False|UVIN-161-UVOUT,MIP-15-OUT;n:type:ShaderForge.SFN_Max,id:153,x:33370,y:33276,varname:node_153,prsc:2|A-152-R,B-12-A;n:type:ShaderForge.SFN_Subtract,id:154,x:33125,y:33286,varname:node_154,prsc:2|A-12-A,B-152-R;n:type:ShaderForge.SFN_Clamp01,id:156,x:33341,y:33083,varname:node_156,prsc:2|IN-154-OUT;n:type:ShaderForge.SFN_Lerp,id:157,x:33824,y:32948,varname:node_157,prsc:2|A-159-OUT,B-3-RGB,T-156-OUT;n:type:ShaderForge.SFN_Vector3,id:159,x:33597,y:33061,varname:node_159,prsc:2,v1:0,v2:0,v3:1;n:type:ShaderForge.SFN_Normalize,id:160,x:34051,y:33082,varname:node_160,prsc:2|IN-157-OUT;n:type:ShaderForge.SFN_Panner,id:161,x:32679,y:32822,varname:node_161,prsc:2,spu:0.4,spv:0|UVIN-6-OUT;n:type:ShaderForge.SFN_Lerp,id:162,x:33597,y:32895,varname:node_162,prsc:2|A-5555-OUT,B-170-OUT,T-156-OUT;n:type:ShaderForge.SFN_Vector3,id:163,x:33243,y:32728,varname:node_163,prsc:2,v1:1,v2:1,v3:1;n:type:ShaderForge.SFN_Multiply,id:165,x:34028,y:32771,varname:node_165,prsc:2|A-156-OUT,B-172-OUT;n:type:ShaderForge.SFN_Multiply,id:170,x:33287,y:32851,varname:node_170,prsc:2|A-3497-RGB,B-4-RGB;n:type:ShaderForge.SFN_ComponentMask,id:172,x:33824,y:32771,varname:node_172,prsc:2,cc1:0,cc2:-1,cc3:-1,cc4:-1|IN-162-OUT;n:type:ShaderForge.SFN_OneMinus,id:174,x:33824,y:33284,varname:node_174,prsc:2|IN-156-OUT;n:type:ShaderForge.SFN_Multiply,id:237,x:34051,y:33250,varname:node_237,prsc:2|A-238-OUT,B-174-OUT;n:type:ShaderForge.SFN_Vector1,id:238,x:33824,y:33150,varname:node_238,prsc:2,v1:0.5;n:type:ShaderForge.SFN_Tex2dAsset,id:254,x:32379,y:33175,ptovrint:False,ptlb:AO (RGB) Height (A),ptin:_AORGBHeightA,varname:_AORGBHeightA,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:5fb7986dd6d0a8e4093ba82369dd6a4d,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:3497,x:33019,y:32798,ptovrint:False,ptlb:Diffuse,ptin:_Diffuse,varname:node_3497,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:b66bceaf0cc0ace4e9bdc92f14bba709,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:6439,x:33325,y:32557,ptovrint:False,ptlb:node_6439,ptin:_node_6439,varname:node_6439,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:9e5bb1bf5550f724d89adc92cd190add,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:6105,x:32747,y:32647,ptovrint:False,ptlb:node_6105,ptin:_node_6105,varname:node_6105,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Color,id:2244,x:33518,y:32600,ptovrint:False,ptlb:node_2244,ptin:_node_2244,varname:node_2244,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_ValueProperty,id:1471,x:33824,y:32637,ptovrint:False,ptlb:node_1471,ptin:_node_1471,varname:node_1471,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:2;n:type:ShaderForge.SFN_Multiply,id:5555,x:34066,y:32546,varname:node_5555,prsc:2|A-2244-RGB,B-1471-OUT;proporder:3-254-152-16-3497-6439-6105-2244-1471;pass:END;sub:END;*/
+/*SF_DATA;ver:1.26;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False;n:type:ShaderForge.SFN_Final,id:1,x:34362,y:32994,varname:node_1,prsc:2|diff-162-OUT,spec-165-OUT,gloss-66-OUT,normal-160-OUT,lwrap-237-OUT,disp-13-OUT,tess-8-OUT;n:type:ShaderForge.SFN_Tex2d,id:3,x:33597,y:33194,ptovrint:False,ptlb:Normals,ptin:_Normals,varname:_Normals,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:cf20bfced7e912046a9ce991a4d775ec,ntxv:3,isnm:True|UVIN-6-OUT;n:type:ShaderForge.SFN_Tex2d,id:4,x:33068,y:32977,varname:node_798,prsc:2,tex:6a985dfcd1d3ca94e9753748ed65c697,ntxv:0,isnm:False|UVIN-6-OUT,TEX-254-TEX;n:type:ShaderForge.SFN_TexCoord,id:5,x:32078,y:33020,varname:node_5,prsc:2,uv:0;n:type:ShaderForge.SFN_Multiply,id:6,x:32374,y:32934,varname:node_6,prsc:2|A-5-UVOUT,B-7-OUT;n:type:ShaderForge.SFN_Vector1,id:7,x:32078,y:33232,varname:node_7,prsc:2,v1:2;n:type:ShaderForge.SFN_Vector1,id:8,x:34051,y:33620,varname:node_8,prsc:2,v1:4;n:type:ShaderForge.SFN_Tex2d,id:12,x:32843,y:33341,varname:node_803,prsc:2,tex:6a985dfcd1d3ca94e9753748ed65c697,ntxv:0,isnm:False|UVIN-6-OUT,MIP-15-OUT,TEX-254-TEX;n:type:ShaderForge.SFN_Multiply,id:13,x:34051,y:33418,varname:node_13,prsc:2|A-14-OUT,B-17-OUT;n:type:ShaderForge.SFN_NormalVector,id:14,x:33824,y:33442,prsc:2,pt:False;n:type:ShaderForge.SFN_Vector1,id:15,x:32532,y:33364,varname:node_15,prsc:2,v1:1;n:type:ShaderForge.SFN_Slider,id:16,x:33213,y:33639,ptovrint:False,ptlb:Depth,ptin:_Depth,varname:_Depth,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:-25.2,cur:-2.665595,max:9;n:type:ShaderForge.SFN_Multiply,id:17,x:33824,y:33620,varname:node_17,prsc:2|A-23-OUT,B-26-OUT;n:type:ShaderForge.SFN_OneMinus,id:23,x:33597,y:33379,varname:node_23,prsc:2|IN-153-OUT;n:type:ShaderForge.SFN_Multiply,id:26,x:33597,y:33537,varname:node_26,prsc:2|A-27-OUT,B-16-OUT;n:type:ShaderForge.SFN_Vector1,id:27,x:33370,y:33478,varname:node_27,prsc:2,v1:-1;n:type:ShaderForge.SFN_Vector1,id:66,x:34051,y:33014,varname:node_66,prsc:2,v1:1;n:type:ShaderForge.SFN_Tex2d,id:152,x:32866,y:33129,ptovrint:False,ptlb:Displacement (R),ptin:_DisplacementR,varname:_DisplacementR,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:28c7aad1372ff114b90d330f8a2dd938,ntxv:0,isnm:False|UVIN-161-UVOUT,MIP-15-OUT;n:type:ShaderForge.SFN_Max,id:153,x:33370,y:33276,varname:node_153,prsc:2|A-152-R,B-12-A;n:type:ShaderForge.SFN_Subtract,id:154,x:33125,y:33286,varname:node_154,prsc:2|A-12-A,B-152-R;n:type:ShaderForge.SFN_Clamp01,id:156,x:33341,y:33083,varname:node_156,prsc:2|IN-154-OUT;n:type:ShaderForge.SFN_Lerp,id:157,x:33824,y:32948,varname:node_157,prsc:2|A-159-OUT,B-3-RGB,T-156-OUT;n:type:ShaderForge.SFN_Vector3,id:159,x:33597,y:33061,varname:node_159,prsc:2,v1:0,v2:0,v3:1;n:type:ShaderForge.SFN_Normalize,id:160,x:34051,y:33082,varname:node_160,prsc:2|IN-157-OUT;n:type:ShaderForge.SFN_Panner,id:161,x:32679,y:32822,varname:node_161,prsc:2,spu:0.4,spv:0|UVIN-6-OUT;n:type:ShaderForge.SFN_Lerp,id:162,x:33597,y:32895,varname:node_162,prsc:2|A-5555-OUT,B-170-OUT,T-156-OUT;n:type:ShaderForge.SFN_Vector3,id:163,x:33243,y:32728,varname:node_163,prsc:2,v1:1,v2:1,v3:1;n:type:ShaderForge.SFN_Multiply,id:165,x:34028,y:32771,varname:node_165,prsc:2|A-156-OUT,B-172-OUT;n:type:ShaderForge.SFN_Multiply,id:170,x:33287,y:32851,varname:node_170,prsc:2|A-3497-RGB,B-4-RGB;n:type:ShaderForge.SFN_ComponentMask,id:172,x:33824,y:32771,varname:node_172,prsc:2,cc1:0,cc2:-1,cc3:-1,cc4:-1|IN-162-OUT;n:type:ShaderForge.SFN_OneMinus,id:174,x:33824,y:33284,varname:node_174,prsc:2|IN-156-OUT;n:type:ShaderForge.SFN_Multiply,id:237,x:34051,y:33250,varname:node_237,prsc:2|A-238-OUT,B-174-OUT;n:type:ShaderForge.SFN_Vector1,id:238,x:33824,y:33150,varname:node_238,prsc:2,v1:0.5;n:type:ShaderForge.SFN_Tex2dAsset,id:254,x:32379,y:33175,ptovrint:False,ptlb:AO (RGB) Height (A),ptin:_AORGBHeightA,varname:_AORGBHeightA,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:6a985dfcd1d3ca94e9753748ed65c697,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:3497,x:33019,y:32798,ptovrint:False,ptlb:Diffuse,ptin:_Diffuse,varname:node_3497,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:b66bceaf0cc0ace4e9bdc92f14bba709,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:6439,x:33325,y:32557,ptovrint:False,ptlb:node_6439,ptin:_node_6439,varname:node_6439,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:9e5bb1bf5550f724d89adc92cd190add,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:6105,x:32747,y:32647,ptovrint:False,ptlb:node_6105,ptin:_node_6105,varname:node_6105,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Color,id:2244,x:33518,y:32600,ptovrint:False,ptlb:node_2244,ptin:_node_2244,varname:node_2244,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_ValueProperty,id:1471,x:33824,y:32637,ptovrint:False,ptlb:node_1471,ptin:_node_1471,varname:node_1471,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:2;n:type:ShaderForge.SFN_Multiply,id:5555,x:34066,y:32546,varname:node_5555,prsc:2|A-2244-RGB,B-1471-OUT;proporder:3-254-152-16-3497-6439-6105-2244-1471;pass:END;sub:END;*/
 
 Shader "Shader Forge/Examples/TessellationDisplacement" {
     Properties {
         _Normals ("Normals", 2D) = "bump" {}
         _AORGBHeightA ("AO (RGB) Height (A)", 2D) = "white" {}
         _DisplacementR ("Displacement (R)", 2D) = "white" {}
-        _Depth ("Depth", Range(-25.2, 9)) = -0.9117488
+        _Depth ("Depth", Range(-25.2, 9)) = -2.665595
         _Diffuse ("Diffuse", 2D) = "white" {}
         _node_6439 ("node_6439", 2D) = "white" {}
         _node_6105 ("node_6105", Range(0, 1)) = 1
@@ -131,9 +131,9 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
-                    float4 node_4644 = _Time + _TimeEditor;
+                    float4 node_6067 = _Time + _TimeEditor;
                     float2 node_6 = (v.texcoord0*2.0);
-                    float2 node_161 = (node_6+node_4644.g*float2(0.4,0));
+                    float2 node_161 = (node_6+node_6067.g*float2(0.4,0));
                     float node_15 = 1.0;
                     float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                     float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
@@ -186,8 +186,8 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                 float3 _Normals_var = UnpackNormal(tex2D(_Normals,TRANSFORM_TEX(node_6, _Normals)));
                 float node_15 = 1.0;
                 float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
-                float4 node_4644 = _Time + _TimeEditor;
-                float2 node_161 = (node_6+node_4644.g*float2(0.4,0));
+                float4 node_6067 = _Time + _TimeEditor;
+                float2 node_161 = (node_6+node_6067.g*float2(0.4,0));
                 float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                 float node_156 = saturate((node_803.a-_DisplacementR_var.r));
                 float3 normalLocal = normalize(lerp(float3(0,0,1),_Normals_var.rgb,node_156));
@@ -370,9 +370,9 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
-                    float4 node_8171 = _Time + _TimeEditor;
+                    float4 node_145 = _Time + _TimeEditor;
                     float2 node_6 = (v.texcoord0*2.0);
-                    float2 node_161 = (node_6+node_8171.g*float2(0.4,0));
+                    float2 node_161 = (node_6+node_145.g*float2(0.4,0));
                     float node_15 = 1.0;
                     float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                     float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
@@ -425,8 +425,8 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                 float3 _Normals_var = UnpackNormal(tex2D(_Normals,TRANSFORM_TEX(node_6, _Normals)));
                 float node_15 = 1.0;
                 float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
-                float4 node_8171 = _Time + _TimeEditor;
-                float2 node_161 = (node_6+node_8171.g*float2(0.4,0));
+                float4 node_145 = _Time + _TimeEditor;
+                float2 node_161 = (node_6+node_145.g*float2(0.4,0));
                 float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                 float node_156 = saturate((node_803.a-_DisplacementR_var.r));
                 float3 normalLocal = normalize(lerp(float3(0,0,1),_Normals_var.rgb,node_156));
@@ -556,9 +556,9 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
-                    float4 node_3311 = _Time + _TimeEditor;
+                    float4 node_6802 = _Time + _TimeEditor;
                     float2 node_6 = (v.texcoord0*2.0);
-                    float2 node_161 = (node_6+node_3311.g*float2(0.4,0));
+                    float2 node_161 = (node_6+node_6802.g*float2(0.4,0));
                     float node_15 = 1.0;
                     float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                     float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
@@ -703,9 +703,9 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
-                    float4 node_3357 = _Time + _TimeEditor;
+                    float4 node_9965 = _Time + _TimeEditor;
                     float2 node_6 = (v.texcoord0*2.0);
-                    float2 node_161 = (node_6+node_3357.g*float2(0.4,0));
+                    float2 node_161 = (node_6+node_9965.g*float2(0.4,0));
                     float node_15 = 1.0;
                     float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                     float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
@@ -764,8 +764,8 @@ Shader "Shader Forge/Examples/TessellationDisplacement" {
                 float4 node_798 = tex2D(_AORGBHeightA,TRANSFORM_TEX(node_6, _AORGBHeightA));
                 float node_15 = 1.0;
                 float4 node_803 = tex2Dlod(_AORGBHeightA,float4(TRANSFORM_TEX(node_6, _AORGBHeightA),0.0,node_15));
-                float4 node_3357 = _Time + _TimeEditor;
-                float2 node_161 = (node_6+node_3357.g*float2(0.4,0));
+                float4 node_9965 = _Time + _TimeEditor;
+                float2 node_161 = (node_6+node_9965.g*float2(0.4,0));
                 float4 _DisplacementR_var = tex2Dlod(_DisplacementR,float4(TRANSFORM_TEX(node_161, _DisplacementR),0.0,node_15));
                 float node_156 = saturate((node_803.a-_DisplacementR_var.r));
                 float3 node_162 = lerp((_node_2244.rgb*_node_1471),(_Diffuse_var.rgb*node_798.rgb),node_156);

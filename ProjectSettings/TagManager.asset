@@ -11,6 +11,7 @@ TagManager:
   - Flare
   - Predator
   - ToneCube
+  - TempoCube
   layers:
   - Default
   - TransparentFX
