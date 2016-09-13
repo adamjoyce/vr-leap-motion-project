@@ -93,15 +93,15 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Glossiness
+        second: 1
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
-        second: 1
-      data:
-        first:
-          name: _Glossiness
         second: 1
       data:
         first:
@@ -131,7 +131,7 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0.5439711, g: 14.680954, b: 24.66, a: 1}
+        second: {r: 0.73809093, g: 19.919899, b: 33.46, a: 1}
       data:
         first:
           name: _Color

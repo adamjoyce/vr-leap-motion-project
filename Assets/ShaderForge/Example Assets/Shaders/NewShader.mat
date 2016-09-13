@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NewShader
+  m_Shader: {fileID: 4800000, guid: 07edc79edac2b284a8b79191a8c00db3, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _node_9708
+        second:
+          m_Texture: {fileID: 2800000, guid: 30764f9fea01ec0419cd2550998ddc06, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_9111
+        second:
+          m_Texture: {fileID: 2800000, guid: aa3e1a96b89e99d4988b0568df026ad8, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_6467
+        second:
+          m_Texture: {fileID: 2800000, guid: 7d860df0f08b738438fbed785cbe5015, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_9510
+        second:
+          m_Texture: {fileID: 2800000, guid: b46c4a1f33d7d77478f004b971cdf961, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_7642
+        second:
+          m_Texture: {fileID: 2800000, guid: d4df9cd9aa7fb9e49ae1f5ef0c4687a9, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ccc
+        second:
+          m_Texture: {fileID: 2800000, guid: d34e5b146a3b69a41b5183ecba4a81c5, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _node_2223
+        second: 1
+      data:
+        first:
+          name: _node_3519
+        second: 4.3
+      data:
+        first:
+          name: _node_9610
+        second: 0
+    m_Colors:
+      data:
+        first:
+          name: _node_9985
+        second: {r: 0.89705884, g: 0.01978808, b: 0.01978808, a: 1}

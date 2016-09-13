@@ -38,6 +38,48 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _SecondaryTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalTex
+        second:
+          m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondaryNormal
+        second:
+          m_Texture: {fileID: 2800000, guid: 8aad0c4d0a416804bb88808bcc5e65c7, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondarySpec
+        second:
+          m_Texture: {fileID: 2800000, guid: 8f97336b3553bc446ae219812dd92639, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Emission
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -87,13 +129,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SecondaryTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _SecondaryBumpMap
         second:
           m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
@@ -101,35 +136,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _NormalTex
-        second:
-          m_Texture: {fileID: 2800000, guid: e7c336692e1fe1a428bdeb46a5102d40, type: 3}
-          m_Scale: {x: 1.3, y: 1.8}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SecondaryNormal
-        second:
-          m_Texture: {fileID: 2800000, guid: 8aad0c4d0a416804bb88808bcc5e65c7, type: 3}
-          m_Scale: {x: 3, y: 0.6}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecularMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SecondarySpec
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Emission
+          name: _EmissionSecond
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -149,16 +156,20 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Glossiness
+        second: 0.64
+      data:
+        first:
+          name: _Blend
+        second: 0.11
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.64
       data:
         first:
           name: _BumpScale
@@ -183,15 +194,11 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _Blend
-        second: 0.11
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0.9408823, g: 1.4535011, b: 1.8817647, a: 1}
+        second: {r: 2.4, g: 2.4, b: 2.4, a: 1}
       data:
         first:
           name: _Color

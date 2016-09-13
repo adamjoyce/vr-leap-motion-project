@@ -10,6 +10,7 @@
         _SpecularMap("Specular Map", 2D) = "grey" {}
         _SecondarySpec("Specular Map 2", 2D) = "grey" {}
 		_Emission("Emissive Map", 2D) = "black" {}
+		_EmissionSecond("_Second Emissive Map", 2D) = "black" {}
 		[HDR]_EmissionColor("Emission Colour", Color) = (1,1,1,1)
 		_Blend("Blend", Range(0, 1)) = 0.5
 	}
@@ -32,6 +33,7 @@
             sampler2D _SpecularMap;
             sampler2D _SecondarySpec;
 			sampler2D _Emission;
+			sampler2D _EmissionSecond;
 			float4 _EmissionColor;
 			fixed4 _Color;
 			float _Blend;
@@ -46,6 +48,7 @@
                 float2 uv_SpecularMap;
                 float2 uv_SecondarySpec;
 				float2 uv_Emission;
+				float2 uv_EmissionSecond;
 			};
 
 			void surf(Input IN, inout SurfaceOutputStandardSpecular o) {
@@ -54,7 +57,8 @@
 				fixed4 tex2 = tex2D(_SecondaryTex, IN.uv_SecondaryTex) * _Color;
 				o.Albedo = lerp(tex1, tex2, _Blend) * _Color;
 				o.Normal = lerp(UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex)), UnpackNormal(tex2D(_SecondaryNormal, IN.uv_SecondaryNormal)), _Blend);
-				o.Emission = tex2D(_Emission, IN.uv_Emission) * _EmissionColor;
+				
+				o.Emission = lerp(tex2D(_Emission, IN.uv_Emission) * _EmissionColor, tex2D(_EmissionSecond,IN.uv_EmissionSecond) * _EmissionColor, _Blend);
 				o.Specular = lerp(tex2D(_SpecularMap, IN.uv_SpecularMap), tex2D(_SecondarySpec, IN.uv_SecondarySpec), _Blend);
 				o.Smoothness = _Glossiness;
 				

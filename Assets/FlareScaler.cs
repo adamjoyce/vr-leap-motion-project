@@ -30,7 +30,7 @@ public class FlareScaler : MonoBehaviour {
                 flares.Add(t);
             }
         }
-        Debug.Log(flares.Count);
+        //Debug.Log(flares.Count);
 	}
 	
 	// Update is called once per frame

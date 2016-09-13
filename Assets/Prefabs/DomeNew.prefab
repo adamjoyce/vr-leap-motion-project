@@ -25,9 +25,8 @@ GameObject:
   - 4: {fileID: 449264}
   - 137: {fileID: 13759398}
   - 183: {fileID: 18307108}
-  - 114: {fileID: 11419652}
-  - 114: {fileID: 11492302}
   - 114: {fileID: 11490308}
+  - 114: {fileID: 11421836}
   m_Layer: 0
   m_Name: Cloth
   m_TagString: Untagged
@@ -288,7 +287,7 @@ Transform:
   m_Children:
   - {fileID: 497660}
   m_Father: {fileID: 451526}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &441158
 Transform:
   m_ObjectHideFlags: 1
@@ -322,26 +321,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106592}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.048447266, y: -0.0014477539, z: -0.02498535}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5000001, w: 0.49999994}
+  m_LocalPosition: {x: -0.048447266, y: -0.0014458905, z: -0.02498535}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
   m_Children: []
   m_Father: {fileID: 451526}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &451526
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 30, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.50000006, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 132.8, z: 0}
+  m_LocalScale: {x: 1.449188, y: 1.449188, z: 1.449188}
+  m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
   m_Children:
-  - {fileID: 439228}
   - {fileID: 449264}
+  - {fileID: 439228}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &452464
@@ -516,7 +515,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11419652
+--- !u!114 &11421836
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -524,15 +523,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 106592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f12110985d5564458dab3fde61ab7b0, type: 3}
+  m_Script: {fileID: 11500000, guid: caee8747a36e3c04d838fd33d2485b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 1
-  normalOffset: 0
-  collisionSphere: {fileID: 0}
-  minHeight: 7
-  maxHeight: 75
-  scaleFactor: 50
+  texture: 0
+  normal: 1
+  displacement: 0
+  crossFade: 1
+  blendSpeed: 0.2
+  minOffsetSpeed1: -2
+  minOffsetSpeed2: -2
+  maxOffsetSpeed1: 2
+  maxOffsetSpeed2: 2
 --- !u!114 &11490308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,20 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8659047af3aeadb4ab0c0d247cd0294c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movTexture: {fileID: 15200000, guid: d57a1a43a6f565548a33d1e7589ba311, type: 3}
-  movTexture2: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
---- !u!114 &11492302
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1207b5b1c42f3234aa37461d6f66f01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BlendSpeed: 0.5
+  movTexture: {fileID: 15200000, guid: d87815280706b55459df1df610e9e32a, type: 3}
+  secMovTex: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
 --- !u!137 &13759398
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -607,8 +597,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 439228}
   m_AABB:
-    m_Center: {x: -0.12305832, y: 0.06347656, z: -0.0036716461}
-    m_Extent: {x: 287.13464, y: 287.14752, z: 80.31637}
+    m_Center: {x: -0.12305832, y: 0.06341553, z: -0.0036849976}
+    m_Extent: {x: 309.51236, y: 309.51678, z: 80.31637}
   m_DirtyAABB: 0
 --- !u!183 &18307108
 Cloth:
@@ -617,10 +607,10 @@ Cloth:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106592}
   m_Enabled: 1
-  m_StretchingStiffness: 0.4
-  m_BendingStiffness: 0.4
+  m_StretchingStiffness: 1
+  m_BendingStiffness: 1
   m_UseTethers: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_Damping: 0
   m_ExternalAcceleration: {x: 0, y: 0, z: 0}
   m_RandomAcceleration: {x: 0, y: 0, z: 0}
@@ -8855,6 +8845,12 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders: []
   m_SphereColliders:
+  - first: {fileID: 0}
+    second: {fileID: 0}
+  - first: {fileID: 0}
+    second: {fileID: 0}
+  - first: {fileID: 0}
+    second: {fileID: 0}
   - first: {fileID: 0}
     second: {fileID: 0}
   - first: {fileID: 0}
