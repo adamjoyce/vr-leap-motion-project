@@ -1548,10 +1548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90e6060f30f47443ba31bba7b400acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 420472, guid: 5379258e152109a4c869eedcea5ebdf1, type: 2}
-  numberOfAgents: 300
+  agentPrefab: {fileID: 480474, guid: 526f5580d36741f4aac478e45a76ec60, type: 2}
+  numberOfAgents: 10
   bound: 150
-  numberOfSubdivision: 4
+  numberOfSubdivision: 1
   spawnRadius: 50
   threeDimensions: 0
 --- !u!1 &533690472

@@ -10,6 +10,7 @@ TagManager:
   - StartsOff
   - Flare
   - Predator
+  - ToneCube
   layers:
   - Default
   - TransparentFX
