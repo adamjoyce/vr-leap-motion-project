@@ -153,7 +153,6 @@ GameObject:
   - 4: {fileID: 495816}
   - 108: {fileID: 10890756}
   - 114: {fileID: 11438004}
-  - 114: {fileID: 11406070}
   m_Layer: 0
   m_Name: DirectionalLight (1)
   m_TagString: StartsOff
@@ -204,9 +203,7 @@ GameObject:
   - 4: {fileID: 405202}
   - 137: {fileID: 13795330}
   - 183: {fileID: 18328706}
-  - 114: {fileID: 11451578}
   - 114: {fileID: 11414598}
-  - 114: {fileID: 11412086}
   m_Layer: 0
   m_Name: Cloth
   m_TagString: Untagged
@@ -516,7 +513,6 @@ GameObject:
   - 4: {fileID: 433788}
   - 108: {fileID: 10876234}
   - 114: {fileID: 11419756}
-  - 114: {fileID: 11438632}
   m_Layer: 0
   m_Name: DirectionalLight
   m_TagString: StartsOff
@@ -583,7 +579,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461378}
-  - 114: {fileID: 11417098}
   m_Layer: 0
   m_Name: PointLights
   m_TagString: Untagged
@@ -1779,31 +1774,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11406070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  min: -0.5
-  max: 1.5
---- !u!114 &11412086
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1207b5b1c42f3234aa37461d6f66f01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BlendSpeed: 0.1
 --- !u!114 &11414598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1816,18 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movTexture: {fileID: 15200000, guid: 4415140486077984d8e1f39fa1396eed, type: 3}
-  movTexture2: {fileID: 15200000, guid: d57a1a43a6f565548a33d1e7589ba311, type: 3}
---- !u!114 &11417098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193316}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f828ab2e7bf97d345ac30eae922d2779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  secMovTex: {fileID: 0}
 --- !u!114 &11419756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1852,36 +1811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.0005
---- !u!114 &11438632
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 173716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e99d0d6652761e4089b0d7a34a44458, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  min: -0.5
-  max: 1.5
---- !u!114 &11451578
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f12110985d5564458dab3fde61ab7b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollSpeed: 1
-  normalOffset: 0
-  collisionSphere: {fileID: 0}
-  minHeight: 7
-  maxHeight: 75
-  scaleFactor: 50
 --- !u!135 &13501090
 SphereCollider:
   m_ObjectHideFlags: 1
