@@ -16,6 +16,7 @@ public class LightInteractiveItem : MonoBehaviour
     public Material overMat;
     List<Hand> hands;
     LeapProvider provider;
+    Behaviour halo;
     // Use this for initialization
     void Start()
     {
@@ -27,6 +28,7 @@ public class LightInteractiveItem : MonoBehaviour
         hands = provider.CurrentFrame.Hands;
         if (m_InteractiveItem.IsOver)
         {
+            Debug.Log("Hitting: " + m_InteractiveItem.gameObject.name);
             float lightIntensity = GetComponent<Light>().intensity;
             for (int i = 0; i < hands.Count; i++)
             {
@@ -55,7 +57,9 @@ public class LightInteractiveItem : MonoBehaviour
     private void HandleOver()
     {
 
-        m_Renderer.material = overMat;
+        halo = (Behaviour)m_InteractiveItem.gameObject.GetComponent("Halo");        
+        halo.enabled = true;
+        //m_Renderer.material = overMat;
         //float lightIntensity = GetComponent<Light>().intensity;
         //for (int i = 0; i < hands.Count; i++)
         //{
@@ -70,7 +74,9 @@ public class LightInteractiveItem : MonoBehaviour
 
     private void HandleOut()
     {
-        m_Renderer.material = mat;
+        //m_Renderer.material = mat;
+        halo = (Behaviour)m_InteractiveItem.gameObject.GetComponent("Halo");
+        halo.enabled = false;
     }
 
     // Sets the VR interactive item property.
