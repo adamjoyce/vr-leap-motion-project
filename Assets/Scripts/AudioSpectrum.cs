@@ -28,7 +28,7 @@ public class AudioSpectrum : MonoBehaviour {
         }
         average *= scale;
         terrain.GetComponent<Renderer>().material.SetFloat("_Depth", -average);
-        Debug.Log(average);
+        //Debug.Log(average);
         average = 0;
         
 	}
