@@ -17,6 +17,9 @@ public class LightInteractiveItem : MonoBehaviour
     List<Hand> hands;
     LeapProvider provider;
     Behaviour halo;
+    public bool grab;
+    public bool height;
+    float leftHandHeight;
     // Use this for initialization
     void Start()
     {
@@ -28,14 +31,34 @@ public class LightInteractiveItem : MonoBehaviour
         hands = provider.CurrentFrame.Hands;
         if (m_InteractiveItem.IsOver)
         {
-            Debug.Log("Hitting: " + m_InteractiveItem.gameObject.name);
+            //Debug.Log("Hitting: " + m_InteractiveItem.gameObject.name);
             float lightIntensity = GetComponent<Light>().intensity;
             for (int i = 0; i < hands.Count; i++)
             {
-                if (hands[i].IsLeft)
+                if(grab)
                 {
-                    float strength = 1 - hands[i].GrabStrength;
-                    GetComponent<Light>().intensity = strength;
+                    if (hands[i].IsLeft)
+                    {
+                        float strength = 1 - hands[i].GrabStrength;
+                        GetComponent<Light>().intensity = strength;
+                    }
+                }
+                else if(height)
+                {
+                    if(hands[i].IsLeft)
+                    {
+                        if(leftHandHeight > hands[i].PalmPosition.y + 0.001f)
+                        {
+                            lightIntensity -= 0.1f;
+                            GetComponent<Light>().intensity = lightIntensity;
+                        }
+                        else if (leftHandHeight < hands[i].PalmPosition.y - 0.001f)
+                        {
+                            lightIntensity += 0.1f;
+                            GetComponent<Light>().intensity = lightIntensity;
+                        }
+                    }
+                    leftHandHeight = hands[i].PalmPosition.y;
                 }
             }
         }

@@ -2213,6 +2213,8 @@ MonoBehaviour:
   m_Renderer: {fileID: 0}
   mat: {fileID: 2100000, guid: 9c2822a39a6ce37419395b30cdb5a864, type: 2}
   overMat: {fileID: 2100000, guid: ebd4a3daf6e22e046bb547cf2715ddbb, type: 2}
+  grab: 0
+  height: 1
 --- !u!122 &862995547
 Halo:
   m_ObjectHideFlags: 0
@@ -2234,7 +2236,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: -0.000015258789, y: -0.000022888184, z: -0.000015258789}
 --- !u!135 &874384650
 SphereCollider:
@@ -3413,6 +3415,123 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 918633498}
   m_Script: {fileID: 11500000, guid: 9ea79be653ce14db8969d7225d95ec6c, type: 3}
+--- !u!1 &1148192019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1148192025}
+  - 108: {fileID: 1148192024}
+  - 135: {fileID: 1148192023}
+  - 114: {fileID: 1148192022}
+  - 114: {fileID: 1148192021}
+  - 122: {fileID: 1148192020}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!122 &1148192020
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148192019}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286611584
+  m_Size: 5
+--- !u!114 &1148192021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148192019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5221e44afd423274db9d428af8c24907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractiveItem: {fileID: 1148192022}
+  m_Renderer: {fileID: 0}
+  mat: {fileID: 0}
+  overMat: {fileID: 0}
+  grab: 0
+  height: 1
+--- !u!114 &1148192022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148192019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1148192023
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148192019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!108 &1148192024
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148192019}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &1148192025
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148192019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 185.95, y: -72.38, z: 189.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!135 &1154841287
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3518,6 +3637,8 @@ MonoBehaviour:
   m_Renderer: {fileID: 0}
   mat: {fileID: 2100000, guid: 9c2822a39a6ce37419395b30cdb5a864, type: 2}
   overMat: {fileID: 2100000, guid: ebd4a3daf6e22e046bb547cf2715ddbb, type: 2}
+  grab: 0
+  height: 1
 --- !u!122 &1283611225
 Halo:
   m_ObjectHideFlags: 0
@@ -3539,7 +3660,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: -0.000015258789, y: -0.000015258789, z: 0.000015258789}
 --- !u!1 &1315540594
 GameObject:
