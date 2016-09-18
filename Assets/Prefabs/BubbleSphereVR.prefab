@@ -86,6 +86,7 @@ GameObject:
   - 114: {fileID: 11447710}
   - 114: {fileID: 11433446}
   - 114: {fileID: 11432626}
+  - 114: {fileID: 11419652}
   m_Layer: 15
   m_Name: BubbleSphereVR
   m_TagString: BubbleSphere
@@ -510,6 +511,17 @@ MonoBehaviour:
   cloth: {fileID: 0}
   destroyDistance: 100
   beingDestroyed: 0
+--- !u!114 &11419652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6cc816cf59a9446af52dd0ce3e2444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11432626
 MonoBehaviour:
   m_ObjectHideFlags: 1
