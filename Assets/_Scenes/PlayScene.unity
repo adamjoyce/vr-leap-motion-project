@@ -3451,6 +3451,7 @@ GameObject:
   - 114: {fileID: 1315540601}
   - 114: {fileID: 1315540602}
   - 114: {fileID: 1315540603}
+  - 114: {fileID: 1315540604}
   m_Layer: 2
   m_Name: LeapHandController
   m_TagString: Untagged
@@ -3649,6 +3650,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 76e6b816ca8ea4d44876544d50815aa7, type: 3}
   - {fileID: 8300000, guid: b7048d78689d04a4d9bea174e8a4d03f, type: 3}
   selected: {fileID: 0}
+--- !u!114 &1315540604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315540594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdb8148d5a74e0438014126035547bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 100000
+  terrain: {fileID: 1610674522}
 --- !u!1 &1316228436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4164,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8256326, guid: bfe922850c82a844ea9ada52d1021db6, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfe922850c82a844ea9ada52d1021db6, type: 2}
   m_IsPrefabParent: 0
@@ -4196,6 +4214,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 1c0d51b8cb6c5ad4db0457a920e27f52, type: 3}
+    - target: {fileID: 8210578, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc6bd37d224a93c438f722128d6f713e, type: 2}
   m_IsPrefabParent: 0
