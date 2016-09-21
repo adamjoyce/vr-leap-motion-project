@@ -1474,6 +1474,15 @@ Prefab:
       propertyPath: m_BendingStiffness
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 11490308, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+      propertyPath: movTexture
+      value: 
+      objectReference: {fileID: 15200000, guid: d57a1a43a6f565548a33d1e7589ba311,
+        type: 3}
+    - target: {fileID: 11490308, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82cdc4cab88fabc4dbb9efaa7113cbb5, type: 2}
   m_IsPrefabParent: 0
