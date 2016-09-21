@@ -10,6 +10,7 @@ public class ToneApplyer : MonoBehaviour {
     float[] bubbleSpectrum = new float[128];
     Color color;
     SphereInteractiveItemVR sphIntItemVR;
+    SpawnPrimitives sPrimatives;
     LeapProvider provider;
     List<Hand> hands;
     public bool pinched;
@@ -21,6 +22,7 @@ public class ToneApplyer : MonoBehaviour {
         GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().loop = true;
         sphIntItemVR = GetComponent<SphereInteractiveItemVR>();
+        sPrimatives = FindObjectOfType<SpawnPrimitives>();
         provider = FindObjectOfType<LeapProvider>();
         color = GetComponent<Renderer>().material.GetColor("_EmissionColor");
         float highestValue;
@@ -39,44 +41,47 @@ public class ToneApplyer : MonoBehaviour {
 	void Update () 
     {
         hands = provider.CurrentFrame.Hands;
-        if (!sphIntItemVR.selected)
+        if (!sPrimatives.sphereAttached)
         {
-            bubbleSpectrum = GetComponent<AudioSource>().GetSpectrumData(128, 0, FFTWindow.BlackmanHarris);
-            for (int i = 0; i < 128; i++)
+            if (!sphIntItemVR.selected)
             {
-                combined += bubbleSpectrum[i];
-            }
-            combined *= 100;
-            GetComponent<Renderer>().material.SetColor("_EmissionColor", color * combined);
-            combined = 0;
-        }
-        else if(sphIntItemVR.selected)
-        {
-            for(int i = 0; i<hands.Count; i++)
-            {
-                if(hands[i].IsRight)
+                bubbleSpectrum = GetComponent<AudioSource>().GetSpectrumData(128, 0, FFTWindow.BlackmanHarris);
+                for (int i = 0; i < 128; i++)
                 {
-                    if(!pinched)
+                    combined += bubbleSpectrum[i];
+                }
+                combined *= 100;
+                GetComponent<Renderer>().material.SetColor("_EmissionColor", color * combined);
+                combined = 0;
+            }
+            else if (sphIntItemVR.selected)
+            {
+                for (int i = 0; i < hands.Count; i++)
+                {
+                    if (hands[i].IsRight)
                     {
-                        if(hands[i].PinchDistance < 25.0f)
+                        if (!pinched)
                         {
-                            if(GetComponent<AudioSource>().isPlaying)
+                            if (hands[i].PinchDistance < 25.0f)
                             {
-                                GetComponent<AudioSource>().Pause();
+                                if (GetComponent<AudioSource>().isPlaying)
+                                {
+                                    GetComponent<AudioSource>().Pause();
+                                }
+                                else if (!GetComponent<AudioSource>().isPlaying)
+                                {
+                                    GetComponent<AudioSource>().UnPause();
+                                }
+                                pinched = true;
                             }
-                            else if(!GetComponent<AudioSource>().isPlaying)
-                            {
-                                GetComponent<AudioSource>().UnPause();
-                            }
-                            pinched = true;
                         }
-                    }
 
-                    else if(pinched)
-                    { 
-                        if(hands[i].PinchDistance > 35.0f)
+                        else if (pinched)
                         {
-                            pinched = false;
+                            if (hands[i].PinchDistance > 35.0f)
+                            {
+                                pinched = false;
+                            }
                         }
                     }
                 }
