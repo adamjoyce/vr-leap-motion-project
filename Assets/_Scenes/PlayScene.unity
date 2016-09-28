@@ -2139,6 +2139,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 862995543}
   - 108: {fileID: 862995544}
+  - 114: {fileID: 862995546}
+  - 114: {fileID: 862995545}
+  - 122: {fileID: 862995548}
+  - 135: {fileID: 862995547}
   m_Layer: 0
   m_Name: TerrainLight
   m_TagString: Untagged
@@ -2192,6 +2196,57 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &862995545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862995542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &862995546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862995542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5221e44afd423274db9d428af8c24907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractiveItem: {fileID: 862995545}
+  m_Renderer: {fileID: 0}
+  mat: {fileID: 0}
+  overMat: {fileID: 0}
+  grab: 1
+  height: 0
+--- !u!135 &862995547
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862995542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!122 &862995548
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862995542}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286611584
+  m_Size: 10
 --- !u!135 &874384650
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3391,6 +3446,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1283611222}
   - 108: {fileID: 1283611221}
+  - 114: {fileID: 1283611224}
+  - 114: {fileID: 1283611223}
+  - 122: {fileID: 1283611226}
+  - 135: {fileID: 1283611225}
   m_Layer: 0
   m_Name: MembraneLight
   m_TagString: Untagged
@@ -3444,6 +3503,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 303267181}
   m_RootOrder: 2
+--- !u!114 &1283611223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283611220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1283611224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283611220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5221e44afd423274db9d428af8c24907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractiveItem: {fileID: 1283611223}
+  m_Renderer: {fileID: 0}
+  mat: {fileID: 0}
+  overMat: {fileID: 0}
+  grab: 1
+  height: 0
+--- !u!135 &1283611225
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283611220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!122 &1283611226
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283611220}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286611584
+  m_Size: 10
 --- !u!1 &1315540594
 GameObject:
   m_ObjectHideFlags: 0
