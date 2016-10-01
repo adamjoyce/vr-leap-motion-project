@@ -123,7 +123,7 @@ public class PopBubble : MonoBehaviour
                     float distance = Vector3.Distance(sphere.transform.position, hit.transform.position);
                     float powerScaler = -((distance - explosionRadius) / (explosionRadius - 0));
                     rb.AddExplosionForce(explosionPower * powerScaler, sphere.transform.position, explosionRadius * sphere.transform.localScale.x);
-                    Debug.Log(explosionRadius);
+                    //Debug.Log(explosionRadius);
                 }
             }
         }

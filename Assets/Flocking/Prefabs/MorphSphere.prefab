@@ -12,7 +12,7 @@ GameObject:
   - 95: {fileID: 9558128}
   - 114: {fileID: 11478850}
   - 114: {fileID: 11472174}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MorphSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
