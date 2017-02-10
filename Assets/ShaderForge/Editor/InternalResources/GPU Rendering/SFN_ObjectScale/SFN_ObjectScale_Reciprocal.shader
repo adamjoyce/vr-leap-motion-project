@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
 Shader "Hidden/Shader Forge/SFN_ObjectScale_Reciprocal" {
     Properties {
         _OutputMask ("Output Mask", Vector) = (1,1,1,1)
@@ -27,7 +29,7 @@ Shader "Hidden/Shader Forge/SFN_ObjectScale_Reciprocal" {
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
-               	o.scale = float3( length(_World2Object[0].xyz), length(_World2Object[1].xyz), length(_World2Object[2].xyz) );
+               	o.scale = float3( length(unity_WorldToObject[0].xyz), length(unity_WorldToObject[1].xyz), length(unity_WorldToObject[2].xyz) );
                 return o;
             }
             float4 frag(VertexOutput i) : COLOR {

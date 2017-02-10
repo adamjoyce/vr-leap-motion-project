@@ -180,11 +180,13 @@ public class World : MonoBehaviour
         {
             if (threeDimensions)
             {
-                GameObject agent = Instantiate(prefab, new Vector3(Random.Range(-spawnRadius + bound, spawnRadius + bound), Random.Range(-spawnRadius + bound, spawnRadius + bound), Random.Range(-spawnRadius + bound, spawnRadius + bound)), Quaternion.identity) as GameObject;
+                Transform agentTransform = Instantiate(prefab, new Vector3(Random.Range(-spawnRadius + bound, spawnRadius + bound), Random.Range(-spawnRadius + bound, spawnRadius + bound), Random.Range(-spawnRadius + bound, spawnRadius + bound)), Quaternion.identity);
+                GameObject agent = agentTransform.gameObject;
             } 
             else
             {
-                GameObject agent = Instantiate(prefab, new Vector3(Random.Range(-spawnRadius + bound, spawnRadius + bound), 0, Random.Range(-spawnRadius + bound, spawnRadius + bound)), Quaternion.identity) as GameObject;
+               Transform agentTransform = Instantiate(prefab, new Vector3(Random.Range(-spawnRadius + bound, spawnRadius + bound), 0, Random.Range(-spawnRadius + bound, spawnRadius + bound)), Quaternion.identity);
+                GameObject agent = agentTransform.gameObject;
             }
         }
     }

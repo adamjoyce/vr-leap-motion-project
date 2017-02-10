@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Hidden/Shader Forge/SFN_ViewReflectionVector" {
     Properties {
         _OutputMask ("Output Mask", Vector) = (1,1,1,1)
@@ -28,7 +30,7 @@ Shader "Hidden/Shader Forge/SFN_ViewReflectionVector" {
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
-                o.posWorld = mul(_Object2World, v.vertex);
+                o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
                 return o;
             }
